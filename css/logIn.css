@@ -55,7 +55,7 @@ h1{
     padding:10px 30px; 
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     box-shadow: 2px 2px 1px rgba(50,50,0,0.75);
-    transition-duration:0.5s;
+    transition-duration:0.1s;
     transition-timing-function:ease;
     transition-property:all;
     border-radius: 20px !important;
