@@ -1,0 +1,31 @@
+{
+  "name": "iadopt",
+  "version": "1.0.0",
+  "description": "Cat Adoption Website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlosngo/iAdopt.git"
+  },
+  "keywords": [
+    "cat",
+    "adopt",
+    "iAdopt"
+  ],
+  "author": "Carlos Ngo, Johanna Lim, Charles Lin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carlosngo/iAdopt/issues"
+  },
+  "homepage": "https://github.com/carlosngo/iAdopt#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0"
+},
+  "scripts":{
+      "start": "nodemon .",
+      "test": "standard"
+  }
+}
