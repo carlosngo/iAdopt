@@ -9,10 +9,10 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <script src="js/dashboard.js"></script>
+        <script src="js/home.js"></script>
         <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">               
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" type="text/css" href="css/dashboard.css">      
+        <link rel="stylesheet" type="text/css" href="css/home.css">      
     </head>
     <body>
         <nav class="navbar navbar-expand-md bg-primary navbar-dark justify-content-center fixed-top">
@@ -29,184 +29,28 @@
                 <ul class="navbar-nav w-100 justify-content-center">
                     
                     <li class="nav-item active">
-                        <a class="nav-link" href="dashboard.html" style="font-size:18px;">Dashboard</a>
+                        <a class="nav-link" href="home.html" style="font-size:18px;">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="sales.html" style="font-size:18px;">Sales</a>
+                        <a class="nav-link" href="cats.html" style="font-size:18px;">Cats</a>
                     </li>
                     <li class="nav-item">
                         <!-- <a class="nav-link" style="font-size:18px;" id="myBtn">Upload</a> -->
-                        <a class="nav-link" href="uploadFile.html" style="font-size:18px;">Upload</a>
+                        <a class="nav-link" href="https://shopee.ph/PUSA-STICKERS-i.89307582.1924559027?fbclid=IwAR220vibgp6aybQM1L6uf4u7dSOFsCpuNPf-1Y4G2VmyHvJ3qrLlj1qm43s" style="font-size:18px;">Shop</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html" style="font-size:18px;">Log Out</a>
+                        <a class="nav-link" href="logIn.html" style="font-size:18px;">Log In</a>
                     </li>
                 </ul>
             </div>
         
         </nav>
         <div id="mainContent">
-            <!-- <div class="card">
-                <div class="card-title">
-                    Quick Stats
-                </div>
-                <div class="stat-container">
-                        <div>
-                            <span id="avgWeeklyCustomers" class="stat-content">1,234</span>
-                            <br>
-                            <span class="stat-title">Average Weekly Customers</span>
-                        </div>
-                        <div>
-                            <span id="mostPopularGrub" class="stat-content">Krabby Pattie</span>
-                            <br>
-                            <span class="stat-title">Most Popular Grub</span>
-                        </div>
-                        <div>
-                            <span id="leastPopularGrub" class="stat-content">Krusty Deluxe</span>
-                            <br>
-                            <span class="stat-title">Least Popular Grub</span>
-                        </div>
-                        <div>
-                            <span id="mostFrequentCustomers" class="stat-content">Coral</span>
-                            <br>
-                            <span class="stat-title">Most Frequent Customers</span>
-                        </div>
-                </div>
-            </div> -->
-            <div class="card">
-                <div class="card-title">
-                    Quick Stats
-                </div>
-                <div class="stat-container">
-                    <div class="row">
-                        <div class="col-md-3">
-                                <span id="avgWeeklyCustomers" class="stat-content">1,234</span>
-                                <br>
-                                <span class="stat-title">Average Weekly Customers</span>
-                        </div>
-                        <div class="col-md-3">
-                                <span id="mostPopularGrub" class="stat-content">Krabby Pattie</span>
-                                <br>
-                                <span class="stat-title">Most Popular Grub</span>
-                        </div>
-                        <div class="col-md-3">
-                                <span id="leastPopularGrub" class="stat-content">Krusty Deluxe</span>
-                                <br>
-                                <span class="stat-title">Least Popular Grub</span>
-                        </div>
-                        <div class="col-md-3">
-                                <span id="mostFrequentCustomers" class="stat-content">Coral</span>
-                                <br>
-                                <span class="stat-title">Most Frequent Customers</span>
-                        </div>
-                    </div>
-
-
-
-                        <!-- <div>
-                            <span id="avgWeeklyCustomers" class="stat-content">1,234</span>
-                            <br>
-                            <span class="stat-title">Average Weekly Customers</span>
-                        </div>
-                        <div>
-                            <span id="mostPopularGrub" class="stat-content">Krabby Pattie</span>
-                            <br>
-                            <span class="stat-title">Most Popular Grub</span>
-                        </div>
-                        <div>
-                            <span id="leastPopularGrub" class="stat-content">Krusty Deluxe</span>
-                            <br>
-                            <span class="stat-title">Least Popular Grub</span>
-                        </div>
-                        <div>
-                            <span id="mostFrequentCustomers" class="stat-content">Coral</span>
-                            <br>
-                            <span class="stat-title">Most Frequent Customers</span>
-                        </div> -->
-                </div>
-            </div>
-            
-            <!-- <br> -->
-            <div class="card">
-                <div class="graph-container">
-                    <canvas id="weeklyCustomersGraph"></canvas>
-                </div>
-                
-            </div>
-            <!-- <br> -->
-            <!-- <div id="woodDivider"></div> -->
-            <!-- <br> -->
-            <div class="card">
-                <div class="graph-container">
-                    <canvas id="hourlyCustomersGraph"></canvas>
-                </div>
-            </div>
-            <!-- <br> -->
-            <!-- <div id="woodDivider"></div> -->
-            <!-- <br> -->
-
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="graph-container">
-                            <canvas id="grubGraph"></canvas>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="graph-container">
-                            <canvas id="speciesGraph"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- <div class="card">
-                <div class="graph-container">
-                    <canvas id="grubGraph"></canvas>
-                </div>
-            </div>
-            <div class="card">
-                <div class="graph-container">
-                    <canvas id="speciesGraph"></canvas>
-                </div>
-            </div> -->
-            <div class="card">
-                <div class="graph-container">
-                    <canvas id="burgerBySpeciesGraph"></canvas>
-                </div>
-            </div>
         </div>
-        
-        <!-- The Modal -->
-        <div id="myModal" class="modal">
-
-                <!-- Modal content -->
-                <div class="modal-content">
-                <div class="modal-header">
-                        <h2>Upload File</h2>
-                    <span class="close" id="closeBtn">&times;</span>
-                </div>
-                <div class="modal-body">
-                    <!-- <form action="upload.php" method="POST">
-                            <input type="file"  id="uploadFileBtn" accept=".json">
-                            <p>Drag your files here or click in this area.</p>
-                            <button type="submit" id="uploadFileSubmit" value="Submit" onclick="handleFiles()" onclick="changefile()">Upload</button>
-                    </form> -->
-                    <div>Charles place your divs here</div>
-                </div>
-                <div class="modal-footer">
-                    <!-- <h3>Modal Footer</h3> -->
-                </div>
-                </div>
-            
-            </div>
         <script>
-            loadContent();
-            // readyModal();
+            
         </script>
     </body>
 </html>
