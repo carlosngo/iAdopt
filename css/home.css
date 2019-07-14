@@ -1,0 +1,21 @@
+body{
+    background-color: #B9F6CA !important;
+    padding-top: 126px;
+    width: 100%;
+  }
+  
+  html{
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  img{
+    width: 120px !important;
+    height: 100px;;
+  }
+  
+  .navbar-nav > li{
+      padding-left:20px;
+      padding-right:20px;  
+  }
+  
