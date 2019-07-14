@@ -10,8 +10,16 @@ html{
 }
 
 nav{
-  background-color: #087830 !important;
+  background-color: #087830;
 } 
+
+.nav-link{
+  color: white !important;
+}
+
+.nav-link:hover{
+  color: #B9F6CA !important;
+}
 
 img{
   width: 120px !important;
