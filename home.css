@@ -1,0 +1,71 @@
+body{
+    background-color: powderblue !important;
+    padding-top: 126px;
+    width: 100%;
+  }
+  
+  html{
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  img{
+    width: 120px !important;
+    height: 100px;;
+  }
+  
+  #woodDivider{
+    background-image: url(../assets/images/wood.PNG);
+    background-size: repeat;
+    height: 10px;
+    width: 100%;
+  }
+  
+  .navbar-nav > li{
+      padding-left:20px;
+      padding-right:20px;  
+  }
+  
+  .card {
+      border-radius: 20px;
+      padding: 10px;
+      margin-top: 20px;
+      margin-left: 20px;
+      margin-right: 20px;
+      width: calc(100% - 40px);
+      display: inline-block; 
+      text-align: center;
+      background-color: white;
+  }
+  
+  .graph-container {
+      height: 300px;
+  }
+  
+  .card-title {
+      font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+      font-size: 18px;
+      color: #666;
+      font-weight: bold;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+  }
+  
+  .stat-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  
+  .stat-content {
+      font-weight: bold;
+      font-size: 48px;
+      line-height: 48px;
+  }
+  
+  .stat-title {
+      font-size: 18px;
+      line-height: 18px;
+  }
+    
