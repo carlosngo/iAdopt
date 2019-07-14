@@ -1,0 +1,116 @@
+body{
+    background-color: #087830;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    justify-content: center;
+}
+
+html{
+    min-height: 100%;
+}
+
+img{
+    width: 200px;
+    height: 150px;
+}
+
+div{
+    background-color: rgba(0,0,0);
+    border-radius: 60px;
+    height: 500px;
+    width: 400px;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -200px;
+}
+
+h1{
+    padding:50px 30px; 
+    font-size:150px;
+    text-align: center;
+    color: rgb(73, 236, 9);
+}
+
+.container {
+    background-color: rgba(0,0,0,0);
+    /* text-align: center; */
+    font-size:24px;
+    color: rgb(73, 236, 9);
+}
+
+#login{
+    background-color: rgb(6, 168, 114);
+    color: black;
+    /* top: 15px;
+    right: 15px; */
+    display:inline-block;
+    padding:10px 30px; 
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    box-shadow: 2px 2px 1px rgba(50,50,0,0.75);
+    border-radius: 60px;
+    transition-duration:0.5s;
+    transition-timing-function:ease;
+    transition-property:all;
+}
+
+#login:hover{
+    /* background-color:rgb(106, 66, 168); */
+    background-color: rgb(8, 243, 165);
+    box-shadow: 2px 2px 3px rgba(0,0,0,0.2);
+}
+
+/* 
+.title{
+    font-size:24px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: brown;
+}
+
+.top-bar{
+    background-color: cadetblue;
+    width: 100%;
+    height: 60px;
+}
+
+.header-button#account-button{
+    position: absolute;
+    background-color: brown;
+    color: yellowgreen;
+    top: 15px;
+    right: 15px;
+    display:inline-block;
+    padding:10px 30px;
+    font-family: Roboto, "Helvetic Neue", sans-serif;
+    color:white;
+    box-shadow: 2px 2px 1px rgba(50,50,0,0.75);
+    transition-duration:0.5s;
+    transition-timing-function:ease;
+    transition-property:all;
+}
+
+.header-button#account-button:hover{
+    background-color:rgb(106, 66, 168);
+    box-shadow: 2px 2px 3px rgba(0,0,0,0.2);
+}
+
+.header-button#search-button{
+    position: absolute;
+    background-color: brown;
+    color: yellowgreen;
+    top: 15px;
+    right: 150px;
+    display:inline-block;
+    padding:10px 30px;
+    font-family: Roboto, "Helvetic Neue", sans-serif;
+    color:white;
+    box-shadow: 2px 2px 1px rgba(50,50,0,0.75);
+    transition-duration:0.5s;
+    transition-timing-function:ease;
+    transition-property:all;
+}
+
+.header-button#search-button:hover{
+    background-color:rgb(106, 66, 168);
+    box-shadow: 2px 2px 3px rgba(0,0,0,0.2);
+} */
