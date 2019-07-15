@@ -9,23 +9,17 @@ html{
   overflow-x: hidden;
 }
 
-/* nav{
+nav{
   background-color: #087830;
-}  */
-/* 
+} 
+
 .nav-link{
-  color: rgba(250, 250, 250, 0.5);
+  color: white !important;
 }
-
-
-.navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link {
-  color: #fff;
-}
-
 
 .nav-link:hover{
   color: #B9F6CA !important;
-} */
+}
 
 img{
   width: 120px !important;
