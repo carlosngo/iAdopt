@@ -1,3 +1,9 @@
+#titleDiv{
+    padding: 25px 30px 0px 30px !important;
+    font-size: 30px !important;
+    font-family: "Verdana", Sans-serif;
+}
+
 #headerDiv{
     padding: 25px 30px 25px 30px !important;
     font-size: 30px !important;
@@ -12,7 +18,7 @@
 }
 
 #mainContent{
-    padding: 5px 5px;
+    padding: 0px 30px 25px 30px !important;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -34,5 +40,34 @@
     width: 275px !important;
     height: 180px;
     border-radius: 20px;
+}
+
+#searchInput{
+    display: flex;
+    border-radius: 10px 0px 0px 10px;
+}
+
+.btn {
+    display: flex;
+    background-color: rgb(21, 78, 36);
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 0px 10px 10px 0px;
+}
+
+.btn:hover {
+    background-color: greenyellow;
+    border: 1px solid black;
+}
+
+#searchBarDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: left;
 }
 
