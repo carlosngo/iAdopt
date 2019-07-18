@@ -1,14 +1,21 @@
-#headerLbl{
+#headerDiv{
     padding: 25px 30px 25px 30px !important;
     font-size: 30px !important;
     font-family: "Verdana", Sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.headerBar{
+    display: flex;
 }
 
 #mainContent{
     padding: 5px 5px;
     display: flex;
     flex-direction: row;
-    justify-content: flex-display;
+    justify-content: flex-start;
 }
 
 .cardContainer{
