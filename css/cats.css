@@ -64,13 +64,14 @@
 }
 
 #filterBtn{
-    border-radius: 10px;
-    padding: 6px 10px 10px 10px!important;
-    font-family: "Verdana", Sans-serif;
+    border-radius: 10px !important;
+    padding: 6px 10px 10px 10px !important;
+    font-family: "Verdana", Sans-serif !important;
 }
 
-#filterIcon{
-    height: 10px !important;
+.fa{
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
 }
 #searchBarDiv{
     display: flex;
