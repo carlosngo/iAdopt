@@ -49,7 +49,7 @@
         
         </nav>
         <div id="titleDiv">All Cats</div>
-        <div id="headerDiv">
+        <div id="searchDiv">
             <div class="headerBar">
                 <div id="searchBarDiv">
                     <input type="text" placeholder="Enter a name" id="searchInput">
@@ -58,9 +58,32 @@
             </div> 
             <div class="headerBar">
                 <!-- <button class="btn" id="filterBtn"><i class="fa fa-filter" id="filterIcon" >&nbsp;Filter</i></button> -->
-                <button class="btn" id="filterBtn">Filter</button>
+                <button class="btn" id="filterBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Filter</button>
+            </div>
+  
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Filters</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                    ...
+                    </div>
+                    <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button> -->
+                    <button type="button" class="btn btn-primary">Reset Filers</button>
+                    <button type="button" class="btn btn-primary">Apply Filters</button>
+                    </div>
+                </div>
+                </div>
             </div>
         </div>
+
         <div id="mainContent">
             <div class="cardContainer">
                 <div class="card flex-item" style="width: 18rem;">
