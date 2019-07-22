@@ -19,6 +19,14 @@
 }
 
 #mainContent{
+    /* padding: 0px 30px 25px 30px !important; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+#mainCatsContent{
     padding: 0px 30px 25px 30px !important;
     display: flex;
     flex-direction: row;
