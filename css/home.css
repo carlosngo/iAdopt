@@ -13,9 +13,9 @@ nav{
   background-color: #087830;
 } 
 
-/* .nav-link{
+.nav-link{
   color: white !important;
-} */
+}
 
 .nav-link:hover{
   color: #B9F6CA !important;
