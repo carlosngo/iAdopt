@@ -5,17 +5,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Cats</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <script src="../js/adminCats.js"></script>
+        <script src="../js/cats.js"></script>
         <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">               
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" type="text/css" href="../css/home.css">      
+        <link rel="stylesheet" type="text/css" href="../css/home.css">
+        <link rel="stylesheet" type="text/css" href="../css/cats.css">      
     </head>
     <body>
         <nav class="navbar navbar-expand-md navbar-dark justify-content-center fixed-top">
-            <a class="navbar-brand d-flex w-50 " href="adminHome.html">
+            <a class="navbar-brand d-flex w-50 " href="home.html">
                 <img src="../assets/images/logo.png" alt="picture failed to load" style="width:150px;">
             </a>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
@@ -28,25 +29,150 @@
                 <ul class="navbar-nav w-100 justify-content-center">
                     
                     <li class="nav-item active">
-                        <a class="nav-link" href="../html/adminHome.html" style="font-size:18px;">Home</a>
+                        <a class="nav-link" href="home.html" style="font-size:18px;">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../html/adminCats.html" style="font-size:18px;">Cats</a>
+                        <a class="nav-link" href="cats.html" style="font-size:18px;">Cats</a>
                     </li>
                     <li class="nav-item">
-                        <!-- <a class="nav-link" style="font-size:18px;" id="myBtn">Upload</a> -->
-                        <a class="nav-link" href="../html/uploadFile.html" style="font-size:18px;">Upload File</a>
+                        <a class="nav-link" href="uploadFile.html" style="font-size:18px;">Upload File</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="../html/adminHome.html" style="font-size:18px;">Log Out</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html" style="font-size:18px;">Log Out</a>
                     </li>
                 </ul>
             </div>
         
         </nav>
+        <!-- Log In Modal -->
+        <div class="modal fade" id="logInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content ">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Log In</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                        Username: <input type="text" id="un"><br><br>
+                        Password: <input type="password" id="pw">
+                    <!-- <div style="display: flex">
+                            Username: <input type="text" id="un"><br><br>
+                    </div>
+                    <div style="display: flex">
+                            Password: <input type="password" id="pw">
+                    </div> -->
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn" id="logInBtn" onclick="logIn()">Log In</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <div id="titleDiv">All Cats</div>
+        <div id="searchDiv">
+            <div class="headerBar">
+                <div id="searchBarDiv">
+                    <input type="text" placeholder="Enter a name" id="searchInput">
+                    <button class="btn" id="searchBtn" onclick="search()"><i class="fa fa-search"></i></button>
+                </div>
+            </div> 
+            <div class="headerBar">
+                <!-- <button class="btn" id="filterBtn"><i class="fa fa-filter" id="filterIcon" >&nbsp;Filter</i></button> -->
+                <button class="btn" id="filterBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#filterModal">Filter</button>
+            </div>
+  
+            <!-- Filter Modal -->
+            <div class="modal fade" id="filterModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Filters</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                    Location: 
+                    <select id="priorityColor">
+                        <option selected value="low">All</option>
+                        <option value="low">Agno</option>
+                        <option value="med">Razon</option>
+                        <option value="hi">STRC</option>
+                    </select><br><br>
+                    Fur-pattern: 
+                    <select id="priorityColor">
+                        <option selected value="low">All</option>
+                        <option value="low">Piebald</option>
+                        <option value="med">White</option>
+                        <option value="hi">Black</option>
+                    </select><br><br>
+                    Sex: 
+                    <select id="priorityColor">
+                        <option selected value="low">All</option>
+                        <option value="med">Male</option>
+                        <option value="hi">Female</option>
+                    </select><br><br>
+                    Age: 
+                    <select id="priorityColor">
+                        <option selected value="low">All</option>
+                        <option value="med">Adult</option>
+                        <option value="hi">Kitten</option>
+                    </select><br><br>
+                    Neutered: 
+                    <select id="priorityColor">
+                        <option selected value="low">All</option>
+                        <option value="med">Neutered</option>
+                        <option value="hi">Unneutered</option>
+                    </select><br>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn" id="resetBtn" onclick="resetFilters()">Reset</button>
+                    <button type="button" class="btn" id="applyFilterBtn" onclick="filterCards()">Done</button>
+                </div>
+                </div>
+                </div>
+            </div>
+        </div>
         <div id="mainContent">
+            <div id="mainCatsContent">
+                <div class="cardContainer" onclick="gotoCat()">
+                    <div class="card flex-item" style="width: 18rem;">
+                        <img class="card-img-top" src="../assets/images/geist.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Geist</h5>
+                            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="cardContainer" onclick="gotoCat()">
+                    <div class="card flex-item" style="width: 18rem;">
+                        <img class="card-img-top" src="../assets/images/milky.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Milky</h5>
+                            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="cardContainer" onclick="gotoCat()">
+                    <div class="card flex-item" style="width: 18rem;">
+                        <img class="card-img-top" src="../assets/images/casper.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Casper</h5>
+                            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <script>
             
