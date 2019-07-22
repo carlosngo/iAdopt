@@ -44,27 +44,27 @@ a{
 
 input{
     border-radius: 10px;
-  }
+}
   
-  /* .modal-footer{
+/* .modal-footer{
     justify-content: center !important;
-  } */
+} */
   
-  @media all and (max-width:800px){
+@media all and (max-width:800px){
     .modal-content{
         width: 70%;
         left: 20%;
     }
-  }
-  @media all and (min-width:801px){
+}
+@media all and (min-width:801px){
     .modal-content{
         width: 70%;
         left: 20%;
     }
-  }
-  @media all and (max-width:600px){
+}
+@media all and (max-width:600px){
     .modal-content{
         left: 15%;
     }
-  }
+}
   
