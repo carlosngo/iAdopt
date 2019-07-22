@@ -2,6 +2,7 @@ body{
     background-color: #B9F6CA !important;
     padding-top: 126px;
     width: 100%;
+  	font-family: "Lato", sans-serif;
 }
   
 html{
@@ -13,10 +14,10 @@ nav{
   background-color: #087830;
 } 
 
-/* img{
-  width: 120px !important;
+#logo{
+  width: 120px;
   height: 100px;;
-} */
+} 
   
 .navbar-nav > li{
     padding-left:20px;
@@ -42,14 +43,14 @@ a{
   justify-content: space-between;
   flex-wrap: wrap;
 }
-
+/* 
 #mainContent{
   padding: 0px 30px 25px 30px !important;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   flex-wrap: wrap;
-}
+} */
 
 .btn {
   display: flex;
@@ -65,10 +66,6 @@ a{
   /* border: 1px solid black; */
 }
 
-
-body {
-  font-family: "Lato", sans-serif;
-}
 
 input{
   border-radius: 10px;
