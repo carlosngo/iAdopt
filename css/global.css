@@ -1,0 +1,70 @@
+body{
+    background-color: #B9F6CA !important;
+    padding-top: 126px;
+    width: 100%;
+  	font-family: "Lato", sans-serif;
+}
+  
+html{
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+nav{
+  background-color: #087830;
+} 
+
+#logo{
+  width: 120px;
+  height: 100px;;
+} 
+  
+.navbar-nav > li{
+    padding-left:20px;
+    padding-right:20px;  
+}
+
+a{
+  cursor: pointer;
+}
+
+.btn {
+  display: flex;
+  background-color: rgb(21, 78, 36);
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: rgb(144, 233, 10);
+  /* border: 1px solid black; */
+}
+
+input{
+    border-radius: 10px;
+  }
+  
+  /* .modal-footer{
+    justify-content: center !important;
+  } */
+  
+  @media all and (max-width:800px){
+    .modal-content{
+        width: 70%;
+        left: 20%;
+    }
+  }
+  @media all and (min-width:801px){
+    .modal-content{
+        width: 70%;
+        left: 20%;
+    }
+  }
+  @media all and (max-width:600px){
+    .modal-content{
+        left: 15%;
+    }
+  }
+  
