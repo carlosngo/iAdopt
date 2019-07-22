@@ -36,9 +36,19 @@ a{
 }
 
 #titleDiv{
-  padding: 25px 30px 0px 30px !important;
+  /* padding: 25px 30px 0px 30px !important;
   font-size: 30px !important;
   font-family: "Verdana", Sans-serif;
+  display: inline-block !important; */
+
+  
+  font-size: 30px !important;
+  font-family: "Verdana", Sans-serif;
+  padding: 30px 30px 30px 30px !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 #mainContent{
