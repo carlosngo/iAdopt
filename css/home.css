@@ -24,6 +24,11 @@ nav{
     padding-right:20px;  
 }
 
+#carousel-container {
+  display: inline-block;
+  width: 80%
+}
+
 a{
   cursor: pointer;
 }
@@ -43,14 +48,15 @@ a{
   justify-content: space-between;
   flex-wrap: wrap;
 }
-/* 
+
 #mainContent{
-  padding: 0px 30px 25px 30px !important;
+  text-align: center;
+  /* padding: 0px 30px 25px 30px !important;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  flex-wrap: wrap;
-} */
+  flex-wrap: wrap; */
+}
 
 .btn {
   display: flex;
