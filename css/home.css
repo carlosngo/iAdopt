@@ -13,10 +13,10 @@ nav{
   background-color: #087830;
 } 
 
-img{
+/* img{
   width: 120px !important;
   height: 100px;;
-}
+} */
   
 .navbar-nav > li{
     padding-left:20px;
@@ -50,7 +50,6 @@ a{
   justify-content: flex-start;
   flex-wrap: wrap;
 }
-
 
 .btn {
   display: flex;
