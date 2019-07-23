@@ -21,3 +21,7 @@ function logIn(){
 function gotoCat(){
     alert("cat")
 }
+
+function addCat(){
+    
+}

@@ -98,3 +98,13 @@
   padding-bottom: 20px;
   text-align: center;
 }
+
+#footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #087830;
+  color: white;
+  text-align: center;
+}
