@@ -98,11 +98,42 @@
 }
 
 #footer{
-  position: fixed;
+  position: relative;
   left: 0;
   bottom: 0;
   width: 100%;
   background-color: #087830;
   color: white;
+  justify-content: center;
   text-align: center;
+}
+
+#waw{
+  display: inline-block;
+  text-align: center;
+  padding: 5px;
+  width:30%;
+}
+
+#cu{
+  display: inline-block;
+  text-align: center;
+  padding: 5px;
+  width:30%;
+}
+
+#cotd{
+  display: inline-block;
+  text-align: center;
+  width:30%;
+}
+
+#btm-link{
+  color: yellow;
+}
+
+#catoftheday{
+  width: auto;
+  max-height: 128px;
+  border-radius: 50%;
 }
