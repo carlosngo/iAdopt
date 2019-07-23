@@ -96,3 +96,13 @@
   justify-content: flex-start;
   flex-wrap: wrap; */
 }
+
+#footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #087830;
+  color: white;
+  text-align: center;
+}
