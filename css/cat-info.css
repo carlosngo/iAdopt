@@ -1,3 +1,35 @@
+#mainContent {
+    background-color: white;
+    border-radius: 20px;
+    margin-top: 25px;
+    margin-left: 80px;
+    margin-right: 80px;
+    height: 695px;
+    position: relative;
+}
+
+#back-btn {
+    display: inline-block;
+    position: absolute;
+    right: 30px;
+    top: 25px;
+}
+
+.carousel-control-next-icon {
+    background-image: url("../assets/images/next.png")
+}
+
+.carousel-control-prev-icon {
+    background-image: url("../assets/images/back.png")
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 40px;
+    height: 40px;
+}
+
+
 h3 {
     font-size: 64px;
 }
@@ -50,7 +82,7 @@ h5 {
 
 .carousel-control-next, .carousel-control-prev {
     top: auto;
-    bottom: 0px;
+    bottom: -10px;
 }
 
 .carousel-thumbnails .carousel-indicators li {
@@ -67,5 +99,5 @@ h5 {
 }
 
 .carousel-indicators {
-    bottom:-50px;
+    bottom:-60px;
 }
