@@ -114,9 +114,11 @@
 
 #waw{
   display: inline-block;
-  text-align: left;
+  text-align: center;
   padding: 5px;
   width:30%;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 #cu{
@@ -124,6 +126,8 @@
   text-align: left;
   padding: 5px;
   width:30%;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 /* #mission{
