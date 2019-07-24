@@ -108,34 +108,35 @@
   color: white;
   justify-content: center;
   text-align: center;
+  font-size: 14px;
+  vertical-align: middle;
 }
 
 #waw{
   display: inline-block;
-  text-align: center;
+  text-align: left;
   padding: 5px;
   width:30%;
 }
 
 #cu{
   display: inline-block;
-  text-align: center;
+  text-align: left;
   padding: 5px;
   width:30%;
 }
 
-#cotd{
+/* #mission{
   display: inline-block;
   text-align: center;
   width:30%;
+} */
+
+#space{
+  display: inline-block;
+  width:20%
 }
 
 #btm-link{
-  color: yellow;
-}
-
-#catoftheday{
-  width: auto;
-  max-height: 128px;
-  border-radius: 50%;
+  color:yellow;
 }
