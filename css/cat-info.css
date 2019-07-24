@@ -13,6 +13,7 @@
     position: absolute;
     right: 30px;
     top: 25px;
+    z-index: 1;
 }
 
 .carousel-control-next-icon {
