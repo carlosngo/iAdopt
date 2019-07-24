@@ -48,6 +48,7 @@
     display: flex;
     border-radius: 20px;
     text-align: center;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
 }
 
 .flex-item:hover {
