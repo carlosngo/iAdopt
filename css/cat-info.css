@@ -47,7 +47,7 @@
 
 
 h3 {
-    font-size: 48px;
+    font-size: 40px;
 }
 
 h1 {
@@ -90,16 +90,16 @@ h5 {
 }
 
 .carousel-control-next {
-    right: 50px;
+    right: 10px;
 }
 
 .carousel-control-prev {
-    left: 50px;
+    left: 10px;
 }
 
 .carousel-control-next, .carousel-control-prev {
     top: auto;
-    bottom: -35px;
+    bottom: -30px;
 }
 
 .carousel-thumbnails .carousel-indicators li {
