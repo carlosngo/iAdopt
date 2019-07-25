@@ -2,9 +2,10 @@
     background-color: white;
     border-radius: 20px;
     margin-top: 25px;
-    margin-left: 80px;
-    margin-right: 80px;
+    margin-left: 160px;
+    margin-right: 160px;
     height: 695px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
     position: relative;
 }
 
@@ -61,11 +62,11 @@ h5 {
 
 
 #carousel-thumb {
-    left:12.5%;
+    left:5%;
     padding-top:8.5%;
     padding-bottom: 8.5%;
-    padding-left: 12.5%;
-    padding-right: 12.5%;
+    padding-left: 5%;
+    padding-right: 5%;
     
 }
 
@@ -90,7 +91,7 @@ h5 {
 
 .carousel-control-next, .carousel-control-prev {
     top: auto;
-    bottom: -10px;
+    bottom: -22px;
 }
 
 .carousel-thumbnails .carousel-indicators li {
@@ -107,5 +108,5 @@ h5 {
 }
 
 .carousel-indicators {
-    bottom:-60px;
+    bottom:-70px;
 }

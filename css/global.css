@@ -45,6 +45,48 @@ input{
     border-radius: 10px;
 }
   
+
+#footer{
+  margin-top: 20px;
+  display:flex;
+  background-color: #087830;
+  color: white;
+  justify-content: space-evenly;
+  text-align: center;
+  font-size: 12px;
+  align-items: center;
+}
+
+.footer-header {
+  font-size: 18px;
+  font-weight: bold
+}
+
+.footer-content {
+    font-size: 14px;
+}
+
+#about {
+  text-align: left;
+  padding: 20px;
+  max-width: 40%;
+}
+
+#contact {
+  text-align: left;
+  padding: 20px;
+  max-width:40%
+}
+
+.ylw-link{
+  color:yellow;
+}
+
+.ylw-link:hover {
+  color: yellow;
+  text-decoration: underline;
+}
+
 /* .modal-footer{
     justify-content: center !important;
 } */
