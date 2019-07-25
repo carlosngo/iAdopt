@@ -2,9 +2,10 @@
     background-color: white;
     border-radius: 20px;
     margin-top: 25px;
-    margin-left: 80px;
-    margin-right: 80px;
-    height: 695px;
+    margin-left: 160px;
+    margin-right: 160px;
+    height: 525px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
     position: relative;
 }
 
@@ -15,6 +16,13 @@
     top: 25px;
     z-index: 1;
     opacity: 0.5;
+}
+
+#adopt-btn-container {
+    padding-top: 35px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 #back-btn:hover {
@@ -33,23 +41,23 @@
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
 }
 
 
 h3 {
-    font-size: 64px;
+    font-size: 48px;
 }
 
 h1 {
-    font-size: 96px;
+    font-size: 64px;
     padding-top: 20px;
     padding-bottom: 20px;   
 }
 
 h5 {
-    font-size:24px;
+    font-size:18px;
 }
 
 
@@ -61,21 +69,22 @@ h5 {
 
 
 #carousel-thumb {
-    left:12.5%;
+    left:5%;
     padding-top:8.5%;
     padding-bottom: 8.5%;
-    padding-left: 12.5%;
-    padding-right: 12.5%;
+    padding-left: 5%;
+    padding-right: 5%;
     
 }
 
 .carousel-thumbnails .carousel-inner div img {
-    height: 500px;
+    height: 360px;
 }
 
 .carousel-thumbnails .carousel-indicators img {
     max-width: 100px;
-    height: 100px;
+    height: 75px;
+    width: 75px;
     overflow: hidden;
     display: block;
 }
@@ -90,13 +99,13 @@ h5 {
 
 .carousel-control-next, .carousel-control-prev {
     top: auto;
-    bottom: -10px;
+    bottom: -35px;
 }
 
 .carousel-thumbnails .carousel-indicators li {
     height: auto;
-    max-width: 100px;
-    width: 100px;
+    max-width: 75x;
+    width: 75px;
     border: none;
     margin-top: 50px;
 	box-shadow: 1px 3px 5px 0px rgba(0,0,0,0.75);
@@ -107,5 +116,5 @@ h5 {
 }
 
 .carousel-indicators {
-    bottom:-60px;
+    bottom:-70px;
 }
