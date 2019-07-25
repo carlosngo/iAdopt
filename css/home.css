@@ -104,34 +104,25 @@ p{
 }
 
 #footer{
-  position: relative;
-  left: 0;
-  bottom: 0;
-  width: 100%;
+  display:flex;
   background-color: #087830;
   color: white;
   justify-content: center;
   text-align: center;
   font-size: 14px;
-  vertical-align: middle;
+  align-items: center;
 }
 
 #waw{
-  display: inline-block;
   text-align: center;
-  padding: 5px;
-  width:30%;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding: 20px;
+  max-width: 50%;
 }
 
 #cu{
-  display: inline-block;
   text-align: left;
-  padding: 5px;
-  width:30%;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding: 20px;
+  max-width:50%
 }
 
 /* #mission{
