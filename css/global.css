@@ -110,3 +110,35 @@ input{
     }
 }
   
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('your/path/fontawesome-webfont.eot?v=3.0.1');
+  src: url('your/path/fontawesome-webfont.eot?#iefix&v=3.0.1') format('embedded-opentype'),
+    url('your/path/fontawesome-webfont.woff?v=3.0.1') format('woff'),
+    url('your/path/fontawesome-webfont.ttf?v=3.0.1') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#panel7, #panel8{
+  position: relative;
+}
+
+#panel7 input, #panel8 input{
+  text-indent: 40px;
+}
+
+#panel7 i, #panel8 i{
+  position: absolute;
+  font-size: 15px;
+}
+
+.icon{
+  padding:10px;
+  min-width: 40px;
+  text-align: center;
+  vertical-align: center;
+  border-right-style: solid;
+  line-height: 10px;
+  border-color: gray;
+}
