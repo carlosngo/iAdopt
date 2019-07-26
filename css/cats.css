@@ -45,7 +45,7 @@
 
 .flex-item {
     /* height: 304px; */
-    padding: 5px 5px;
+    padding: 0px;
     display: flex;
     /* border-radius: 20px; */
     text-align: center;
@@ -57,9 +57,8 @@
 }
 
 .card-img-top{
-    width: 275px !important;
-    height: 180px;
-    border-radius: 0px;
+    /* width: 288px !important;
+    height: 180px; */
 }
 
 #searchInput{
