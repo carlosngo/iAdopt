@@ -7,7 +7,11 @@ const urlencoder = bparser.urlencoded({
 const session = require("express-session")
 const cparser = require("cookie-parser");
 const app = express();
+
+// Models
 const catDB = require("../model/cats.js");
+const userDB = require("../model/users.js");
+const newsDB = require("../model/news.js");
 
 app.set('view engine', 'hbs')
 
@@ -30,9 +34,9 @@ app.get("/", (req, res) => {
     //     else res.send("Cat creation successful");
     // })
 
-    // catDB.Retrieve("catA", (cat) => {
-    //     console.log(cat)
-    // })
+    catDB.Retrieve("catB", (cat) => {
+        console.log(cat)
+    })
     // res.sendFile(__dirname + "/public/html/home.html")
 
     // catDB.Delete("catC", (err) => {
