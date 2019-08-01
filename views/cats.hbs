@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Cats</title>
+        <link rel="shortcut icon" type="image/png" href="../assets/images/icon.PNG">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="../js/cats.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">               
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">   
+        <link rel="stylesheet" type="text/css" href="../css/global.css">
+        <link rel="stylesheet" type="text/css" href="../css/cats.css">      
+    </head>
+    <body>
+        <!-- IF NOT LOGGED IN -->
+        {{#unless login}}
+            {{> nav}}
+        {{else}}
+        <!-- ELSE IF LOGGED IN AS ADMIN -->
+            {{#if admin}}
+                {{> admin-nav}}
+        
+        <!-- ELSE IF LOGGED IN AS ADOPTER -->
+            {{else}}
+                {{> adopter-nav}}
+            {{/if}}
+        {{/unless}}
+    <!-- CONTENT -->
+        <h1 id="titleDiv">All Cats</h1>
+        <div id="searchDiv">
+            <div class="headerBar">
+                <div id="searchBarDiv">
+                    <input type="text" placeholder="Enter a name" id="searchInput">
+                    <button class="btn" id="searchBtn" onclick="search()"><i class="fa fa-search"></i></button>
+                </div>
+            </div> 
+            <div class="headerBar">
+                <!-- <button class="btn" id="filterBtn"><i class="fa fa-filter" id="filterIcon" >&nbsp;Filter</i></button> -->
+                <button class="btn" id="filterBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#filterModal">Filter</button>
+            </div>
+  
+            <!-- Filter Modal -->
+            <div class="modal fade" id="filterModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Filters</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                    Location: 
+                    <select id="priorityColor">
+                        <option selected value="low">All</option>
+                        <option value="low">Agno</option>
+                        <option value="med">Razon</option>
+                        <option value="hi">STRC</option>
+                    </select><br><br>
+                    Fur-pattern: 
+                    <select id="priorityColor">
+                        <option selected value="low">All</option>
+                        <option value="low">Piebald</option>
+                        <option value="med">White</option>
+                        <option value="hi">Black</option>
+                    </select><br><br>
+                    Sex: 
+                    <select id="priorityColor">
+                        <option selected value="low">All</option>
+                        <option value="med">Male</option>
+                        <option value="hi">Female</option>
+                    </select><br><br>
+                    Age: 
+                    <select id="priorityColor">
+                        <option selected value="low">All</option>
+                        <option value="med">Adult</option>
+                        <option value="hi">Kitten</option>
+                    </select><br><br>
+                    Neutered: 
+                    <select id="priorityColor">
+                        <option selected value="low">All</option>
+                        <option value="med">Neutered</option>
+                        <option value="hi">Unneutered</option>
+                    </select><br>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn" id="resetBtn" onclick="resetFilters()">Reset</button>
+                    <button type="button" class="btn" id="applyFilterBtn" onclick="filterCards()">Done</button>
+                </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        {{#each catSearch}}
+        <div id="mainContent">
+            <div id="mainCatsContent">
+                <div class="cardContainer" onclick="gotoCat()">
+                    <div class="card flex-item" style="width: 18rem;">
+                        <img class="card-img-top" src="{{imagePath}}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{nameCat}}</h5>
+                            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                        </div>
+                    </div>
+                </div>
+        {{/each}}
+            </div>
+        </div>
+        {{< footer}}
+        <script>
+            
+        </script>
+    </body>
+</html>
