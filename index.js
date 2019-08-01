@@ -37,7 +37,7 @@ app.post("/updateArticle", urlencoder, (req, res) => {
 })
 
 app.get("/cats", (req, res) => {
-
+    let filters = req.query.filters;
 })
 
 app.get("/cat", (req, res) => {
