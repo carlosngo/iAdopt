@@ -9,16 +9,26 @@ const cparser = require("cookie-parser");
 const app = express();
 
 // Models
-const catDB = require("../model/cats.js");
-const userDB = require("../model/users.js");
-const newsDB = require("../model/news.js");
+const catDB = require(__dirname + "/model/cats.js");
+const userDB = require(__dirname + "/model/users.js");
+const newsDB = require(__dirname + "/model/news.js");
+
+hbs.registerPartials(__dirname + "/views/partials", () => {
+    console.log("Partials have successfully loaded.")
+})
 
 app.set('view engine', 'hbs')
 
 app.use(express.static(__dirname + "/public"));
 
+
+
 app.get("/", (req, res) => {
 
+    
+})
+
+app.get("/testDB",(req, res) => {
     // catDB.Create({
     //     "age": "Adult",
     //     "complications": "N/A",
@@ -43,6 +53,10 @@ app.get("/", (req, res) => {
     //     if (err) res.send(err);
     //     else res.send("Successfully deleted catC");
     // })
+})
+
+app.get("/testHBS", (req, res) => {
+    res.render("home.hbs", {})
 })
 
 app.listen(3000, function() {
