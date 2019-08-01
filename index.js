@@ -22,8 +22,10 @@ app.set('view engine', 'hbs')
 app.use(express.static(__dirname + "/public"));
 
 app.get("/", (req, res) => {
-
-    
+    res.render("home.hbs", {
+        login:true, 
+        admin:true
+    })
 })
 
 app.get("/article", (req, res) => {
@@ -39,7 +41,7 @@ app.post("/updateArticle", urlencoder, (req, res) => {
 })
 
 app.get("/cats", (req, res) => {
-
+    let filters = req.query.filters;
 })
 
 app.get("/cat", (req, res) => {
