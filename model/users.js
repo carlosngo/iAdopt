@@ -7,7 +7,7 @@ function Create(user, callback) {
         "email": user.email,
         "username": user.username,
         "password": user.password,
-        "isAdmin": user.isAdmin
+        "admin": user.admin
     }, (err) => {
         callback(err);
     });
