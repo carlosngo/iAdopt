@@ -7,7 +7,7 @@ function Create(newsPost, callback) {
         "content": newsPost.content,
         "time-posted": newsPost.time-posted,
         "author": newsPost.author,
-        "picture": newsPost.picture
+        "picture": newsPost.pictureUrl
     }, (err) => {
         callback(err);
     });
