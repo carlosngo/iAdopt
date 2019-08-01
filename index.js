@@ -22,10 +22,6 @@ app.set('view engine', 'hbs')
 app.use(express.static(__dirname + "/public"));
 
 app.get("/", (req, res) => {
-    res.render("home.hbs", {
-        login:true, 
-        admin:true
-    })
 })
 
 app.get("/article", (req, res) => {
@@ -105,7 +101,10 @@ app.get("/testDB",(req, res) => {
 })
 
 app.get("/testHBS", (req, res) => {
-    res.render("home.hbs", {})
+    res.render("home.hbs", {
+        login:true, 
+        admin:true
+    });
 })
 
 app.listen(3000, function() {
