@@ -4,6 +4,7 @@ const database = db.database;
 function Create(newsPost, callback) {
     let id = database.ref('posts/').push().key;
     database.ref('posts/' + id).set({
+        "title": newsPost.title,
         "content": newsPost.content,
         "time-posted": newsPost.time-posted,
         "author": newsPost.author,
