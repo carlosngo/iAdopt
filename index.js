@@ -21,11 +21,58 @@ app.set('view engine', 'hbs')
 
 app.use(express.static(__dirname + "/public"));
 
-
-
 app.get("/", (req, res) => {
 
     
+})
+
+app.get("/article", (req, res) => {
+    let articleId = req.query.id;
+})
+
+app.post("/addArticle", urlencoder, (req, res) => {
+
+})
+
+app.post("/updateArticle", urlencoder, (req, res) => {
+
+})
+
+app.get("/cats", (req, res) => {
+
+})
+
+app.get("/cat", (req, res) => {
+    let catId = req.query.id;
+})
+
+app.post("/addCat", urlencoder, (req, res) => {
+
+})
+
+app.post("/updateCat", urlencoder, (req, res) => {
+
+})
+
+
+app.get("/users", (req, res) => {
+
+})
+
+app.get("/user", (req, res) => {
+    let userId = req.query.id;
+})
+
+app.post("/login", urlencoder, (req, res) => {
+
+})
+
+app.post("/signup", urlencoder, (req, res) => {
+
+})
+
+app.post("/updateUser", urlencoder, (req, res) => {
+
 })
 
 app.get("/testDB",(req, res) => {
