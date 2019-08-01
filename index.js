@@ -23,10 +23,6 @@ app.set('view engine', 'hbs')
 app.use(express.static(__dirname + "/public"));
 
 app.get("/", (req, res) => {
-    res.render("home.hbs", {
-        login:true, 
-        admin:true
-    })
 })
 
 app.get("/article", (req, res) => {
@@ -110,7 +106,7 @@ app.get("/testHBS", (req, res) => {
         login: false,
         admin: false,
     })
-})
+}
 
 app.listen(3000, function() {
     console.log("live at port 3000");
