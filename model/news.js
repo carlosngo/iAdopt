@@ -5,7 +5,11 @@ function Create(/* parameters */) {
 
 }
 
-function Retrieve(/* parameters */) {
+function RetrieveOne(/* parameters */) {
+
+}
+
+function RetrieveAll(/* parameters */) {
 
 }
 
@@ -19,7 +23,8 @@ function Delete(/* params */) {
 
 module.exports = {
     Create,
-    Retrieve,
+    RetrieveOne,
+    RetrieveAll,
     Update,
     Delete
 }

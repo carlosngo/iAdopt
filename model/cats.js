@@ -18,11 +18,18 @@ function Create(cat, callback) {
     });
 }
 
-function Retrieve(catId, callback) {
+function RetrieveOne(catId, callback) {
     database.ref('cats/' + catId).once('value').then(function(snapshot) {
         callback(snapshot.val())
     });
 }
+
+function RetrieveAll(callback) {
+    database.ref('cats').once('value').then(function(snapshot) {
+        callback(snapshot.val());
+    })
+}
+
 
 function Update(catId, newData, callback) {
     var updates = {};
@@ -41,7 +48,8 @@ function Delete(catId, callback) {
 
 module.exports = {
     Create,
-    Retrieve,
+    RetrieveOne,
+    RetrieveAll,
     Update,
     Delete
 }
