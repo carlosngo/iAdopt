@@ -18,12 +18,12 @@
         {{> nav}}
     {{else}}
     <!-- ELSE IF LOGGED IN AS ADMIN -->
-        {{#if admin}}
-            {{> admin-nav}}
+        {{#if adminNav}}
+            {{> adminNav}}
     
     <!-- ELSE IF LOGGED IN AS ADOPTER -->
         {{else}}
-            {{> adopter-nav}}
+            {{> adopterNav}}
         {{/if}}
     {{/unless}}
     <!-- CONTENT -->

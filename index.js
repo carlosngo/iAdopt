@@ -4,6 +4,7 @@ const hbs = require("hbs")
 const urlencoder = bparser.urlencoded({
     extended: false
 })
+const fs = require("fs")
 const session = require("express-session")
 const cparser = require("cookie-parser");
 const app = express();
@@ -102,10 +103,10 @@ app.get("/testDB",(req, res) => {
 
 app.get("/testHBS", (req, res) => {
     res.render("home.hbs", {
-        login:true, 
-        admin:true
-    });
-})
+        login: false,
+        admin: false,
+    })
+}
 
 app.listen(3000, function() {
     console.log("live at port 3000");
