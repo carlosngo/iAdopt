@@ -31,5 +31,6 @@
     "fs": "0.0.1-security",
     "hbs": "^4.0.4",
     "npm": "^6.10.2"
-  }
+  },
+  "devDependencies": {}
 }
