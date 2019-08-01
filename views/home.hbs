@@ -14,14 +14,19 @@
 </head>
 <body>
     <!-- IF NOT LOGGED IN -->
-    {{> nav}}
+    {{#unless login}}
+        {{> nav}}
+    {{else}}
     <!-- ELSE IF LOGGED IN AS ADMIN -->
-    {{> admin-nav}}
-    <!-- ELSE IF LOGGED IN AS ADOPTER -->
-    {{> adopter-nav}}
+        {{#if admin}}
+            {{> admin-nav}}
     
+    <!-- ELSE IF LOGGED IN AS ADOPTER -->
+        {{else}}
+            {{> adopter-nav}}
+        {{/if}}
+    {{/unless}}
     <!-- CONTENT -->
-
     
     
     {{> footer}}

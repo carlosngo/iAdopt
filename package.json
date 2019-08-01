@@ -30,5 +30,6 @@
     "firebase": "^6.3.2",
     "hbs": "^4.0.4",
     "npm": "^6.10.2"
-  }
+  },
+  "devDependencies": {}
 }
