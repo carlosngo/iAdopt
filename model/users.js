@@ -3,9 +3,8 @@ const database = db.database;
 
 function Create(user, callback) {
     let id = database.ref('users/').push().key;
-    database.ref('users/' + id).set({
+    database.ref('users/' + user.username).set({
         "email": user.email,
-        "username": user.username,
         "password": user.password,
         "admin": user.admin
     }, (err) => {
@@ -13,8 +12,8 @@ function Create(user, callback) {
     });
 }
 
-function RetrieveOne(userId, callback) {
-    database.ref('users/' + userId).once('value').then(function(snapshot) {
+function RetrieveOne(username, callback) {
+    database.ref('users/' + username).once('value').then(function(snapshot) {
         callback(snapshot.val())
     });
 }
@@ -25,16 +24,16 @@ function RetrieveAll(callback) {
     })
 }
 
-function Update(userId, newData, callback) {
+function Update(username, newData, callback) {
     var updates = {};
-    updates['/users/' + userId] = newData;
+    updates['/users/' + username] = newData;
     database.ref().update(updates, (err) => {
         callback(err);
     })
 }
 
-function Delete(userId, callback) {
-    database.ref('users/' + userId).remove((err) => {
+function Delete(username, callback) {
+    database.ref('users/' + username).remove((err) => {
         callback(err);
     })
 }
