@@ -66,11 +66,7 @@ app.get("/article", (req, res) => {
     newsDB.RetrieveOne(articleId, (article) => {
         res.render("articlePage.hbs", {
             article: article,
-            user: {
-                username: "Carlos",
-                password: "ngo",
-                admin: true,
-            }, 
+            user: user
         })
     })
 })
@@ -95,11 +91,7 @@ app.get("/cats", (req, res) => {
         console.log(cats)
         res.render("cats.hbs", {
             cats: cats,
-            user: {
-                username: "Carlos",
-                password: "ngo",
-                admin: true,
-            },
+            user: user
         })
     })
 })
@@ -115,11 +107,7 @@ app.get("/cat", (req, res) => {
     catDB.RetrieveOne(catId, (cat) => {
         res.render("catInfo.hbs", {
             cat: cat,
-            user: {
-                username: "Carlos",
-                password: "ngo",
-                admin: true,
-            },
+            user: user
         })
 
     })
