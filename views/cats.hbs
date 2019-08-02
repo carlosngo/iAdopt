@@ -39,7 +39,7 @@
         <div id="mainContent">
             <h1 id="titleDiv">Our Cats</h1>
             <!-- SEARCH BAR -->
-            <div id="searchDiv">
+            <div id="search-filters">
                 <div class="headerBar">
                     <div id="searchBarDiv">
                         <input type="text" placeholder="Enter a name" id="searchInput">
@@ -108,7 +108,7 @@
             <!-- SEARCH BAR END -->
 
             <!-- SEARCH RESULTS --> 
-            <div id="mainCatsContent">
+            <div id="search-results">
                 {{#if user}} 
                     {{#if user.admin}}
                     <div class="cardContainer" id="addCatCard" data-toggle="modal" data-target="#addCatModal">
