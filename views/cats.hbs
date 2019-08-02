@@ -135,6 +135,82 @@
                 {{/each}}
             </div>
         </div>
+
+        <!-- Add Cat Modal -->
+        <div class="modal fade" id="addCatModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="color:black; font-family: 'Lato', sans-serif;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle" style=" ">Edit Info</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div style="display: flex; flex-direction: row; margin: 8px;">
+                    <div >
+                        Age:
+                        <select id="ageOptions">
+                            <option value="kitten">Kitten</option>
+                            <option value="adult">Adult</option>
+                        </select>
+                    </div>
+                    <div style="width: 30px;"></div>
+                    <div>
+                        Sex:
+                        <select id="sexOptions">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                </div>
+                <div style="margin: 8px;">
+                    Location: 
+                    <select id="locationOptions">
+                        {{#each locations}}
+                            <option value="{{location}}">{{location}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div style="margin: 8px;">
+                    Fur Pattern: 
+                    <select id="furPatternOptions">
+                        {{#each furPatterns}}
+                            <option value="{{furPattern}}">{{furPattern}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div style="margin: 8px; border-radius: 0px;">
+                    Main Picture: <br><input type="file" style="border-radius: 0px;"><br>
+                    Other Pictures: <br><input type="file" style="border-radius: 0px;" multiple/>
+                </div>
+                <div style="margin: 15px 8px 8px 8px;">
+                    Medical Procedures Undertaken <br>(please separate each with a comma):<br> 
+                    <input type="text" placeholder="{{medicalProcedures}}" style="width: 100%">
+                </div>
+                <div style="margin: 8px;">
+                    Complications: <br><input type="text" placeholder="{{complications}}" style="width: 100%">
+                </div>
+                <div style="margin: 8px;">
+                    Other notes: <br><input type="text" placeholder="{{notes}}" style="width: 100%">
+                </div>
+                
+                <script>
+                    document.getElementById('ageOptions').value = ''+{{age}};
+                    document.getElementById('sexOptions').value = ''+{{gender}};
+                    document.getElementById('locationOptions').value = ''+{{location}};
+                    document.getElementById('furPatternOptions').value = ''+{{furPattern}};
+                </script>
+            </div>
+            <div class="modal-footer">
+                    <button type="button" class="btn" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn" id="saveChangesBtn" onclick="">Save</button>
+            </div>
+            </div>
+        </div>
+        </div>
+
+        
         {{> footer}}
         <form action="/cat" id="cat-id-form">
             <input type="hidden" name="id" id="cat-id">
