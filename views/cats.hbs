@@ -115,28 +115,27 @@
                 </div>
                 {{/if}} 
             {{/if}}
-
-            {{#each cats}}
-                    <div id="mainCatsContent">
-                        <div class="cardContainer" onclick="gotoCat()">
-                            <div class="card flex-item" style="width: 18rem;">
-                                <img class="card-img-top" src="{{picture}}" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{name}}</h5>
-                                    <h8>{{sex}}, {{age}}</h8>
-                                </div>
-                                {{#if user}} 
-                                    {{#if user.admin}}
+            <div id="mainCatsContent">
+                {{#each cats}}
+                    <div class="cardContainer" onclick="gotoCat()">
+                        <div class="card flex-item" style="width: 18rem;">
+                            <img class="card-img-top" src="{{picture}}" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">{{name}}</h5>
+                                <h8>{{gender}}, {{age}}</h8>
+                            </div>
+                            {{#if ../user}} 
+                                {{#if ../user.admin}}
                                     <div class="btnDiv">
                                         <button href="#" class="btn catActions">Edit Info</button>
                                         <button href="#" class="btn catActions">Remove Cat</button>
                                     </div>
-                                    {{/if}} 
-                                {{/if}}
-                            </div>
+                                {{/if}} 
+                            {{/if}}
                         </div>
                     </div>
-            {{/each}}
+                {{/each}}
+            </div>
         </div>
         {{> footer}}
     </body>
