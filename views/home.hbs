@@ -4,16 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
     <link rel="shortcut icon" type="image/png" href="../assets/images/icon.PNG">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">               
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" type="text/css" href="../css/home.css">   
     <link rel="stylesheet" type="text/css" href="../css/global.css">   
-    <title>Test</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="../js/home.js"></script>
+    
 </head>
 <body>
-    <!-- IF NOT LOGGED IN -->
+    {{#if user}}
+        {{#if user.admin}}
+            {{> adminNav}}
+        {{else}}
+            {{> adopterNav}}
+        {{/if}}
+
+    {{else}}
+        {{> nav}}
+    {{/if}}
+    {{!-- <!-- IF NOT LOGGED IN -->
     {{#unless login}}
         {{> nav}}
     {{else}}
@@ -25,7 +39,7 @@
         {{else}}
             {{> adopterNav}}
         {{/if}}
-    {{/unless}}
+    {{/unless}} --}}
     <!-- CONTENT -->
      <div id="mainContent">
             <div id="carousel-container" class="container-center">
@@ -37,13 +51,13 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                        <img class="d-block w-100" src="{{imagePath}}" alt="First slide">
+                        <img class="d-block w-100" src="../assets/images/spay-neuter.jpg" alt="First slide">
                         </div>
                         <div class="carousel-item">
-                        <img class="d-block w-100" src="{{imagePath}}" alt="Second slide">
+                        <img class="d-block w-100" src="../assets/images/spay-neuter.jpg" alt="Second slide">
                         </div>
                         <div class="carousel-item">
-                        <img class="d-block w-100" src="{{imagePath}}" alt="Third slide">
+                        <img class="d-block w-100" src="../assets/images/spay-neuter.jpg" alt="Third slide">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -63,7 +77,7 @@
                     <div class="row no-gutters">
                         <div class="col-4">
                             <div class="card-img">
-                                <img src="{{imagePath}}" class="img-fluid" alt="Image Failed to load">
+                                <img src="{{picture}}" class="img-fluid" alt="Image Failed to load">
                             </div>
                             
                         </div>
@@ -72,10 +86,10 @@
                                 <div class="card-header flex-1">
                                     <h3 class="card-title">{{title}}</h3>
                                     <div class="card-author text-muted">{{author}}</div>
-                                    <div class="card-timestamp text-muted">{{date}} at {{time}}</div>
+                                    <div class="card-timestamp text-muted">{{timestamp}}</div>
                                 </div>
                                 <div class="card-content flex-3 flex-col">
-                                    <p class="">{{content}}</p>
+                                    <p class="">{{breaklines preview}}</p>
                                     <div class="">
                                             <a href="#" class="btn btn-primary ">Read More</a>
                                     </div>

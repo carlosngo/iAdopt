@@ -17,12 +17,24 @@ const newsDB = require(__dirname + "/model/news.js");
 hbs.registerPartials(__dirname + "/views/partials", () => {
     console.log("Partials have successfully loaded.")
 })
+hbs.registerHelper('breaklines', function(text) {
+    text = hbs.Utils.escapeExpression(text);
+    text = text.replace(/(\r\n|\n|\r)/gm, '<br>');
+    return new hbs.SafeString(text);
+});
 
 app.set('view engine', 'hbs')
 
 app.use(express.static(__dirname + "/public"));
 
 app.get("/", (req, res) => {
+    newsDB.RetrieveAll((news) => {
+        console.log(news)
+        res.render("home.hbs", {
+            news: news,
+            user: null,
+        })
+    })
 })
 
 app.get("/article", (req, res) => {
@@ -90,23 +102,35 @@ app.get("/testDB",(req, res) => {
     //     else res.send("Cat creation successful");
     // })
 
-    catDB.Retrieve("catB", (cat) => {
-        console.log(cat)
-    })
+    // catDB.Retrieve("catB", (cat) => {
+    //     console.log(cat)
+    // })
     // res.sendFile(__dirname + "/public/html/home.html")
 
     // catDB.Delete("catC", (err) => {
     //     if (err) res.send(err);
     //     else res.send("Successfully deleted catC");
     // })
+
+    // newsDB.Create({
+    //     "title": "AGGIE IS BACK!",
+    //     "timestamp": "June 13 at 8:38 PM",
+    //     "author": "Anne Agu",
+    //     "preview": "'She was lost and is found.' <br> The Parable of the Prodigal Cat <br> Love you, Aggie. Welcome back.",
+    //     "pictureUrl": "../assets/images/aggie.jpg",
+    //     "content": "'She was lost and is found.' <br> The Parable of the Prodigal Cat <br> Love you, Aggie. Welcome back."
+    // }, (err) => {
+    //     if (err) res.send(err)
+    //     else res.send("News creation successful")
+    // })
 })
 
 app.get("/testHBS", (req, res) => {
     res.render("home.hbs", {
-        login: false,
-        admin: false,
+        login: true,
+        admin: true,
     })
-}
+})
 
 app.listen(3000, function() {
     console.log("live at port 3000");

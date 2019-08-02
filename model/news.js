@@ -2,10 +2,10 @@ const db = require("./db.js");
 const database = db.database;
 
 function Create(newsPost, callback) {
-    let id = database.ref('posts/').push().key;
-    database.ref('posts/' + id).set({
+    let id = database.ref('news/').push().key;
+    database.ref('news/' + id).set({
         "title": newsPost.title,
-        "time-posted": newsPost.timePosted,
+        "timestamp": newsPost.timestamp,
         "author": newsPost.author,
         "preview": newsPost.preview,
         "picture": newsPost.pictureUrl,
@@ -16,13 +16,13 @@ function Create(newsPost, callback) {
 }
 
 function RetrieveOne(postId, callback) {
-    database.ref('posts/' + postId).once('value').then(function(snapshot) {
+    database.ref('news/' + postId).once('value').then(function(snapshot) {
         callback(snapshot.val())
     });
 }
 
 function RetrieveAll(callback) {
-    database.ref('posts').once('value').then(function(snapshot) {
+    database.ref('news').once('value').then(function(snapshot) {
         callback(snapshot.val());
     })
 }
@@ -30,14 +30,14 @@ function RetrieveAll(callback) {
 
 function Update(postId, newData, callback) {
     var updates = {};
-    updates['/posts/' + postId] = newData;
+    updates['/news/' + postId] = newData;
     database.ref().update(updates, (err) => {
         callback(err);
     })
 }
 
 function Delete(postId, callback) {
-    database.ref('posts/' + postId).remove((err) => {
+    database.ref('news/' + postId).remove((err) => {
         callback(err);
     })
 }
