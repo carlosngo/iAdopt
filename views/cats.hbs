@@ -52,36 +52,37 @@
                     </div>
                     <div class="modal-body">
                     Location: 
-                    <select id="priorityColor">
-                        <option selected value="low">All</option>
-                        <option value="low">Agno</option>
-                        <option value="med">Razon</option>
-                        <option value="hi">STRC</option>
+                    <select id="locationOptions">
+                        <option selected value="all">All</option>
+                        {{#each locations}}
+                            <option value="{{location}}">{{location}}</option>
+                        {{/each}}
                     </select><br><br>
                     Fur-pattern: 
-                    <select id="priorityColor">
-                        <option selected value="low">All</option>
-                        <option value="low">Piebald</option>
-                        <option value="med">White</option>
-                        <option value="hi">Black</option>
+                    <select id="furPatternOptions">
+                        <option selected value="all">All</option>
+                        {{#each furPatterns}}
+                            <option value="{{furPattern}}">{{furPattern}}</option>
+                        {{/each}}
                     </select><br><br>
                     Sex: 
-                    <select id="priorityColor">
-                        <option selected value="low">All</option>
-                        <option value="med">Male</option>
-                        <option value="hi">Female</option>
+                    <select id="sexOptions">
+                        <option selected value="all">All</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
                     </select><br><br>
                     Age: 
-                    <select id="priorityColor">
-                        <option selected value="low">All</option>
-                        <option value="med">Adult</option>
-                        <option value="hi">Kitten</option>
+                    <select id="ageOptions">
+                        <option selected value="all">All</option>
+                        {{#each ages}}
+                            <option value="{{age}}">{{age}}</option>
+                        {{/each}}
                     </select><br><br>
                     Neutered: 
-                    <select id="priorityColor">
-                        <option selected value="low">All</option>
-                        <option value="med">Neutered</option>
-                        <option value="hi">Unneutered</option>
+                    <select id="statusOptions">
+                        <option selected value="all">All</option>
+                        <option value="neutered">Neutered</option>
+                        <option value="unneutered">Unneutered</option>
                     </select><br>
                 </div>
                 <div class="modal-footer">
