@@ -17,8 +17,20 @@
     
 </head>
 <body>
-    {{#if user}}
+    {{!-- {{#if user}}
         {{#if user.admin}}
+            {{> adminNav}}
+        {{else}}
+            {{> adopterNav}}
+        {{/if}}
+
+    {{else}}
+        {{> nav}}
+    {{/if}} --}}
+
+{{!-- User Test --}}
+    {{#if login}}
+        {{#if admin}}
             {{> adminNav}}
         {{else}}
             {{> adopterNav}}

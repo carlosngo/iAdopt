@@ -132,7 +132,7 @@ app.get("/testDB",(req, res) => {
 app.get("/testHBS", (req, res) => {
     res.render("home.hbs", {
         login: true,
-        admin: true,
+        admin: true
     })
 })
 
