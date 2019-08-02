@@ -1,23 +1,6 @@
-function addCard(){
-    
-}
-
-function search(){
-
-}
-
-function filterCards(){
-    
-}
-
-function resetFilters(){
-
-}
-
-function logIn(){
-
-}
-
-function gotoCat(){
-    alert("cat")
-}
+$(document).ready(() => {
+    $(".cardContainer").on('click', function() {
+        $("#cat-id").val($(this).attr('data-id'))
+        $("#cat-id-form").submit()
+    })
+})

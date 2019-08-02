@@ -43,6 +43,20 @@ app.get("/", (req, res) => {
 
 app.get("/article", (req, res) => {
     let articleId = req.query.id;
+    newsDB.RetrieveOne(articleId, (article) => {
+        res.render("articlePage.hbs", {
+            title: article.title,
+            author: article.author,
+            content: article.content,
+            picture: article.picture,
+            timestamp: article.timestamp,
+            user: {
+                username: "Carlos",
+                password: "ngo",
+                admin: true,
+            }, 
+        })
+    })
 })
 
 app.post("/addArticle", urlencoder, (req, res) => {
