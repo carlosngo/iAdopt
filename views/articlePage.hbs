@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>{{article title}}</title>
+        <title>{{articleTitle}}</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <script src="../js/article.js"></script>
@@ -70,12 +70,12 @@
                                         
             </div>
             <div class="col-md-6" id="right-pane">
-                <h3>Title</h3>
-                <span>Time Posted</span><br>
-                <span>Author</span><br><br>
+                <h3>{{title}}</h3>
+                <span>{{timePosted}}</span><br>
+                <span>{{author}}</span><br><br>
                 <!-- <h1><b>Piper!</b></h1> -->
                 <h5>
-                    Article here.....
+                    {{content}}
                     <!-- <b>Age:</b> 8 months old <br>
                     <b>Sex:</b> Male <br>
                     <b>Location:</b> Velasco Bldg. <br>
@@ -86,9 +86,12 @@
                 </h5>
                 {{#if user.admin}}
                     <div id="adopt-btn-container">
+                        <button class="btn" >
+                            Delete Article
+                        </button>
+                        <div style="width: 5px;"></div>
                         <button class="btn">
                             Edit Article
-                            <!-- <img src="../assets/images/red-heart.png" width="30px" height="30px"> Adopt Me! -->
                         </button>
                     </div>
                 {{/if}}
