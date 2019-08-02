@@ -31,8 +31,7 @@
         {{/if}}
 
     <!-- CONTENT -->
-        <div id="mainContent">
-            <h1 id="titleDiv">Our Cats</h1>
+    <h1 id="titleDiv">Our Cats</h1>
             <!-- SEARCH BAR -->
             <div id="search-filters">
                 <div class="headerBar">
@@ -40,9 +39,7 @@
                         <input type="text" placeholder="Enter a name" id="searchInput">
                         <button class="btn" id="searchBtn" onclick="search()"><i class="fa fa-search"></i></button>
                     </div>
-                </div> 
-                <div class="headerBar">
-                    <!-- <button class="btn" id="filterBtn"><i class="fa fa-filter" id="filterIcon" >&nbsp;Filter</i></button> -->
+                    
                     <button class="btn" id="filterBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#filterModal">Filter</button>
                 </div>
     
@@ -102,20 +99,22 @@
             </div>
             <!-- SEARCH BAR END -->
 
+        <div id="mainContent">
+            
             <!-- SEARCH RESULTS --> 
-            <div id="search-results">
+            <div class="mainCatsContent">
                 {{#if user}} 
                     {{#if user.admin}}
                     <div class="cardContainer" id="addCatCard" data-toggle="modal" data-target="#addCatModal">
-                        <div class="card flex-item" style="width: 18rem; height:349px" >
+                        <div class="card flex-item" style="width: 18rem; height:358px" >
                                 <img class="card-img-top" src="../assets/images/addCat.png" alt="Card image cap">
-                                <div class="card-body" style="padding: 50px 20px 10px 20px">
+                                <div class="card-body" style="padding: 60px 20px 10px 20px">
                                     <h5 class="card-title">Add Cat</h5>
                                 </div>
                         </div>
                     </div>
-                    {{/if}} 
-                {{/if}}
+                {{/if}} 
+            {{/if}}
                 {{#each cats}}
                     <div class="cardContainer" data-id={{@key}}>
                         <div class="card flex-item" style="width: 18rem;">
