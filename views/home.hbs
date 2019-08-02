@@ -14,10 +14,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="../js/home.js"></script>
-    
 </head>
 <body>
-    {{!-- {{#if user}}
+    {{#if user}}
         {{#if user.admin}}
             {{> adminNav}}
         {{else}}
@@ -26,32 +25,7 @@
 
     {{else}}
         {{> nav}}
-    {{/if}} --}}
-
-{{!-- User Test --}}
-    {{#if login}}
-        {{#if admin}}
-            {{> adminNav}}
-        {{else}}
-            {{> adopterNav}}
-        {{/if}}
-
-    {{else}}
-        {{> nav}}
     {{/if}}
-    {{!-- <!-- IF NOT LOGGED IN -->
-    {{#unless login}}
-        {{> nav}}
-    {{else}}
-    <!-- ELSE IF LOGGED IN AS ADMIN -->
-        {{#if adminNav}}
-            {{> adminNav}}
-    
-    <!-- ELSE IF LOGGED IN AS ADOPTER -->
-        {{else}}
-            {{> adopterNav}}
-        {{/if}}
-    {{/unless}} --}}
     <!-- CONTENT -->
      <div id="mainContent">
             <div id="carousel-container" class="container-center">
@@ -103,7 +77,7 @@
                                 <div class="card-content flex-3 flex-col">
                                     <p class="">{{breaklines preview}}</p>
                                     <div class="">
-                                            <a href="#" class="btn btn-primary ">Read More</a>
+                                        <input type="button" data-id={{@key}} class="btn btn-primary btn-article" value="Read More"></a>
                                     </div>
                                 </div>
                                 
@@ -117,5 +91,8 @@
         </div>
     
     {{> footer}}
+    <form action="/article" id="article-id-form">
+        <input type="hidden" name="id" id="article-id">
+    </form>
 </body>
 </html>

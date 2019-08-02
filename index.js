@@ -43,6 +43,9 @@ app.get("/", (req, res) => {
 
 app.get("/article", (req, res) => {
     let articleId = req.query.id;
+    newsDB.RetrieveOne(articleId, (article) => {
+        res.send(article)
+    })
 })
 
 app.post("/addArticle", urlencoder, (req, res) => {
