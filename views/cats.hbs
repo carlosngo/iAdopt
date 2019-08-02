@@ -18,7 +18,6 @@
         <script>
             $(document).ready(() => {
                 $(".cardContainer").on('click', function() {
-                    console.log("clicked")
                     $("#cat-id").val($(this).attr('data-id'))
                     $("#cat-id-form").submit()
                 })
@@ -37,8 +36,8 @@
         {{/if}}
 
     <!-- CONTENT -->
-        <h1 id="titleDiv">Our Cats</h1>
-
+        <div id="mainContent">
+            <h1 id="titleDiv">Our Cats</h1>
             <!-- SEARCH BAR -->
             <div id="searchDiv">
                 <div class="headerBar">
@@ -106,12 +105,9 @@
                     </div>
                 </div>
             </div>
-            <!-- SEARCH BAR END --> 
+            <!-- SEARCH BAR END -->
 
-        <div id="mainContent">
-            
             <!-- SEARCH RESULTS --> 
-            
             <div id="mainCatsContent">
                 {{#if user}} 
                     {{#if user.admin}}
