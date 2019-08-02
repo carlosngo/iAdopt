@@ -27,30 +27,46 @@ app.set('view engine', 'hbs')
 
 app.use(express.static(__dirname + "/public"));
 
+app.use(session({
+    secret: "hailHydra",
+    name: "acctCookie",
+    resave: true,
+    saveUninitialized: true,
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 24 * 31
+    }
+}));
+
+app.use(cparser())
+
+
 app.get("/", (req, res) => {
+    let user = null
+    if (req.session.username) {
+        user = {};
+        user.username = req.session.username;
+        user.admin = req.session.admin;
+    }
     newsDB.RetrieveAll((news) => {
-        console.log(news)
         res.render("home.hbs", {
             news: news,
-            user: {
-                username: "Carlos",
-                password: "ngo",
-                admin: true,
-            },
+            user: user
         })
     })
 })
 
 app.get("/article", (req, res) => {
+    let user = null
+    if (req.session.username) {
+        user = {};
+        user.username = req.session.username;
+        user.admin = req.session.admin;
+    }
     let articleId = req.query.id;
     newsDB.RetrieveOne(articleId, (article) => {
         res.render("articlePage.hbs", {
             article: article,
-            user: {
-                username: "Carlos",
-                password: "ngo",
-                admin: true,
-            }, 
+            user: user
         })
     })
 })
@@ -64,30 +80,34 @@ app.post("/updateArticle", urlencoder, (req, res) => {
 })
 
 app.get("/cats", (req, res) => {
+    let user = null
+    if (req.session.username) {
+        user = {};
+        user.username = req.session.username;
+        user.admin = req.session.admin;
+    }
     let filters = req.query.filters;
     catDB.RetrieveAll((cats) => {
         console.log(cats)
         res.render("cats.hbs", {
             cats: cats,
-            user: {
-                username: "Carlos",
-                password: "ngo",
-                admin: true,
-            },
+            user: user
         })
     })
 })
 
 app.get("/cat", (req, res) => {
+    let user = null
+    if (req.session.username) {
+        user = {};
+        user.username = req.session.username;
+        user.admin = req.session.admin;
+    }
     let catId = req.query.id;
     catDB.RetrieveOne(catId, (cat) => {
         res.render("catInfo.hbs", {
             cat: cat,
-            user: {
-                username: "Carlos",
-                password: "ngo",
-                admin: true,
-            },
+            user: user
         })
 
     })
@@ -112,7 +132,22 @@ app.get("/user", (req, res) => {
 })
 
 app.post("/login", urlencoder, (req, res) => {
-
+    let un = req.body.un;
+    let pw = req.body.pw;
+    console.log(un)
+    console.log(pw)
+    userDB.RetrieveOne(un, (user) => {
+        console.log(user)
+        if (user && user.password === pw) {
+            req.session.username = un;
+            req.session.admin = user.admin;
+            console.log(req.session)
+            res.send("OK")
+            
+        } else {
+            res.send("FAIL")
+        }
+    })
 })
 
 app.post("/signup", urlencoder, (req, res) => {
