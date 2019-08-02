@@ -16,19 +16,16 @@
         <link rel="stylesheet" type="text/css" href="../css/cats.css">      
     </head>
     <body>
-        <!-- IF NOT LOGGED IN -->
-        {{#unless login}}
-            {{> nav}}
+        {{#if user}}
+        {{#if user.admin}}
+            {{> adminNav}}
         {{else}}
-        <!-- ELSE IF LOGGED IN AS ADMIN -->
-            {{#if admin}}
-                {{> admin-nav}}
-        
-        <!-- ELSE IF LOGGED IN AS ADOPTER -->
-            {{else}}
-                {{> adopter-nav}}
-            {{/if}}
-        {{/unless}}
+            {{> adopterNav}}
+        {{/if}}
+
+        {{else}}
+            {{> nav}}
+        {{/if}}
     <!-- CONTENT -->
         <h1 id="titleDiv">All Cats</h1>
         <div id="searchDiv">
@@ -96,7 +93,19 @@
                 </div>
             </div>
         </div>
-        {{#each catSearch}}
+        <div id="mainContent">
+            {{#if user}}
+            {{#if user.admin}}
+                {{> adminCatsList}}
+            {{else}}
+                {{> adopterCatsList}}
+            {{/if}}
+
+            {{else}}
+                {{> adopterCatsList}}
+            {{/if}}
+        </div>
+        {{!-- {{#each catSearch}}
         <div id="mainContent">
             <div id="mainCatsContent">
                 <div class="cardContainer" onclick="gotoCat()">
@@ -111,7 +120,7 @@
                 </div>
         {{/each}}
             </div>
-        </div>
+        </div> --}}
         {{< footer}}
         <script>
             
