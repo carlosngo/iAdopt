@@ -27,8 +27,8 @@
     flex-wrap: wrap;
 }
 
-#mainCatsContent{
-    padding: 0px 30px 25px 30px !important;
+.mainCatsContent{
+    padding: 0px 3px 25px 3px !important;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
