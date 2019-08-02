@@ -27,104 +27,114 @@
         {{/if}}
 
     <!-- CONTENT -->
-        <h1 id="titleDiv">All Cats</h1>
-        <div id="searchDiv">
-            <div class="headerBar">
-                <div id="searchBarDiv">
-                    <input type="text" placeholder="Enter a name" id="searchInput">
-                    <button class="btn" id="searchBtn" onclick="search()"><i class="fa fa-search"></i></button>
-                </div>
-            </div> 
-            <div class="headerBar">
-                <!-- <button class="btn" id="filterBtn"><i class="fa fa-filter" id="filterIcon" >&nbsp;Filter</i></button> -->
-                <button class="btn" id="filterBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#filterModal">Filter</button>
-            </div>
-  
-            <!-- Filter Modal -->
-            <div class="modal fade" id="filterModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Filters</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    </div>
-                    <div class="modal-body">
-                    Location: 
-                    <select id="locationOptions">
-                        <option selected value="all">All</option>
-                        {{#each locations}}
-                            <option value="{{location}}">{{location}}</option>
-                        {{/each}}
-                    </select><br><br>
-                    Fur-pattern: 
-                    <select id="furPatternOptions">
-                        <option selected value="all">All</option>
-                        {{#each furPatterns}}
-                            <option value="{{furPattern}}">{{furPattern}}</option>
-                        {{/each}}
-                    </select><br><br>
-                    Sex: 
-                    <select id="sexOptions">
-                        <option selected value="all">All</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                    </select><br><br>
-                    Age: 
-                    <select id="ageOptions">
-                        <option selected value="all">All</option>
-                        {{#each ages}}
-                            <option value="{{age}}">{{age}}</option>
-                        {{/each}}
-                    </select><br><br>
-                    Neutered: 
-                    <select id="statusOptions">
-                        <option selected value="all">All</option>
-                        <option value="neutered">Neutered</option>
-                        <option value="unneutered">Unneutered</option>
-                    </select><br>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn" id="resetBtn" onclick="resetFilters()">Reset</button>
-                    <button type="button" class="btn" id="applyFilterBtn" onclick="filterCards()">Done</button>
-                </div>
-                </div>
-                </div>
-            </div>
-        </div>
+        
         <div id="mainContent">
-            {{#if user}}
-            {{#if user.admin}}
-                {{> adminCatsList}}
-            {{else}}
-                {{> adopterCatsList}}
-            {{/if}}
+            <h1 id="titleDiv">Our Cats</h1>
 
-            {{else}}
-                {{> adopterCatsList}}
-            {{/if}}
-        </div>
-        {{!-- {{#each catSearch}}
-        <div id="mainContent">
-            <div id="mainCatsContent">
-                <div class="cardContainer" onclick="gotoCat()">
-                    <div class="card flex-item" style="width: 18rem;">
-                        <img class="card-img-top" src="{{imagePath}}" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">{{nameCat}}</h5>
-                            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+            <!-- SEARCH BAR -->
+            <div id="searchDiv">
+                <div class="headerBar">
+                    <div id="searchBarDiv">
+                        <input type="text" placeholder="Enter a name" id="searchInput">
+                        <button class="btn" id="searchBtn" onclick="search()"><i class="fa fa-search"></i></button>
+                    </div>
+                </div> 
+                <div class="headerBar">
+                    <!-- <button class="btn" id="filterBtn"><i class="fa fa-filter" id="filterIcon" >&nbsp;Filter</i></button> -->
+                    <button class="btn" id="filterBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#filterModal">Filter</button>
+                </div>
+    
+                <!-- Filter Modal -->
+                <div class="modal fade" id="filterModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Filters</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Location: 
+                                <select id="locationOptions">
+                                    <option selected value="all">All</option>
+                                    {{#each locations}}
+                                        <option value="{{location}}">{{location}}</option>
+                                    {{/each}}
+                                </select><br><br>
+                                Fur-pattern: 
+                                <select id="furPatternOptions">
+                                    <option selected value="all">All</option>
+                                    {{#each furPatterns}}
+                                        <option value="{{furPattern}}">{{furPattern}}</option>
+                                    {{/each}}
+                                </select><br><br>
+                                Sex: 
+                                <select id="sexOptions">
+                                    <option selected value="all">All</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select><br><br>
+                                Age: 
+                                <select id="ageOptions">
+                                    <option selected value="all">All</option>
+                                    {{#each ages}}
+                                        <option value="{{age}}">{{age}}</option>
+                                    {{/each}}
+                                </select><br><br>
+                                Neutered: 
+                                <select id="statusOptions">
+                                    <option selected value="all">All</option>
+                                    <option value="neutered">Neutered</option>
+                                    <option value="unneutered">Unneutered</option>
+                                </select><br>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn" data-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn" id="resetBtn" onclick="resetFilters()">Reset</button>
+                                <button type="button" class="btn" id="applyFilterBtn" onclick="filterCards()">Done</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-        {{/each}}
             </div>
-        </div> --}}
-        {{< footer}}
-        <script>
-            
-        </script>
+            <!-- SEARCH BAR END --> 
+
+            <!-- SEARCH RESULTS --> 
+            {{#if user}} 
+                {{#if user.admin}}
+                    <div class="cardContainer" id="addCatCard" data-toggle="modal" data-target="#addCatModal">
+                        <div class="card flex-item" style="width: 18rem; " >
+                                <img class="card-img-top" src="../assets/images/addCat.png" alt="Card image cap">
+                                <div class="card-body" style="padding: 50px 20px 10px 20px">
+                                    <h5 class="card-title">Add Cat</h5>
+                                </div>
+                        </div>
+                    </div>
+                {{/if}} 
+            {{/if}}
+
+            {{#each cats}}
+                    <div id="mainCatsContent">
+                        <div class="cardContainer" onclick="gotoCat()">
+                            <div class="card flex-item" style="width: 18rem;">
+                                <img class="card-img-top" src="{{picture}}" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{name}}</h5>
+                                </div>
+                                {{#if user}} 
+                                    {{#if user.admin}}
+                                    <div class="btnDiv">
+                                        <button href="#" class="btn catActions">Edit Info</button>
+                                        <button href="#" class="btn catActions">Remove Cat</button>
+                                    </div>
+                                    {{/if}} 
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+            {{/each}}
+        </div>
+        {{> footer}}
     </body>
 </html>

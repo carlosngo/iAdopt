@@ -55,6 +55,17 @@ app.post("/updateArticle", urlencoder, (req, res) => {
 
 app.get("/cats", (req, res) => {
     let filters = req.query.filters;
+    catDB.RetrieveAll((cats) => {
+        console.log(cats)
+        res.render("cats.hbs", {
+            cats: cats,
+            user: {
+                username: "Carlos",
+                password: "ngo",
+                admin: true,
+            },
+        })
+    })
 })
 
 app.get("/cat", (req, res) => {
