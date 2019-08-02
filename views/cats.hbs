@@ -38,15 +38,13 @@
     <!-- CONTENT -->
     <h1 id="titleDiv">Our Cats</h1>
             <!-- SEARCH BAR -->
-            <div id="searchDiv">
+            <div id="search-filters">
                 <div class="headerBar">
                     <div id="searchBarDiv">
                         <input type="text" placeholder="Enter a name" id="searchInput">
                         <button class="btn" id="searchBtn" onclick="search()"><i class="fa fa-search"></i></button>
                     </div>
-                </div> 
-                <div class="headerBar">
-                    <!-- <button class="btn" id="filterBtn"><i class="fa fa-filter" id="filterIcon" >&nbsp;Filter</i></button> -->
+                    
                     <button class="btn" id="filterBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#filterModal">Filter</button>
                 </div>
     
@@ -109,9 +107,9 @@
         <div id="mainContent">
             
             <!-- SEARCH RESULTS --> 
-            {{#if user}} 
-                {{#if user.admin}}
-                <div class="mainCatsContent">
+            <div class="mainCatsContent">
+                {{#if user}} 
+                    {{#if user.admin}}
                     <div class="cardContainer" id="addCatCard" data-toggle="modal" data-target="#addCatModal">
                         <div class="card flex-item" style="width: 18rem; height:358px" >
                                 <img class="card-img-top" src="../assets/images/addCat.png" alt="Card image cap">
@@ -120,10 +118,8 @@
                                 </div>
                         </div>
                     </div>
-                </div>
                 {{/if}} 
             {{/if}}
-            <div class="mainCatsContent">
                 {{#each cats}}
                     <div class="cardContainer" data-id={{@key}}>
                         <div class="card flex-item" style="width: 18rem;">
