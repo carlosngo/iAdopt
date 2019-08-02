@@ -70,7 +70,12 @@ app.get("/cats", (req, res) => {
 
 app.get("/cat", (req, res) => {
     let catId = req.query.id;
+    catDB.RetrieveOne(catId, (cat) => {
+        res.send(cat);
+
+    })
 })
+
 
 app.post("/addCat", urlencoder, (req, res) => {
 
