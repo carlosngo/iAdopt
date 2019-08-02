@@ -27,9 +27,7 @@
         {{/if}}
 
     <!-- CONTENT -->
-        
-        <div id="mainContent">
-            <h1 id="titleDiv">Our Cats</h1>
+        <h1 id="titleDiv">Our Cats</h1>
 
             <!-- SEARCH BAR -->
             <div id="searchDiv">
@@ -100,17 +98,21 @@
             </div>
             <!-- SEARCH BAR END --> 
 
+        <div id="mainContent">
+            
             <!-- SEARCH RESULTS --> 
             {{#if user}} 
                 {{#if user.admin}}
+                <div id="mainCatsContent">
                     <div class="cardContainer" id="addCatCard" data-toggle="modal" data-target="#addCatModal">
-                        <div class="card flex-item" style="width: 18rem; " >
+                        <div class="card flex-item" style="width: 18rem; height:349px" >
                                 <img class="card-img-top" src="../assets/images/addCat.png" alt="Card image cap">
                                 <div class="card-body" style="padding: 50px 20px 10px 20px">
                                     <h5 class="card-title">Add Cat</h5>
                                 </div>
                         </div>
                     </div>
+                </div>
                 {{/if}} 
             {{/if}}
             <div id="mainCatsContent">
@@ -120,6 +122,7 @@
                             <img class="card-img-top" src="{{picture}}" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title">{{name}}</h5>
+                                <h8>{{sex}}, {{age}}</h8>
                             </div>
                             {{#if ../user}} 
                                 {{#if ../user.admin}}

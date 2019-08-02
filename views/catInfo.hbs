@@ -81,9 +81,21 @@
                     <b>Other notes: </b>{{notes}} <br>
                 </h5>
                {{#if admin}}
-                    {{> adminCatInfo}}
+                    <div id="adopt-btn-container">
+                        <button class="btn" >
+                            Remove Cat
+                        </button>
+                        <div style="width: 5px;"></div>
+                        <button class="btn">
+                            Edit Cat Info
+                        </button>
+                    </div>
                 {{else}}
-                    {{> adopterCatInfo}}
+                    <div id="adopt-btn-container">
+                        <button class="btn">
+                            <img src="../assets/images/red-heart.png" width="30px" height="30px"> Adopt Me!
+                        </button>
+                    </div>
                 {{/if}}
                 {{!-- <div id="adopt-btn-container">
                     <button class="btn">
