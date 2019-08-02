@@ -32,7 +32,11 @@ app.get("/", (req, res) => {
         console.log(news)
         res.render("home.hbs", {
             news: news,
-            user: null,
+            user: {
+                username: "Carlos",
+                password: "ngo",
+                admin: true,
+            },
         })
     })
 })

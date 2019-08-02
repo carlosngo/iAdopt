@@ -18,11 +18,11 @@
     </head>
     <body>
         {{#if user}}
-        {{#if user.admin}}
-            {{> adminNav}}
-        {{else}}
-            {{> adopterNav}}
-        {{/if}}
+            {{#if user.admin}}
+                {{> adminNav}}
+            {{else}}
+                {{> adopterNav}}
+            {{/if}}
 
         {{else}}
             {{> nav}}

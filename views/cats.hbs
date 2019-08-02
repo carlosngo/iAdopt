@@ -17,18 +17,16 @@
     </head>
     <body>
         <!-- IF NOT LOGGED IN -->
-        {{#unless login}}
-            {{> nav}}
+        {{#if user}}
+        {{#if user.admin}}
+            {{> adminNav}}
         {{else}}
-        <!-- ELSE IF LOGGED IN AS ADMIN -->
-            {{#if admin}}
-                {{> admin-nav}}
-        
-        <!-- ELSE IF LOGGED IN AS ADOPTER -->
-            {{else}}
-                {{> adopter-nav}}
-            {{/if}}
-        {{/unless}}
+            {{> adopterNav}}
+        {{/if}}
+
+    {{else}}
+        {{> nav}}
+    {{/if}}
     <!-- CONTENT -->
         <h1 id="titleDiv">All Cats</h1>
         <div id="searchDiv">
