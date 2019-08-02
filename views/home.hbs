@@ -22,7 +22,6 @@
         {{else}}
             {{> adopterNav}}
         {{/if}}
-
     {{else}}
         {{> nav}}
     {{/if}}
@@ -58,8 +57,42 @@
             </div>
             <h1 class="section-header">News & Updates</h1>
             <div class="container-center">
+                {{!-- <input type="button" class="btn btn-primary btn-add" value="Add an Article"><br><br> --}}
+            {{!-- Add Card --}}
+            <br><br>
+                <div class="card" style="margin:15px;">
+                    <div class="row no-gutters">
+                        <div class="col-4">
+                            <div class="card-img">
+                                <img src="/assets/images/website.png" class="img-fluid" alt="Image Failed to load" style="width:256px">
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <div class="card-block px-2 flex-col">
+                                <div class="card-header flex-1">
+                                    <h3 class="card-title">Add an Article</h3>
+                                    {{!-- <div class="card-author text-muted"></div>
+                                    <div class="card-timestamp text-muted"></div> --}}
+                                </div>
+                                <div class="card-content flex-3 flex-col">
+                                    <div class="article-title">
+                                        Article Title:     <input type="text" class="input-title rounded-corners" placeholder="Enter Article Title">
+                                    </div><br>
+                                    <div class="form-group green-border-focus rounded-corners">
+                                        <textarea type="text" class="form-control z-depth-1" rows="6" placeholder="Write something here..."></textarea>
+                                    </div>
+                                    <div class="">
+                                        <input type="button" class="btn btn-primary btn-upload" value="Upload Image">
+                                        <input type="button" class="btn btn-primary btn-add" value="Add an Article">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{!-- End of Add Card --}}
                 {{#each news}}
-                <div class="card">
+                <div class="card" style="margin:15px;">
                     <div class="row no-gutters">
                         <div class="col-4">
                             <div class="card-img">
@@ -87,7 +120,6 @@
                 </div>
                 {{/each}}
             </div>
-            
         </div>
     
     {{> footer}}
