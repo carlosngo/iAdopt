@@ -39,7 +39,7 @@
                     <!--Slides-->
                     <div class="carousel-inner" role="listbox">
                         <div class="carousel-item active">
-                            <img class="d-block w-100" src="{{picture}}" alt="First slide">
+                            <img class="d-block w-100" src="{{article.picture}}" alt="First slide">
                         </div>
                         <!-- <div class="carousel-item">
                             <img class="d-block w-100" src="../assets/images/piper2.jpg" alt="Second slide">
@@ -69,20 +69,22 @@
                                         
             </div>
             <div class="col-md-6" id="right-pane">
-                <h3>{{title}}</h3>
-                <span>{{timestamp}}</span><br>
-                <span>{{author}}</span><br><br>
-                <!-- <h1><b>Piper!</b></h1> -->
-                <h5>
-                    {{content}}
-                    <!-- <b>Age:</b> 8 months old <br>
-                    <b>Sex:</b> Male <br>
-                    <b>Location:</b> Velasco Bldg. <br>
-                    <b>Fur Pattern: </b> Piebald <br>
-                    <b>Medical Procedures Undertaken: </b> Neutered, Vaccinated <br>
-                    <b>Complications:</b> N / A <br>
-                    <b>Other notes: </b>Feisty and interactive <br> -->
-                </h5>
+                {{#with article}}
+                    <h3>{{title}}</h3>
+                    <span>{{timestamp}}</span><br>
+                    <span>{{author}}</span><br><br>
+                    <!-- <h1><b>Piper!</b></h1> -->
+                    <h5>
+                        {{content}}
+                        <!-- <b>Age:</b> 8 months old <br>
+                        <b>Sex:</b> Male <br>
+                        <b>Location:</b> Velasco Bldg. <br>
+                        <b>Fur Pattern: </b> Piebald <br>
+                        <b>Medical Procedures Undertaken: </b> Neutered, Vaccinated <br>
+                        <b>Complications:</b> N / A <br>
+                        <b>Other notes: </b>Feisty and interactive <br> -->
+                    </h5>
+                {{/with}}
                 {{#if user}} {{#if user.admin}}
                     <div id="adopt-btn-container">
                         <button class="btn" >

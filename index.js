@@ -45,11 +45,7 @@ app.get("/article", (req, res) => {
     let articleId = req.query.id;
     newsDB.RetrieveOne(articleId, (article) => {
         res.render("articlePage.hbs", {
-            title: article.title,
-            author: article.author,
-            content: article.content,
-            picture: article.picture,
-            timestamp: article.timestamp,
+            article: article,
             user: {
                 username: "Carlos",
                 password: "ngo",
@@ -85,7 +81,14 @@ app.get("/cats", (req, res) => {
 app.get("/cat", (req, res) => {
     let catId = req.query.id;
     catDB.RetrieveOne(catId, (cat) => {
-        res.send(cat);
+        res.render("catInfo.hbs", {
+            cat: cat,
+            user: {
+                username: "Carlos",
+                password: "ngo",
+                admin: true,
+            },
+        })
 
     })
 })
