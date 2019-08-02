@@ -13,7 +13,17 @@
         <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">               
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">   
         <link rel="stylesheet" type="text/css" href="../css/global.css">
-        <link rel="stylesheet" type="text/css" href="../css/cats.css">      
+        <link rel="stylesheet" type="text/css" href="../css/cats.css">  
+          
+        <script>
+            $(document).ready(() => {
+                $(".cardContainer").on('click', function() {
+                    console.log("clicked")
+                    $("#cat-id").val($(this).attr('data-id'))
+                    $("#cat-id-form").submit()
+                })
+            })
+        </script>    
     </head>
     <body>
         {{#if user}}
@@ -101,9 +111,10 @@
         <div id="mainContent">
             
             <!-- SEARCH RESULTS --> 
-            {{#if user}} 
-                {{#if user.admin}}
-                <div id="mainCatsContent">
+            
+            <div id="mainCatsContent">
+                {{#if user}} 
+                    {{#if user.admin}}
                     <div class="cardContainer" id="addCatCard" data-toggle="modal" data-target="#addCatModal">
                         <div class="card flex-item" style="width: 18rem; height:349px" >
                                 <img class="card-img-top" src="../assets/images/addCat.png" alt="Card image cap">
@@ -112,12 +123,10 @@
                                 </div>
                         </div>
                     </div>
-                </div>
-                {{/if}} 
-            {{/if}}
-            <div id="mainCatsContent">
+                    {{/if}} 
+                {{/if}}
                 {{#each cats}}
-                    <div class="cardContainer" onclick="gotoCat()">
+                    <div class="cardContainer" data-id={{@key}}>
                         <div class="card flex-item" style="width: 18rem;">
                             <img class="card-img-top" src="{{picture}}" alt="Card image cap">
                             <div class="card-body">
@@ -138,5 +147,8 @@
             </div>
         </div>
         {{> footer}}
+        <form action="/cat" id="cat-id-form">
+            <input type="hidden" name="id" id="cat-id">
+        </form>
     </body>
 </html>
