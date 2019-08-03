@@ -13,6 +13,7 @@ const app = express();
 const catDB = require(__dirname + "/model/cats.js");
 const userDB = require(__dirname + "/model/users.js");
 const newsDB = require(__dirname + "/model/news.js");
+const requestDB = require(__dirname + "/model/requests.js");
 
 hbs.registerPartials(__dirname + "/views/partials", () => {
     console.log("Partials have successfully loaded.")
@@ -46,6 +47,7 @@ app.get("/", (req, res) => {
         user = {};
         user.username = req.session.username;
         user.admin = req.session.admin;
+        user.moderator = req.session.moderator;
     }
     newsDB.RetrieveAll((news) => {
         res.render("home.hbs", {
@@ -61,6 +63,7 @@ app.get("/article", (req, res) => {
         user = {};
         user.username = req.session.username;
         user.admin = req.session.admin;
+        user.moderator = req.session.moderator;
     }
     let articleId = req.query.id;
     newsDB.RetrieveOne(articleId, (article) => {
@@ -85,6 +88,7 @@ app.get("/cats", (req, res) => {
         user = {};
         user.username = req.session.username;
         user.admin = req.session.admin;
+        user.moderator = req.session.moderator;
     }
     let filters = req.query.filters;
     catDB.RetrieveAll((cats) => {
@@ -102,6 +106,7 @@ app.get("/cat", (req, res) => {
         user = {};
         user.username = req.session.username;
         user.admin = req.session.admin;
+        user.moderator = req.session.moderator;
     }
     let catId = req.query.id;
     catDB.RetrieveOne(catId, (cat) => {
@@ -122,13 +127,53 @@ app.post("/updateCat", urlencoder, (req, res) => {
 
 })
 
+app.get("/requests", (req, res) => {
+    let user = null
+    if (req.session.username) {
+        user = {};
+        user.username = req.session.username;
+        user.admin = req.session.admin;
+        user.moderator = req.session.moderator;
+    }
+    requestDB.RetrieveAll((requests) => {
+        res.render("requests.hbs", {
+            requests: requests,
+            user: user
+        })
+    })
+})
 
-app.get("/users", (req, res) => {
+app.post("/addRequest", urlencoder, (req, res) => {
 
 })
 
-app.get("/user", (req, res) => {
-    let userId = req.query.id;
+app.post("/cancelRequest", urlencoder, (req, res) => {
+
+})
+
+
+app.get("/users", (req, res) => {
+    let user = null
+    if (req.session.username) {
+        user = {};
+        user.username = req.session.username;
+        user.admin = req.session.admin;
+        user.moderator = req.session.moderator;
+    }
+    userDB.RetrieveAll((users) => {
+        res.render("users.hbs", {
+            users: users,
+            user: user
+        })
+    })
+})
+
+app.get("/profile", (req, res) => {
+    userDB.RetrieveOne(req.session.username, (user) => {
+        res.render("profilePage.hbs", {
+            user: user
+        })
+    })
 })
 
 app.post("/login", urlencoder, (req, res) => {
@@ -141,6 +186,7 @@ app.post("/login", urlencoder, (req, res) => {
         if (user && user.password === pw) {
             req.session.username = un;
             req.session.admin = user.admin;
+            req.session.moderator = user.moderator;
             console.log(req.session)
             res.send("OK")
             
@@ -151,7 +197,41 @@ app.post("/login", urlencoder, (req, res) => {
 })
 
 app.post("/signup", urlencoder, (req, res) => {
+    let un = req.body.un;
+    let pw = req.body.pw;
+    let email = req.body.email;
+    userDB.RetrieveOne(un, (user) => {
+        console.log(user)
+        if (user) {
+            res.send("FAIL")            
+        } else {
+            user = {};
+            user.username = un;
+            user.password = pw;
+            user.email = email;
+            user.admin = false;
+            user.moderator = false;
+            userDB.Create(user, (err) => {
+                if (err) {
+                    console.log(err);
+                    res.send("FAIL")
+                } else {
+                    req.session.username = un;
+                    req.session.admin = user.admin;
+                    req.session.moderator = user.moderator;
+                    res.send("OK")
+                }
+            })
+    
+        }
+    })  
+})
 
+app.post("/logout", urlencoder, (req, res) => {
+    req.session.username = null;
+    req.session.admin = null;
+    req.session.moderator = null;
+    res.send("OK")
 })
 
 app.post("/updateUser", urlencoder, (req, res) => {
