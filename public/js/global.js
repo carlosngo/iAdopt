@@ -1,7 +1,7 @@
 $(document).ready(() => {
     $("#btn-login").on('click', function() {
-        let un = $("#modalLRInput10").val()
-        let pw = $("#modalLRInput11").val()
+        let un = $("#loginEmail").val()
+        let pw = $("#loginPassword").val()
         $.ajax({
             url: "login",
             method: "POST",
@@ -14,7 +14,9 @@ $(document).ready(() => {
                 if (result === "OK") {
                     document.location.reload();
                 } else {
-                    alert("something went wrong")
+                    if($(".loginError").length == 0){
+                        $(".errorMessage").append("<label class='loginError' style='color: red;'>Wrong Username or Password</label>");
+                    }
                 }
 
             }                    
