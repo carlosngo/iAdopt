@@ -22,7 +22,7 @@
         <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
             <li class="nav-item active">
                 <!-- <button class="btn" id="filterBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#logInModal">Log In</button> -->
-                <a class="nav-link active" data-toggle="modal" data-target="#modalLRForm">Log In</a>
+                <a class="nav-link active" data-toggle="modal" data-target="#loginModal">Log In</a>
 
                 <!-- <a class="nav-link" href="logIn.html" style="font-size:18px;">Log In</a> -->
             </li>
@@ -31,7 +31,7 @@
 
 </nav>
 <!-- Log In Modal -->
-<div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog cascading-modal" role="document">
           <div class="modal-content">
             <div class="modal-c-tabs">
@@ -52,15 +52,22 @@
                   <div class="modal-body mb-1">
                     <div class="md-form mb-5">
                       <i class="fa fa-envelope fa-fw prefix icon"></i>
-                      <input type="email" id="modalLRInput10" class="form-control form-control-sm validate" placeholder="Username or Email">
+                      <input type="email" id="loginEmail" class="form-control form-control-sm validate" placeholder="Username or Email">
                       <!-- <label data-error="wrong" data-success="right" for="modalLRInput10">Email Address</label> -->
                     </div>
       
                     <div class="md-form mb-4">
                        <i class="fa fa-lock fa-fw prefix icon"></i>
                        <!-- <label data-error="wrong" data-success="right" for="modalLRInput11">Password:</label> -->
-                       <input type="password" id="modalLRInput11" class="form-control form-control-sm validate" placeholder="Password">
-                     
+                       <input type="password" id="loginPassword" class="form-control form-control-sm validate" placeholder="Password">
+
+
+                    {{!-- If Incorrect credentials --}}
+                    <div class="errorMessage" style="justify-content: center; text-align:center;">
+                      <br>
+                        
+                    </div>
+                    {{!-- End Incorrect Credentials --}}
                     </div>
                     <div class="text-center mt-2">
                       <button class="btn btn-info" id="btn-login">Log in <!--<i class="fa fa-sign-in ml-1"></i>--></button>
@@ -79,19 +86,19 @@
                   <div class="modal-body">
                     <div class="md-form form-sm mb-5">
                       <i class="fa fa-envelope fa-fw prefix icon"></i>
-                      <input type="email" id="modalLRInput12" class="form-control form-control-sm validate" placeholder="Email Address">
+                      <input type="email" id="signupEmail" class="form-control form-control-sm validate" placeholder="Email Address">
                       <!-- <label data-error="wrong" data-success="right" for="modalLRInput12">Email Address</label> -->
                     </div>
       
                     <div class="md-form form-sm mb-5">
                       <i class="fa fa-lock fa-fw prefix icon"></i>
-                      <input type="password" id="modalLRInput13" class="form-control form-control-sm validate" placeholder="Password">
+                      <input type="password" id="signupPassword" class="form-control form-control-sm validate" placeholder="Password">
                       <!-- <label data-error="wrong" data-success="right" for="modalLRInput13">Password</label> -->
                     </div>
       
                     <div class="md-form form-sm mb-4">
                       <i class="fa fa-lock fa-fw prefix icon"></i>
-                      <input type="password" id="modalLRInput14" class="form-control form-control-sm validate" placeholder="Repeat Password">
+                      <input type="password" id="signupRPassword" class="form-control form-control-sm validate" placeholder="Repeat Password">
                       <!-- <label data-error="wrong" data-success="right" for="modalLRInput14">Repeat Password</label> -->
                     </div>
       
