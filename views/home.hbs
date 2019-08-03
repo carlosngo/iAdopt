@@ -61,6 +61,8 @@
                 {{!-- <input type="button" class="btn btn-primary btn-add" value="Add an Article"><br><br> --}}
             {{!-- Add Card --}}
             <br><br>
+            {{#if user}} 
+                    {{#if user.admin}}
                 <div class="card" style="margin:15px;">
                     <div class="row no-gutters">
                         <div class="col-4">
@@ -91,6 +93,8 @@
                         </div>
                     </div>
                 </div>
+                    {{/if}}
+                {{/if}}
                 {{!-- End of Add Card --}}
                 {{#each news}}
                 <div class="card" style="margin:15px;">
