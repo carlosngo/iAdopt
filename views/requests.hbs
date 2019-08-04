@@ -30,10 +30,12 @@
             <h1 class="section-header">Requests</h1>
             <div class="container-center">                
                 {{#each request}}
-                <div class="card" style="margin:15px;">
-                    <div style="background-color: white; padding: 10px; display: flex; flex-direction: row;">
-                        <input type="checkbox" style="margin: 3px; zoom: 2; display: flex;" {{isChecked}}>
-                        <label style="display: flex; font-size: 20px">{{request.content}}</label>
+                    <div class="card" style="border-radius: 50px;">
+                        <div style="border-radius: 50px; background-color: white; padding: 10px; display: flex; flex-direction: row;">
+                            <input type="checkbox" style="border-radius: 15px; margin: 3px; zoom: 2; display: flex;" {{request.isChecked}}>
+                            <label style="display: flex; font-size: 20px; margin:0px 10px 0px 0px">{{request.content}}</label>
+                            <div class="btn">X</div>
+                        </div>
                     </div>
                 {{/each}}
             </div>
