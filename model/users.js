@@ -6,7 +6,8 @@ function Create(user, callback) {
     database.ref('users/' + user.username).set({
         "email": user.email,
         "password": user.password,
-        "admin": user.admin
+        "admin": user.admin,
+        "moderator": user.moderator
     }, (err) => {
         callback(err);
     });
