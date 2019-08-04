@@ -27,7 +27,8 @@
 }
 
 .delete{
-    /* margin: 23px;  */
+    margin: 23px; 
+    /* display: flex; */
     padding: 5px; 
     width:30px; 
     height:30px;
