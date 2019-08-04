@@ -6,6 +6,7 @@ function Create(userRequest, callback) {
     database.ref('requests/' + id).set({
         "user": userRequest.user,
         "content": userRequest.content,
+        "date-time": userRequest.dateTime,
         "status": userRequest.status
     }, (err) => {
         callback(err);
