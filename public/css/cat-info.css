@@ -118,3 +118,21 @@ h5 {
 .carousel-indicators {
     bottom:-70px;
 }
+
+.editable-field {
+    background:rgba(0,0,0,0);
+    border: 1px solid rgba(0,0,0,0);
+    font-size: 18px;
+    color: #087830;
+}
+
+.label-field {
+    background:rgba(0,0,0,0);
+    border: 1px solid rgba(0,0,0,0);
+    font-size: 18px;
+    color: #087830;
+}
+
+.toggle-edit {
+    max-width: 100%;
+}
