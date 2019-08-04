@@ -40,13 +40,13 @@
                     <!--Slides-->
                     <div class="carousel-inner" role="listbox">
                         <div class="carousel-item active">
-                            <img class="d-block w-100" src="{{cat.picture}}" alt="First slide">
+                            <img class="d-block w-100" src="../public/assets/images/addCat.PNG" alt="First slide">
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="{{cat.picture}}" alt="Second slide">
+                            <img class="d-block w-100" src="../public/assets/images/addCat.PNG" alt="Second slide">
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="{{cat.picture}}" alt="Third slide">
+                            <img class="d-block w-100" src="../public/assets/images/addCat.PNG" alt="Third slide">
                         </div>
                     </div>
                     <!--/.Slides-->
@@ -61,30 +61,30 @@
                     </a>
                     <!--/.Controls-->
                     <ol class="carousel-indicators">
-                        <li data-target="#carousel-thumb" data-slide-to="0" class="active"> <img class="d-block w-100" src="{{cat.picture}}" class="img-fluid"></li>
-                        <li data-target="#carousel-thumb" data-slide-to="1"><img class="d-block w-100" src="{{cat.picture}}" class="img-fluid"></li>
-                        <li data-target="#carousel-thumb" data-slide-to="2"><img class="d-block w-100" src="{{cat.picture}}" class="img-fluid"></li>
+                        <li data-target="#carousel-thumb" data-slide-to="0" class="active"> <img class="d-block w-100" src="../public/assets/images/addCat.PNG" class="img-fluid"></li>
+                        <li data-target="#carousel-thumb" data-slide-to="1"><img class="d-block w-100" src="../public/assets/images/addCat.PNG" class="img-fluid"></li>
+                        <li data-target="#carousel-thumb" data-slide-to="2"><img class="d-block w-100" src="../public/assets/images/addCat.PNG" class="img-fluid"></li>
                     </ol>
                 </div>
                 <!--/.Carousel Wrapper-->
                                         
             </div>
             <div class="col-md-6" id="right-pane">
-                <h3>Edit Info</h3>
-                {{#with cat}}
+                <h3>Add Cat</h3>
+                {{!-- {{#with cat}} --}}
                     {{!-- <h1><b>{{name}}</b></h1> --}}
                     <h5>
-                        Name: <input type="text" placeholder="{{name}}"><br>
-                        Age: <input type="text" placeholder="{{age}}"> <br>
-                        Sex: <input type="text" placeholder="{{gender}}"><br>
-                        Location: <input type="text" placeholder="{{location}}"><br>
-                        Fur Pattern: <input type="text" placeholder="{{furPattern}}"><br>
-                        Medical Procedures Undertaken: <input type="text" placeholder="{{medProcedures}}"><br>
-                        Complications: <input type="text" placeholder="{{complications}}"><br>
-                        Other notes: <input type="text" placeholder="{{notes}}"><br>
-                        Change gallery pictures: <input type="file" name="galleryInput" multiple><br><br>
+                        Name: <input type="text" placeholder="Enter Name..."><br>
+                        Age: <input type="text" placeholder="Enter Age..."> <br>
+                        Sex: <input type="text" placeholder="Enter Sex..."><br>
+                        Location: <input type="text" placeholder="Enter Location..."><br>
+                        Fur Pattern: <input type="text" placeholder="Enter Fur Pattern..."><br>
+                        Medical Procedures Undertaken: <input type="text" placeholder="Enter Medical Procedures..."><br>
+                        Complications: <input type="text" placeholder="Enter Complications..."><br>
+                        Other notes: <input type="text" placeholder="Add Some Notes..."><br>
+                        Add picture(s) for gallery: <input type="file" name="galleryInput" multiple><br><br>
                     </h5>
-                {{/with}}
+                {{!-- {{/with}} --}}
                {{#if user}}
                     {{#if user.admin}}
                         <div id="adopt-btn-container">
@@ -93,7 +93,7 @@
                             </button>
                             <div style="width: 5px;"></div>
                             <button class="btn" data-toggle="modal" data-target="#exampleModalCenter">
-                                Save Changes
+                                Add Cat
                             </button>
                         </div>
                     {{/if}}
