@@ -1,0 +1,24 @@
+.card{
+    padding:10px; border-radius: 50px; display: flex; flex-direction: row; justify-content: space-between
+}
+
+.checkBoxDiv{
+    border-radius: 50px; background-color: white; padding: 10px; display: flex; flex-direction: row;
+}
+
+.tickBox{
+    margin: 3px; zoom: 3; display: flex;
+}
+
+.contentLbl{
+    display: flex;
+    font-size: 20px; 
+    margin:10px 10px 0px 0px;
+}
+
+.delete{
+    margin: 23px; 
+    padding: 5px; 
+    width:30px; 
+    height:30px;
+}
