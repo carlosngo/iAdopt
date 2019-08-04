@@ -1,6 +1,27 @@
 $(document).ready(() => {
+    $("#toggleLogIn").on('click', function() {
+        $("#loginUsername").val("")
+        $("#loginPassword").val("")
+        $("#signupEmail").val("")
+        $("#signupUsername").val("")
+        $("#signupPassword").val("")
+        $("#signupRPassword").val("")
+    })
+
+    $("#logInTab").on('click', function() {
+        $("#loginUsername").val("")
+        $("#loginPassword").val("")
+    })
+
+    $("#signUpTab").on('click', function() {
+        $("#signupEmail").val("")
+        $("#signupUsername").val("")
+        $("#signupPassword").val("")
+        $("#signupRPassword").val("")
+    })
+
     $("#btn-login").on('click', function() {
-        let un = $("#loginEmail").val()
+        let un = $("#loginUsername").val()
         let pw = $("#loginPassword").val()
         $.ajax({
             url: "login",
@@ -15,7 +36,7 @@ $(document).ready(() => {
                     document.location.reload();
                 } else {
                     if($(".loginError").length == 0){
-                        $(".errorMessage").append("<label class='loginError' style='color: red;'>Wrong Username or Password</label>");
+                        $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Wrong Username or Password</label>");
                     }
                 }
 
@@ -23,9 +44,10 @@ $(document).ready(() => {
         })
     })
     $("#btn-signup").on('click', function() {
-        let email = $("#modalLRInput12").val()
-        let un = $("#modalLRInput13").val()
-        let pw = $("#modalLRInput14").val()
+
+        let email = $("#signupEmail").val()
+        let un = $("#signupUsername").val()
+        let pw = $("#signupPassword").val()
         $.ajax({
             url: "signup",
             method: "POST",
@@ -39,7 +61,9 @@ $(document).ready(() => {
                 if (result === "OK") {
                     document.location.reload();
                 } else {
-                    alert("something went wrong")
+                    if($(".loginError").length == 0){
+                        $(".signUpErrorMessage").append("<label class='loginError' style='color: red;'>Username is already taken.</label>");
+                    }
                 }
             }                    
         })
