@@ -18,19 +18,78 @@
     <script src="../js/global.js"></script>
 </head>
 <body>
+    <nav class="navbar navbar-expand-md navbar-dark justify-content-center fixed-top">
+        <a class="navbar-brand d-flex" href="home.html">
+            <img src="../assets/images/logo.png" alt="picture failed to load" id="logo">
+        </a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
+            <span class="navbar-toggler-icon"></span>
+        </button> 
+
+        <div class="navbar-collapse collapse w-100" id="collapse_target">
+            
+            <!-- Links -->
+            <ul class="navbar-nav w-100">
+                <li class="nav-item">
+                    <a class="nav-link" href="cats.html" style="font-size:18px;">Cats</a>
+                </li>
+                <li class="nav-item">
+                    <!-- <a class="nav-link" style="font-size:18px;" id="myBtn">Upload</a> -->
+                    <a class="nav-link" href="https://shopee.ph/PUSA-STICKERS-i.89307582.1924559027?fbclid=IwAR220vibgp6aybQM1L6uf4u7dSOFsCpuNPf-1Y4G2VmyHvJ3qrLlj1qm43s" 
+                    target="_blank" style="font-size:18px;">Shop</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
+                <li class="nav-item active">
+                    <!-- <button class="btn" id="filterBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#logInModal">Log In</button> -->
+                    <a class="nav-link active" data-toggle="modal" data-target="#modalLRForm">Log In</a>
+
+                    <!-- <a class="nav-link" href="logIn.html" style="font-size:18px;">Log In</a> -->
+                </li>
+            </ul>
+        </div>
     
+    </nav>
     <!-- CONTENT -->
      <div id="mainContent">
-            <h1 class="section-header">Requests</h1>
+            <div class="headerDiv">
+                <h1 class="section-header flex-item">Requests</h1>
+                <div class="flex-item" id="sortOptions">
+                    Sort By: &nbsp;
+                    <select>
+                        <option>Date Time</option>
+                        <option>Completion Status</option>
+                    </select>
+                </div>
+            </div>
             <div class="container-center">  
                 <div class="card" >
                     <div class="checkBoxDiv">
-                        <input type="checkbox" class="tickBox" checked>
-                        <label class="contentLbl">content</label>
+                        <input type="checkbox" id="chkBtn" class="tickBox" checked>
+                        <label class="contentLbl" for="chkBtn">content</label>
                     </div>
                     <div class="btn delete">X</div>
             </div>
         </div>
+
+        <!-- <div id="footer">
+            <div id="about">
+                <h4 class="footer-header">About Us</h4>
+                <h6 class="footer-content">
+                    DLSU-PUSA (Professors for the Uplifttment of Society's Animals) is an organization that cares mainly for the Taft campus' cats. We feed, neuter, and spay to control the cat population. Additionally, we provide vaccination/antirabies shots, medical care, adopting/rehoming of stray cats & occasionally even stray dogs, etc.
+                </h6>
+            </div>
+            <div id="contact">
+                <h4 class="footer-header">Contact Us</h4>
+                <h6 class="footer-content">
+                    Facebook Group: <a class="ylw-link" href="https://www.facebook.com/groups/DLSUPUSA/">DLSU PUSA</a> <br>
+                    Facebook Page: <a class="ylw-link" href="https://web.facebook.com/catsofdlsu/">Cats of DLSU</a> <br>
+                    Contact Person: Mary Laureen Velasco<br>
+                    Contact Details: 09123456789<br>
+                    Location: De La Salle University 2401 Taft Avenue, Manila 1004, Philippines, Mutien Marie Hall 
+                </h6>
+            </div>
+        </div> -->
     
 </body>
 </html>

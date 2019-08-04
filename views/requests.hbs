@@ -28,7 +28,16 @@
         {{> nav}}
     {{/if}}
      <div id="mainContent">
-            <h1 class="section-header">Requests</h1>
+             <div class="headerDiv">
+                <h1 class="section-header flex-item">Requests</h1>
+                <div class="flex-item" id="sortOptions">
+                    Sort By: &nbsp;
+                    <select>
+                        <option>Date Time</option>
+                        <option>Completion Status</option>
+                    </select>
+                </div>
+            </div>
             <div class="container-center">                
                 {{#each request}}
                     <div class="card" style="border-radius: 50px;">
