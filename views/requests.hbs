@@ -26,14 +26,14 @@
     {{else}}
         {{> nav}}
     {{/if}}
-    <!-- CONTENT -->
      <div id="mainContent">
             <h1 class="section-header">Requests</h1>
             <div class="container-center">                
                 {{#each request}}
                 <div class="card" style="margin:15px;">
-                    <div style="background-color: white;">
-                        <input type="checkbox" {{request.isChecked}}><div style="width: 5px;"></div><label>{{request.content}}</label>
+                    <div style="background-color: white; padding: 10px; display: flex; flex-direction: row;">
+                        <input type="checkbox" style="margin: 3px; zoom: 2; display: flex;" {{isChecked}}>
+                        <label style="display: flex; font-size: 20px">{{request.content}}</label>
                     </div>
                 {{/each}}
             </div>
