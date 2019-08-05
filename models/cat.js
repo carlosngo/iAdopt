@@ -24,7 +24,7 @@ function RetrieveOne(catId, callback) {
     });
 }
 
-function RetrieveAll(callback) {
+function RetrieveAll(filters, callback) {
     database.ref('cats').once('value').then(function(snapshot) {
         callback(snapshot.val());
     })
