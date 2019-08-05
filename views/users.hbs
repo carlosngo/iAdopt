@@ -42,19 +42,22 @@
                             <td>{{email}}</td>
                             {{#if admin}}
                                 <td>Admin</td>
+                                <td><input type="submit" value="Make Moderator" disabled></td>
                             {{else}}
                                 {{#if moderator}}
                                     <td>Moderator</td>
+                                    <td><input type="submit" value="Make Moderator" disabled></td>
                                 {{else}}
                                     <td>User</td>
+                                    <td>
+                                        <form action="makeModerator" method="POST">
+                                            <input type="hidden" name="id" value="{{@key}}">
+                                            <input type="submit" class="btn" value="Make Moderator">
+                                        </form>
+                                    </td>
                                 {{/if}}
                             {{/if}}
-                            <td>
-                                <form action="makeModerator" method="POST">
-                                    <input type="hidden" name="id" value="{{@key}}">
-                                    <input type="submit" class="btn" value="Make Moderator">
-                                </form>
-                            </td>
+                            
                         </tr>
                     {{/each}}
                 </table>
