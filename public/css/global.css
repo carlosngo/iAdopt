@@ -2,11 +2,19 @@ body{
     background-color: #B9F6CA !important;
     padding-top: 76px;
     width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
   	font-family: "Lato", sans-serif;
 }
-  
+
+#mainContent {
+  flex: 1 0 auto
+}
+
 html{
   max-width: 100%;
+  height:100%;
   overflow-x: hidden;
 }
 
@@ -55,6 +63,7 @@ input{
   text-align: center;
   font-size: 12px;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .footer-header {

@@ -29,6 +29,10 @@
   font-size: 11px;
 }
 
+.img-fluid {
+  max-height: 250px;
+}
+
 .card-img {
     width: 100%;
     height:100%;
