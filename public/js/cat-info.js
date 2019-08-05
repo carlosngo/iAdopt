@@ -1,5 +1,7 @@
 $(document).ready(() => {
-    $(".toggle-edit").hide();
+    let state = $("#state").val();
+    if (state === "edit") $(".toggle-show").hide();
+    else $(".toggle-edit").hide();
     $("#back-btn").on('click', function() {
         window.history.back();
     })
