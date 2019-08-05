@@ -23,50 +23,91 @@ $(document).ready(() => {
     $("#btn-login").on('click', function() {
         let un = $("#loginUsername").val()
         let pw = $("#loginPassword").val()
-        $.ajax({
-            url: "login",
-            method: "POST",
-            data: {
-                un: un,
-                pw: pw
-            },
-            success: function(result) {
-                console.log(result);
-                if (result === "OK") {
-                    document.location.reload();
-                } else {
-                    if($(".loginError").length == 0){
-                        $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Wrong Username or Password</label>");
-                    }
-                }
 
-            }                    
-        })
-    })
+        if(un != "" && pw != ""){
+            $.ajax({
+                url: "login",
+                method: "POST",
+                data: {
+                    un: un,
+                    pw: pw
+                },
+                success: function(result) {
+                    console.log(result);
+                    if (result === "OK") {
+                        document.location.reload();
+                    } else {
+                        if($(".loginError").length == 0){
+                            $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Wrong Username or Password</label>");
+                        }else{
+                            $(".logInErrorMessage .loginError").remove();
+                            $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Wrong Username or Password</label>");
+                        }
+                    }
+
+                }                    
+                })
+        }else{
+            if($(".loginError").length == 0){
+                $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Fields cannot be Empty</label>");
+            }else{
+                $(".logInErrorMessage .loginError").remove();
+                $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Fields cannot be Empty</label>");
+            }
+        }
+    })  
+
     $("#btn-signup").on('click', function() {
 
         let email = $("#signupEmail").val()
         let un = $("#signupUsername").val()
         let pw = $("#signupPassword").val()
-        $.ajax({
-            url: "signup",
-            method: "POST",
-            data: {
-                un: un,
-                pw: pw,
-                email: email
-            },
-            success: function(result) {
-                console.log(result);
-                if (result === "OK") {
-                    document.location.reload();
-                } else {
-                    if($(".loginError").length == 0){
-                        $(".signUpErrorMessage").append("<label class='loginError' style='color: red;'>Username is already taken.</label>");
-                    }
+        let dpw = $("#signupRPassword").val()
+
+        if(email != "" && un != "" && pw != "" && dpw != ""){
+            if(pw == dpw){
+                $.ajax({
+                    url: "signup",
+                    method: "POST",
+                    data: {
+                        un: un,
+                        pw: pw,
+                        email: email
+                    },
+                    success: function(result) {
+                        console.log(result);
+                        if (result === "OK") {
+                            document.location.reload();
+                        } else {
+                            if($(".signUpError").length == 0){
+                                $(".signUpErrorMessage").append("<label class='signUpError' style='color: red;'>Username is already taken.</label>");
+                            }else{
+                                $(".signUpErrorMessage .signUpError").remove();
+                                $(".signUpErrorMessage").append("<label class='signUpError' style='color: red;'>Username is already taken.</label>");
+                            }
+                        }
+                    }                    
+                })
+            }else{
+                if($(".signUpError").length == 0){
+                    $(".signUpErrorMessage").append("<label class='signUpError' style='color: red;'>Wrong Repeated Password</label>");
+                }else{
+                    $(".signUpErrorMessage .signUpError").remove();
+                    $(".signUpErrorMessage").append("<label class='signUpError' style='color: red;'>Wrong Repeated Password</label>");
                 }
-            }                    
-        })
+            }
+
+        }else{
+            if($(".signUpError").length == 0){
+                    $(".signUpErrorMessage").append("<label class='signUpError' style='color: red;'>Fields cannot be Empty</label>");
+                }else{
+                    $(".signUpErrorMessage .signUpError").remove();
+                    $(".signUpErrorMessage").append("<label class='signUpError' style='color: red;'>Fields cannot be Empty</label>");
+                }
+        }
+
+        
+       
     })
     $("#btn-logout").on('click', function() {
         $.ajax({
