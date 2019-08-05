@@ -79,18 +79,18 @@
                     <h5>
                         <b>Age:</b> 
                         <select id="ageOptions" class="toggle-edit">
-                            <option value="kitten">Kitten</option>
-                            <option value="adult">Adult</option>
+                            <option>Kitten</option>
+                            <option>Adult</option>
                         </select>
-                        <span class="toggle-show">{{age}}</span>
+                        <span id="age" class="toggle-show">{{age}}</span>
                         <br>
                         
                         <b>Sex:</b> 
                         <select id="sexOptions" class="toggle-edit">
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
+                            <option>Male</option>
+                            <option>Female</option>
                         </select>
-                        <span class="toggle-show">{{gender}}</span>
+                        <span id="gender" class="toggle-show">{{gender}}</span>
                         <br>
                         
                         <b>Location:</b> 
@@ -99,13 +99,13 @@
 
                             {{> locationOptions}}
                         </select>
-                        <span class="toggle-show">{{location}}</span>
+                        <span id="location" class="toggle-show">{{location}}</span>
                         <br>
                         
                         <b>Fur Pattern: </b> 
                         {{!-- <span class="toggle-edit">{{> patternOption}}</span> --}}
                         <select id="furPatternOptions" class="toggle-edit">{{> furPatternOptions}}</select>
-                        <span class="toggle-show">{{furPattern}}</span>
+                        <span id="furPattern" class="toggle-show">{{furPattern}}</span>
                         <br>
 
                         <b>Medical Procedures Undertaken: </b> 

@@ -48,25 +48,31 @@ $(document).ready(() => {
         let email = $("#signupEmail").val()
         let un = $("#signupUsername").val()
         let pw = $("#signupPassword").val()
-        $.ajax({
-            url: "signup",
-            method: "POST",
-            data: {
-                un: un,
-                pw: pw,
-                email: email
-            },
-            success: function(result) {
-                console.log(result);
-                if (result === "OK") {
-                    document.location.reload();
-                } else {
-                    if($(".loginError").length == 0){
-                        $(".signUpErrorMessage").append("<label class='loginError' style='color: red;'>Username is already taken.</label>");
+        let rpw = $("#signupRPassword").val()
+        if (pw != rpw) {
+            $(".signUpErrorMessage").append("<label class='loginError' style='color: red;'>Passwords do not match.</label>");
+        } else {
+            $.ajax({
+                url: "signup",
+                method: "POST",
+                data: {
+                    un: un,
+                    pw: pw,
+                    email: email
+                },
+                success: function(result) {
+                    console.log(result);
+                    if (result === "OK") {
+                        document.location.reload();
+                    } else {
+                        if($(".loginError").length == 0){
+                            $(".signUpErrorMessage").append("<label class='loginError' style='color: red;'>Username is already taken.</label>");
+                        }
                     }
-                }
-            }                    
-        })
+                }                    
+            })    
+        }
+        
     })
     $("#btn-logout").on('click', function() {
         $.ajax({

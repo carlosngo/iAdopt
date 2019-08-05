@@ -49,6 +49,12 @@ app.get("/", (req, res) => {
         user.moderator = req.session.moderator;
     }
     newsDB.RetrieveAll((news) => {
+        for (let article in news) {
+            let content = news[article].content;
+            if (content.length > 250) {
+                news[article].content = news[article].content.substr(0, 250) + "..."
+            }
+        }
         res.render("home.hbs", {
             news: news,
             user: user
@@ -163,12 +169,20 @@ app.post("/addCat", urlencoder, (req, res) => {
     }
     catDB.Create(cat, (err) => {
         if(err) res.send(err)
-        else res.send("OK")
+        else res.redirect(req.get('referer'));
     })
 })
 
 app.post("/updateCat", urlencoder, (req, res) => {
 
+})
+
+app.post("/deleteCat", urlencoder, (req, res) => {
+    let catId = req.body.id;
+    catDB.Delete(catId, (err) => {
+        if (err) res.send(err)
+        else res.redirect(req.get('referer'))
+    })
 })
 
 app.get("/requests", (req, res) => {

@@ -57,6 +57,7 @@
 
 p{
   font-size: 14px;
+  text-overflow: ellipsis
 }
 
 .flex-col {
