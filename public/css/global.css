@@ -142,3 +142,8 @@ input{
   line-height: 10px;
   border-color: gray;
 }
+
+#btn-profile:hover, #btn-logout:hover{
+  color: blue;
+  background-color: aliceblue;
+}
