@@ -4,7 +4,6 @@ const hbs = require("hbs")
 const urlencoder = bparser.urlencoded({
     extended: false
 })
-const fs = require("fs")
 const session = require("express-session")
 const cparser = require("cookie-parser");
 const app = express();
@@ -75,7 +74,19 @@ app.get("/article", (req, res) => {
 })
 
 app.post("/addArticle", urlencoder, (req, res) => {
-
+    let article = {
+        "title": req.body.title,
+        "timestamp": req.body.timestamp,
+        "author": req.body.author,
+        "imgBase64": req.body.imgBase64,
+        "imgFileType": req.body.imgFileType,
+        "content": req.body.content
+    }
+    console.log(article)
+    newsDB.Create(article, (err) => {
+        if (err) res.send(err);
+        else res.send("OK")
+    })
 })
 
 app.post("/updateArticle", urlencoder, (req, res) => {
@@ -112,15 +123,48 @@ app.get("/cat", (req, res) => {
     catDB.RetrieveOne(catId, (cat) => {
         res.render("catInfo.hbs", {
             cat: cat,
-            user: user
+            user: user,
+            edit: false,
         })
 
     })
 })
 
+app.get("/editCat", (req, res) => {
+    let user = null
+    if (req.session.username) {
+        user = {};
+        user.username = req.session.username;
+        user.admin = req.session.admin;
+        user.moderator = req.session.moderator;
+    }
+    let catId = req.query.id;
+    catDB.RetrieveOne(catId, (cat) => {
+        res.render("catInfo.hbs", {
+            cat: cat,
+            user: user,
+            edit: true,
+        })
+
+    })
+})
 
 app.post("/addCat", urlencoder, (req, res) => {
-
+    let cat = {
+        "age": req.body.age,
+        "complications": req.body.complications,
+        "adoption": req.body.adoption,
+        "furPattern": req.body.furPattern,
+        "gender": req.body.gender,
+        "location": req.body.location,
+        "medProcedures": req.body.medProcedures,
+        "name": req.body.name,
+        "notes": req.body.notes
+    }
+    catDB.Create(cat, (err) => {
+        if(err) res.send(err)
+        else res.send("OK")
+    })
 })
 
 app.post("/updateCat", urlencoder, (req, res) => {

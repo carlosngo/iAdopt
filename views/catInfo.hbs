@@ -95,19 +95,16 @@
                         
                         <b>Location:</b> 
                         {{!-- <span class="toggle-edit">{{> locationOption}}</span> --}}
-                        <select id="sexOptions" class="toggle-edit">
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
+                        <select id="locationOptions" class="toggle-edit">
+
+                            {{> locationOptions}}
                         </select>
                         <span class="toggle-show">{{location}}</span>
                         <br>
                         
                         <b>Fur Pattern: </b> 
                         {{!-- <span class="toggle-edit">{{> patternOption}}</span> --}}
-                        <select id="sexOptions" class="toggle-edit">
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                        </select>
+                        <select id="furPatternOptions" class="toggle-edit">{{> furPatternOptions}}</select>
                         <span class="toggle-show">{{furPattern}}</span>
                         <br>
 
@@ -163,6 +160,10 @@
         <form action="editCat" >
             <input type="hidden">
         </form>
-
+        {{#if edit}}
+            <input type="hidden" id="state" value="edit">
+        {{else}}
+            <input type="hidden" id="state" value="show">
+        {{/if}}
     </body>
 </html>
