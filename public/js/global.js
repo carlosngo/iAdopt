@@ -105,9 +105,6 @@ $(document).ready(() => {
                     $(".signUpErrorMessage").append("<label class='signUpError' style='color: red;'>Fields cannot be Empty</label>");
                 }
         }
-
-        
-       
     })
     $("#btn-logout").on('click', function() {
         $.ajax({

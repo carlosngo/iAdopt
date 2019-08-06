@@ -11,7 +11,7 @@
         <!-- Links -->
         <ul class="navbar-nav w-100">
             <li class="nav-item">
-                <a class="nav-link" href="/cats" style="font-size:18px;">Cats</a>
+                <a id="cat-nav-link" class="nav-link" href="/cats" style="font-size:18px;">Cats</a>
             </li>
             <li class="nav-item">
                 <!-- <a class="nav-link" style="font-size:18px;" id="myBtn">Upload</a> -->
@@ -22,7 +22,7 @@
         <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
             <li class="nav-item active">
                 <!-- <button class="btn" id="filterBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#logInModal">Log In</button> -->
-                <a class="nav-link active" data-toggle="modal" data-target="#loginModal" id="toggleLogIn">Log In</a>
+                <a class="nav-link active" data-toggle="modal" data-target="#loginModal" id="toggleLogIn">Log In / Register</a>
 
                 <!-- <a class="nav-link" href="logIn.html" style="font-size:18px;">Log In</a> -->
             </li>
@@ -75,7 +75,7 @@
                   </div>
                   <div class="modal-footer">
                     <div class=" form-check options mt-1">
-                      <p>Not a member? <a href="#" class="blue-text">Sign Up</a></p>
+                      <p>Not a member? <a role="tab" data-toggle="tab" href="#panel8" class="blue-text">Sign Up</a></p>
                       <p><input type="checkbox" class="rememberMe">    Remember Me for 1 month</p>
                     </div>
                     <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
@@ -115,7 +115,7 @@
                   </div>
                   <div class="modal-footer">
                     <div class="options text-right">
-                      <p class="pt-1">Already have an account? <a href="#" class="blue-text">Log In</a></p>
+                      <p class="pt-1">Already have an account? <a role="tab" data-toggle="tab" href="#panel7" class="blue-text">Log In</a></p>
                     </div>
                     <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
                   </div>
