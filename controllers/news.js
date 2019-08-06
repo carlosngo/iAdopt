@@ -1,4 +1,5 @@
 const newsDB = require("../models/news.js");
+const catDB = require("../models/cat.js")
 
 function RetrieveAll(req, res) {
     let user = null
@@ -11,13 +12,16 @@ function RetrieveAll(req, res) {
     newsDB.RetrieveAll((news) => {
         for (let article in news) {
             let content = news[article].content;
-            if (content.length > 250) {
-                news[article].content = news[article].content.substr(0, 250) + "..."
+            if (content.length > 150) {
+                news[article].content = news[article].content.substr(0, 150) + "..."
             }
         }
-        res.render("home.hbs", {
-            news: news,
-            user: user
+        catDB.RetrieveAll(null, (cats) => {
+            res.render("home.hbs", {
+                news: news,
+                cats: cats,
+                user: user
+            })
         })
     })
 }
