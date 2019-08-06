@@ -5,6 +5,11 @@ $(document).ready(() => {
         $("#article-id-form").submit()
     })
 
+    $(".viewCatCard").on('click', function() {
+        $("#cat-id").val($(this).attr('data-id'))
+        $("#cat-id-form").submit()
+    })
+    
     $("#btn-addArticle").on('click', function() {
         let title = $("#title-field").val();
         let content = $("#content-field").val();
