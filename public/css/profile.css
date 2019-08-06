@@ -7,19 +7,44 @@
     margin: 0px 20px 8px 0px;
 }
 
+.editInputField{
+    width: 690px;
+}
+
+.catAdoptedDiv{
+    font-size:18px;
+    display: flex; 
+    flex-direction: row; 
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.catImg{
+    margin: 10px 15px 10px 10px;
+    width: 70px; 
+    height: 70px;
+}
+
 .flex-item{
     display: flex;
 }
 
 .editPageBtnDiv{
+    margin: 10px;
     display: flex; 
-    flex-direction: row;
+    flex-direction: row-reverse;
+    align-content: center;
+}
+
+#editBtn{
+    display: flex; 
+    flex-direction: row-reverse;
+    /* align-content: center; */
 }
 
 .card{
-    /* width: 400px; */
     font-size:18px;
-    padding:10px; 
+    padding:20px; 
     border-radius: 50px; 
     display: flex; 
     flex-direction: column; 
@@ -27,58 +52,62 @@
 }
 
 #editBtn{
-    /* margin: 5px 0px 0px 400px; */
+    margin: 0px 15px 0px 15px;
     width: 50px;
 }
 
 .profileDiv{
+    /* padding: 15px; */
     padding: 10px;
     display: flex; 
 }
 
-  
-  .card {
-      text-align: left;
-  }
-  
-  .container-center {
+.editProfileDiv{
+    margin: 5px;
+}
+
+.card {
+    text-align: left;
+}
+
+.container-center {
     display: inline-block;
     width: 100%;
-  }
-  
-  .card-img {
-      width: 100%;
-      height:100%;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-  }
-  
-  
-  .section-header {
+}
+
+.card-img {
+    width: 100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+
+.section-header {
     color: rgb(21, 78, 36);
     font-weight: bold;
     text-align: center;
     padding-top: 20px;
     padding-bottom: 20px;
-  }
-  
-  #mainContent{
+}
+
+#mainContent{
     padding-top: 20px;
     padding-bottom: 20px;
     text-align: center;
     padding-left: 10%;
     padding-right: 10%;
-  }
-  
-  
-  .cardContainer{
+}
+
+/* 
+.cardContainer{
     padding: 5px 5px;
     cursor: pointer;
-  }
-  
-  .card-body{
+} */
+
+.card-body{
     padding: 20px 20px 10px 20px;
-  }
-  
-  
+}
+
+

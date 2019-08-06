@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">               
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <!-- <link rel="stylesheet" type="text/css" href="../css/home.css">    -->
     <link rel="stylesheet" type="text/css" href="../css/global.css">   
     <link rel="stylesheet" type="text/css" href="../css/profile.css">   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -57,65 +56,50 @@
        </div>
        <div class="container-center">  
            <div class="card toggle-show" style="border-radius: 10px;">
-               <div class="profileDiv flex-item toggle-show" >
-                   Email: {{user.email}}<br><br>
-                   Username: {{user.username}}<br><br>
-                   Password: {{user.password}}<br><br>
-               </div>
-               <div class="btn edit flex-item toggle-show" data-toggle="modal" data-target="#exampleModalCenter" id="editBtn">Edit</div>
+               <div class="editProfileDiv">Email: {{user.email}}</div>
+                <div class="editProfileDiv">Username: {{user.username}}</div>
+                <div class="editProfileDiv">Password: {{user.password}}</div><br>
+               <div class="btn toggle-show" data-toggle="modal" data-target="#exampleModalCenter" id="editBtn">Edit</div>
            </div>
            <div class="card toggle-edit" style="border-radius: 10px;">
-                <div class="profileDiv flex-item" >
-                    Email: <input type="text" placeholder="{{user.email}}"><br><br>
-                    Username: <input type="text" placeholder="{{user.username}}"><br><br>
-                    Password: <input type="password" placeholder="{{user.password}}"><br><br>
+                    <div class="editProfileDiv">Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input class="editInputField" type="text" placeholder="{{user.email}}" ></div> 
+                    <div class="editProfileDiv">Username: <input class="editInputField" type="text" placeholder="{{user.username}}" ></div>
+                    <div class="editProfileDiv">Password: &nbsp;<input class="editInputField" type="text" placeholder="{{user.password}}" ></div> <br>
+                    <div class="editPageBtnDiv">
+                        <div class="btn save flex-item" id="saveBtn">Save</div>
+                        <div class="flex-item" style="width: 5px;"></div>
+                        <div class="btn save flex-item" id="editCancelBtn">Cancel</div>
+                    </div>
                 </div>
-                <div class="editPageBtnDiv">
-                    <div class="btn save flex-item" id="editCancelBtn">Cancel</div>
-                    <div class="flex-item" style="width: 5px;"></div>
-                    <div class="btn save flex-item" id="saveBtn">Save</div>
-                </div>
-            </div>
-       </div>
-    <div class="headerDiv">
-        <h1 class="section-header flex-item" id="profileheader">Cats Adopted</h1>
-    </div>
-    <div class="container-center">  
-        <div class="card toggle-show" style="border-radius: 10px;">
-            <div class="profileDiv flex-item toggle-show" >
-                Email: {{user.email}}<br><br>
-                Username: {{user.username}}<br><br>
-                Password: {{user.password}}<br><br>
-            </div>
-            <div class="btn edit flex-item toggle-show" data-toggle="modal" data-target="#exampleModalCenter" id="editBtn">Edit</div>
         </div>
-        <div class="card toggle-edit" style="border-radius: 10px;">
-             <div class="profileDiv flex-item" >
-                 Email: <input type="text" placeholder="{{user.email}}"><br><br>
-                 Username: <input type="text" placeholder="{{user.username}}"><br><br>
-                 Password: <input type="password" placeholder="{{user.password}}"><br><br>
-             </div>
-             <div class="editPageBtnDiv">
-                 <div class="btn save flex-item" id="editCancelBtn">Cancel</div>
-                 <div class="flex-item" style="width: 5px;"></div>
-                 <div class="btn save flex-item" id="saveBtn">Save</div>
-             </div>
-         </div>
+
+        <br><br>
+        <div class="headerDiv">
+            <h1 class="section-header flex-item" id="profileheader">Cats Adopted</h1>
+        </div>
+        <div class="container-center">
+            <div class="card" style="border-radius: 10px;">  
+                <div class="catAdoptedDiv">
+                    <img src="../assets/images/geist.jpg" class="catImg flex-item">
+                    <span class="flex-item">Geist</span>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 <div class="modal-dialog modal-dialog-centered" role="document">
    <div class="modal-content">
    <div class="modal-header">
-       <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+       <h5 class="modal-title" id="exampleModalLongTitle">Password Confirmation</h5>
        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
        <span aria-hidden="true">&times;</span>
        </button>
    </div>
    <div class="modal-body">
-       <br>Enter password to continue<br>
+       Enter password to continue.<br><br>
        Password: <input type="password"><br>
    </div>
    <div class="modal-footer">
@@ -125,7 +109,7 @@
    </div>
 </div>
 </div>
-<form action="editCat" >
+<form action="editProfile" >
     <input type="hidden">
 </form>
 <!-- {{#if edit}}
