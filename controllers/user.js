@@ -1,4 +1,5 @@
 const userDB = require("../models/user.js");
+const crypto = require("crypto-js");
 
 function authenticate(req, res) {
     let un = req.body.un;
@@ -7,7 +8,8 @@ function authenticate(req, res) {
     console.log(pw)
     userDB.RetrieveOne(un, (user) => {
         console.log(user)
-        if (user && user.password === pw) {
+        let hash = crypto.AES.decrypt(user.password, user.username);
+        if (user && hash === pw) {
             req.session.username = un;
             req.session.admin = user.admin;
             req.session.moderator = user.moderator;
