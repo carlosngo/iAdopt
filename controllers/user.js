@@ -8,8 +8,10 @@ function authenticate(req, res) {
     console.log(pw)
     userDB.RetrieveOne(un, (user) => {
         console.log(user)
-        let hash = crypto.AES.decrypt(user.password, user.username);
-        if (user && hash === pw) {
+        let dehash = crypto.AES.decrypt(user.password, un).toString(crypto.enc.Utf8);
+console.log("Login: " + un + user.password + user.email);
+
+        if (user && dehash === pw) {
             req.session.username = un;
             req.session.admin = user.admin;
             req.session.moderator = user.moderator;
@@ -67,6 +69,7 @@ function Create(req, res) {
             user.email = email;
             user.admin = false;
             user.moderator = false;
+            console.log("Hi I am here" + user.username + user.password + user.email);
             userDB.Create(user, (err) => {
                 if (err) {
                     console.log(err);

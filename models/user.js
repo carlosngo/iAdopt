@@ -5,8 +5,8 @@ const database = db.database;
 
 function Create(user, callback) {
     let id = database.ref('users/').push().key;
-    let hash = crypto.AES.encrypt(user.password, user.username);
-    //console.log("Regular Password: " + user.password + "|Encrypted Password: " + hash);
+    let hash = crypto.AES.encrypt(user.password, user.username).toString();
+    console.log("Regular Password: " + user.password + "|Encrypted Password: " + hash);
     database.ref('users/' + user.username).set({
         "email": user.email,
         "password": hash,
@@ -20,8 +20,7 @@ function Create(user, callback) {
 function RetrieveOne(username, callback) {
     database.ref('users/' + username).once('value').then(function(snapshot) {
         callback(snapshot.val())
-        // console.log(snapshot.val().password);
-    });
+    })
 }
 
 function RetrieveAll(callback) {
