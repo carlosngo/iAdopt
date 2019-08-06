@@ -157,6 +157,18 @@ p{
   justify-content: center;
 }
 
+#add-article-controls {
+  position: relative;
+  width: 100%;
+}
+
+#btn-addArticle {
+  position: absolute;
+  right: 0px;
+}
+
+
+
 /* .shadow-textarea .form-control::placeholder {
   font-weight: 300;
 }
