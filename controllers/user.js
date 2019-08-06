@@ -44,7 +44,7 @@ function RetrieveAll(req, res) {
 
 function RetrieveOne(req, res) {
     userDB.RetrieveOne(req.session.username, (user) => {
-        res.render("profilePage.hbs", {
+        res.render("profile.hbs", {
             user: user
         })
     })

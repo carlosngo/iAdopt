@@ -115,4 +115,8 @@ $(document).ready(() => {
             }
         })
     })
+
+    $("#btn-profile").on('click', function() {
+        $("#username-form").submit();
+    })
 })

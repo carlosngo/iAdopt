@@ -4,4 +4,8 @@ $(document).ready(() => {
         $("#cat-id").val($(this).attr('data-id'))
         $("#cat-id-form").submit()
     })
+    $("#locationOptions").val($("#location").val())
+    $("#ageOptions").val($("#age").val())
+    $("#sexOptions").val($("#gender").val())
+    $("#furPatternOptions").val($("#furPattern").val())
 })
