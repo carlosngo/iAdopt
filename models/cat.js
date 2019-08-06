@@ -26,7 +26,33 @@ function RetrieveOne(catId, callback) {
 
 function RetrieveAll(filters, callback) {
     database.ref('cats').once('value').then(function(snapshot) {
-        callback(snapshot.val());
+        let cats = snapshot.val();
+        let results = {};
+        for (let cat in cats) {
+            let saks = true;
+            if (filters.location) {
+                if (cats[cat].location != filters.location) saks = false;
+            }
+            if (filters.gender && saks) {
+                if (cats[cat].gender != filters.gender) saks = false;
+            }
+            if (filters.furPattern && saks) {
+                if (cats[cat].furPattern != filters.furPattern) saks = false;
+            }
+            if (filters.name && saks) {
+                if (cats[cat].name.toLowerCase().includes(filters.name.toLowerCase())) saks = false;
+            }
+            if (filters.adoption && saks) {
+                if (cats[cat].adoption != filters.adoption) saks = false;
+            }
+            if (filters.age && saks) {
+                if (cats[cat].age != filters.age) saks = false;
+            }
+            if (saks) {
+                results[cat] = cats[cat];
+            }
+        }
+        callback(results);
     })
 }
 
