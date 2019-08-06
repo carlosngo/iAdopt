@@ -83,7 +83,21 @@ function Create(req, res) {
 }
 
 function Update(req, res) {
-
+    let cat = {
+        "age": req.body.age,
+        "complications": req.body.complications,
+        "adoption": req.body.adoption,
+        "furPattern": req.body.furPattern,
+        "gender": req.body.gender,
+        "location": req.body.location,
+        "medProcedures": req.body.medProcedures,
+        "name": req.body.name,
+        "notes": req.body.notes
+    }
+    catDB.Update(req.body.id, cat, (err) => {
+        if(err) res.send(err)
+        else res.redirect(req.get('referer'));
+    })
 }
 
 function Delete(req, res) {

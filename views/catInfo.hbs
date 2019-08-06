@@ -71,59 +71,62 @@
             </div>
             <div class="col-md-6" id="right-pane">
                 <h3>Hi, my name is:</h3>
+                <form action="/updateCat" method="POST">
                 {{#with cat}}
-                    <h1><b>
-                        <input type="text" class="toggle-edit" value="{{name}}!">
-                        <span class="toggle-show">{{name}}!</span>
-                    </b></h1>
-                    <h5>
-                        <b>Age:</b> 
-                        <select id="ageOptions" class="toggle-edit">
-                            <option>Kitten</option>
-                            <option>Adult</option>
-                        </select>
-                        <span id="age" class="toggle-show">{{age}}</span>
-                        <br>
-                        
-                        <b>Sex:</b> 
-                        <select id="sexOptions" class="toggle-edit">
-                            <option>Male</option>
-                            <option>Female</option>
-                        </select>
-                        <span id="gender" class="toggle-show">{{gender}}</span>
-                        <br>
-                        
-                        <b>Location:</b> 
-                        {{!-- <span class="toggle-edit">{{> locationOption}}</span> --}}
-                        <select id="locationOptions" class="toggle-edit">
+                        <h1><b>
+                            <input name="name" type="text" class="toggle-edit" value="{{name}}!">
+                            <span class="toggle-show">{{name}}!</span>
+                        </b></h1>
+                        <h5>
+                            <b>Age:</b> 
+                            <select name="age" id="ageOptions" class="toggle-edit">
+                                <option>Kitten</option>
+                                <option>Adult</option>
+                            </select>
+                            <span id="age" class="toggle-show">{{age}}</span>
+                            <br>
+                            
+                            <b>Sex:</b> 
+                            <select name="gender" id="sexOptions" class="toggle-edit">
+                                <option>Male</option>
+                                <option>Female</option>
+                            </select>
+                            <span id="gender" class="toggle-show">{{gender}}</span>
+                            <br>
+                            
+                            <b>Location:</b> 
+                            {{!-- <span class="toggle-edit">{{> locationOption}}</span> --}}
+                            <select name="location" id="locationOptions" class="toggle-edit">
 
-                            {{> locationOptions}}
-                        </select>
-                        <span id="location" class="toggle-show">{{location}}</span>
-                        <br>
-                        
-                        <b>Fur Pattern: </b> 
-                        {{!-- <span class="toggle-edit">{{> patternOption}}</span> --}}
-                        <select id="furPatternOptions" class="toggle-edit">{{> furPatternOptions}}</select>
-                        <span id="furPattern" class="toggle-show">{{furPattern}}</span>
-                        <br>
+                                {{> locationOptions}}
+                            </select>
+                            <span id="location" class="toggle-show">{{location}}</span>
+                            <br>
+                            
+                            <b>Fur Pattern: </b> 
+                            {{!-- <span class="toggle-edit">{{> patternOption}}</span> --}}
+                            <select name="furPattern" id="furPatternOptions" class="toggle-edit">{{> furPatternOptions}}</select>
+                            <span id="furPattern" class="toggle-show">{{furPattern}}</span>
+                            <br>
 
-                        <b>Medical Procedures Undertaken: </b> 
-                        <input type="text" class="toggle-edit" value="{{medProcedures}}"> 
-                        <span class="toggle-show">{{medProcedures}}</span>
-                        <br>
+                            <b>Medical Procedures Undertaken: </b> 
+                            <input name="medProcedures" type="text" class="toggle-edit" value="{{medProcedures}}"> 
+                            <span class="toggle-show">{{medProcedures}}</span>
+                            <br>
 
 
-                        <b>Complications:</b> 
-                        <input type="text" class="toggle-edit" value="{{complications}}">
-                        <span class="toggle-show">{{complications}}</span>
-                        <br>
+                            <b>Complications:</b> 
+                            <input name="complications" type="text" class="toggle-edit" value="{{complications}}">
+                            <span class="toggle-show">{{complications}}</span>
+                            <br>
 
-                        <b>Other notes: </b>
-                        <input type="text" class="toggle-edit" value="{{notes}}"> 
-                        <span class="toggle-show">{{notes}}</span>
-                        <br>
-                    </h5>
+                            <b>Other notes: </b>
+                            <input name="notes" type="text" class="toggle-edit" value="{{notes}}"> 
+                            <span class="toggle-show">{{notes}}</span>
+                            <br>
+                        </h5>
+                        <input type="hidden" name="adoption" value="{{adoption}}">
+                        <input type="hidden" name="id" value="{{@key}}"
                 {{/with}}
                {{#if user}}
                     {{#if user.admin}}
@@ -139,7 +142,7 @@
                             <button class="btn-light toggle-edit" id="btn-cancel-edit">
                                 Cancel
                             </button>
-                            <button class="btn toggle-edit">
+                            <button type="submit" class="btn toggle-edit">
                                 Save Changes
                             </button>
                         </div>
@@ -153,7 +156,7 @@
                 {{/if}}
 
                 
-
+                </form>
             </div>
         </div>
         {{> footer}}
