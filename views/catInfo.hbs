@@ -74,7 +74,7 @@
                 <form action="/updateCat" method="POST">
                 {{#with cat}}
                         <h1><b>
-                            <input name="name" type="text" class="toggle-edit" value="{{name}}!">
+                            <input name="name" type="text" class="toggle-edit" value="{{name}}">
                             <span class="toggle-show">{{name}}!</span>
                         </b></h1>
                         <h5>
@@ -126,7 +126,7 @@
                             <br>
                         </h5>
                         <input type="hidden" name="adoption" value="{{adoption}}">
-                        <input type="hidden" name="id" value="{{@key}}"
+                        <input type="hidden" name="id" value="{{../id}}">
                 {{/with}}
                {{#if user}}
                     {{#if user.admin}}
@@ -135,11 +135,11 @@
                                 Remove Cat
                             </button> --}}
                             <div style="width: 5px;"></div>
-                            <button class="btn toggle-show" id="btn-edit-cat">
+                            <button type="button" class="btn toggle-show" id="btn-edit-cat">
                             {{!-- <button class="btn" data-toggle="modal" data-target="#exampleModalCenter"> --}}
                                 Edit Info
                             </button>
-                            <button class="btn-light toggle-edit" id="btn-cancel-edit">
+                            <button type="button" class="btn-light toggle-edit" id="btn-cancel-edit">
                                 Cancel
                             </button>
                             <button type="submit" class="btn toggle-edit">
@@ -148,7 +148,7 @@
                         </div>
                     {{else}}
                         <div id="adopt-btn-container">
-                            <button class="btn">
+                            <button type="button" class="btn">
                                 <img src="../assets/images/red-heart.png" width="30px" height="30px"> Adopt Me!
                             </button>
                         </div>
