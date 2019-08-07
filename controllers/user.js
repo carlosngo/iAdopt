@@ -8,9 +8,7 @@ function authenticate(req, res) {
     console.log(pw)
     userDB.RetrieveOne(un, (user) => {
         console.log(user)
-
-
-        if (user && user.password === pw) {
+         if (user && user.password === pw) {
             req.session.username = un;
             req.session.admin = user.admin;
             req.session.moderator = user.moderator;
