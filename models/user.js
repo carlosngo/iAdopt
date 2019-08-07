@@ -19,7 +19,10 @@ function Create(user, callback) {
 
 function RetrieveOne(username, callback) {
     database.ref('users/' + username).once('value').then(function(snapshot) {
-        callback(snapshot.val())
+        let user = snapshot.val();
+        user.username = username;
+        user.password = crypto.AES.decrypt(user.password, username).toString(crypto.enc.Utf8);
+        callback(user)
     })
 }
 

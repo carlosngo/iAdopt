@@ -56,6 +56,7 @@ function RetrieveOne(req, res) {
     let catId = req.query.id;
     catDB.RetrieveOne(catId, (cat) => {
         res.render("catInfo.hbs", {
+            id: catId,
             cat: cat,
             user: user,
             edit: false,
@@ -94,6 +95,8 @@ function Update(req, res) {
         "name": req.body.name,
         "notes": req.body.notes
     }
+    console.log('req.body.id = ')
+    console.log(req.body.id)
     catDB.Update(req.body.id, cat, (err) => {
         if(err) res.send(err)
         else res.redirect(req.get('referer'));

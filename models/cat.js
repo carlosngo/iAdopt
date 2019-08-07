@@ -6,7 +6,7 @@ function Create(cat, callback) {
     database.ref('cats/' + id).set({
         "age": cat.age,
         "complications": cat.complications,
-        "adoption": cat.adoption,
+        "adoption": cat.adoption ? cat.adoption : false,
         "furPattern": cat.furPattern,
         "gender": cat.gender,
         "location": cat.location,

@@ -8,10 +8,7 @@ function authenticate(req, res) {
     console.log(pw)
     userDB.RetrieveOne(un, (user) => {
         console.log(user)
-        let dehash = crypto.AES.decrypt(user.password, un).toString(crypto.enc.Utf8);
-console.log("Login: " + un + user.password + user.email);
-
-        if (user && dehash === pw) {
+         if (user && user.password === pw) {
             req.session.username = un;
             req.session.admin = user.admin;
             req.session.moderator = user.moderator;
