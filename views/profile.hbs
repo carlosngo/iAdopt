@@ -36,14 +36,16 @@
            <div class="card toggle-show" style="border-radius: 10px;">
                <div class="editProfileDiv">Email: {{user.email}}</div>
                 <div class="editProfileDiv">Username: {{user.username}}</div>
-                <div class="editProfileDiv">Password: {{user.password}}</div><br>
+                <div class="editProfileDiv">
+                    Password: <input type="password" class="label-field" value="{{user.password}}" disabled>
+                </div> <br>
                <div class="btn toggle-show" data-toggle="modal" data-target="#exampleModalCenter" id="editBtn">Edit</div>
            </div>
            <div class="card toggle-edit" style="border-radius: 10px;">
                     <div class="editProfileDiv">Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input class="editInputField" type="text" placeholder="{{user.email}}" ></div> 
-                    <div class="editProfileDiv">Username: <input class="editInputField" type="text" placeholder="{{user.username}}" ></div>
-                    <div class="editProfileDiv">Password: &nbsp;<input class="editInputField" type="text" placeholder="{{user.password}}" ></div> <br>
+                    <input class="editInputField" type="text" value="{{user.email}}" ></div> 
+                    <div class="editProfileDiv">Username: <input class="editInputField" type="text" value="{{user.username}}" ></div>
+                    <div class="editProfileDiv">Password: &nbsp;<input class="editInputField" type="password" value="{{user.password}}" ></div> <br>
                     <div class="editPageBtnDiv">
                         <div class="btn save flex-item" id="saveBtn">Save</div>
                         <div class="flex-item" style="width: 5px;"></div>
