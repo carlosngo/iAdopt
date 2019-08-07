@@ -14,7 +14,7 @@ $(document).ready(() => {
     })
 
     $("#editCancelBtn").on('click', function() {
-        $("#profileheader").val("Profile");
+        $("#profileheader").text("Profile");
         $(".toggle-show").show();
         $(".toggle-edit").hide();
     })
@@ -23,7 +23,7 @@ $(document).ready(() => {
         /*
             somethings should be here
         */
-        $("#profileheader").val("Profile");
+        $("#profileheader").text("Profile");
         $(".toggle-show").show();
         $(".toggle-edit").hide();
     })
