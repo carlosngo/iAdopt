@@ -61,12 +61,16 @@
         </div>
         <div class="container-center">
             <div class="card" style="border-radius: 10px;">  
-                {{#each cat}}
-                    <div class="catAdoptedDiv">
-                        <img src="{{picture}}" class="catImg flex-item">
-                        <span class="flex-item">{{name}}</span>
-                    </div>
-                {{/each}}
+                {{#if cat}}
+                    {{#each cat}}
+                        <div class="catAdoptedDiv">
+                            <img src="{{picture}}" class="catImg flex-item">
+                            <span class="flex-item">{{name}}</span>
+                        </div>
+                    {{/each}}
+                {{else}}
+                    <div class="catAdoptedDiv">You have not yet adopted any cats from DLSU.</div>
+                {{/if}}
             </div>
         </div>
     </div>
