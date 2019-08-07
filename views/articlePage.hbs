@@ -69,7 +69,7 @@
                 <!--/.Carousel Wrapper-->
                                         
             </div>
-            <div class="col-md-6" id="right-pane">
+            <div class="col-md-6 toggle-show" id="right-pane">
                 {{#with article}}
                     <h3>{{title}}</h3>
                     <span>{{timestamp}}</span><br>
@@ -92,8 +92,31 @@
                             Delete Article
                         </button>
                         <div style="width: 5px;"></div>
-                        <button class="btn">
+                        <button class="btn" id="editBtn">
                             Edit Article
+                        </button>
+                    </div>
+                {{/if}} {{/if}}
+                
+            </div>
+            <div class="col-md-6 toggle-edit" id="right-pane">
+                {{#with article}}
+                    <h3><input type="text" placeholder="{{title}}"></h3>
+                    <span>{{timestamp}}</span><br>
+                    <span>{{author}}</span><br><br>
+                    <!-- <h1><b>Piper!</b></h1> -->
+                    <h5>
+                        <input type="text" placeholder="{{breaklines content}}" id="articleContent">
+                    </h5>
+                {{/with}}
+                {{#if user}} {{#if user.admin}}
+                    <div id="adopt-btn-container">
+                        <button class="btn" id="editCancelBtn">
+                            Cancel
+                        </button>
+                        <div style="width: 5px;"></div>
+                        <button class="btn" id="saveBtn">
+                            Save
                         </button>
                     </div>
                 {{/if}} {{/if}}
