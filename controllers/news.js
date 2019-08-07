@@ -60,11 +60,28 @@ function Create(req, res) {
 }
 
 function Update(req, res) {
-
+    let article = {
+        "title": req.body.title,
+        "timestamp": req.body.timestamp,
+        "author": req.body.author,
+        "imgBase64": req.body.imgBase64,
+        "imgFileType": req.body.imgFileType,
+        "content": req.body.content
+    }
+    console.log('req.body.id = ')
+    console.log(req.body.id)
+    newsDB.Update(req.body.id, article, (err) => {
+        if(err) res.send(err)
+        else res.redirect(req.get('referer'));
+    })
 }
 
 function Delete(req, res) {
-    
+    let articleId = req.body.id;
+    newsDB.Delete(articleId, (err) => {
+        if (err) res.send(err)
+        else res.redirect(req.get('referer'))
+    })
 }
 
 module.exports = {
