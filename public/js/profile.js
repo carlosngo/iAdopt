@@ -8,6 +8,7 @@ $(document).ready(() => {
     })
     $("#contEdit").on('click', function() {
         // $(".label-field").attr('class', 'editable-field');
+        $("#pwConfirmationField").val("");
         $("#profileheader").text("Edit Profile");
         $(".toggle-show").hide();
         $(".toggle-edit").show();
@@ -20,10 +21,13 @@ $(document).ready(() => {
     })
 
     $("#saveBtn").on('click', function() {
-        /*
-            somethings should be here
-        */
         $("#profileheader").text("Profile");
+        $(".toggle-show").show();
+        $(".toggle-edit").hide();
+    })
+
+    $("#pwConfirmationCancel").on('click', function() {
+        $("#pwConfirmationField").val("");
         $(".toggle-show").show();
         $(".toggle-edit").hide();
     })

@@ -42,7 +42,7 @@
                <div class="btn toggle-show" data-toggle="modal" data-target="#exampleModalCenter" id="editBtn">Edit</div>
            </div>
            <div class="card toggle-edit" style="border-radius: 10px;">
-                    <div class="editProfileDiv">Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="editProfileDiv">Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input class="editInputField" type="text" value="{{user.email}}" ></div> 
                     <div class="editProfileDiv">Username: <input class="editInputField" type="text" value="{{user.username}}" ></div>
                     <div class="editProfileDiv">Password: &nbsp;<input class="editInputField" type="password" value="{{user.password}}" ></div> <br>
@@ -82,10 +82,10 @@
    </div>
    <div class="modal-body">
        Enter password to continue.<br><br>
-       Password: <input type="password"><br>
+       Password: <input type="password" id="pwConfirmationField"><br>
    </div>
    <div class="modal-footer">
-       <button type="button" class="btn" data-dismiss="modal">Cancel</button>
+       <button type="button" class="btn" data-dismiss="modal" id="pwConfirmationCancel">Cancel</button>
        <button type="button" class="btn" data-dismiss="modal" id="contEdit">Continue</button>
    </div>
    </div>
