@@ -126,7 +126,7 @@
                             <br>
                         </h5>
                         <input type="hidden" name="adoption" value="{{adoption}}">
-                        <input type="hidden" name="id" value="{{../id}}">
+                        <input type="hidden" id="cat-id" name="id" value="{{../id}}">
                 {{/with}}
                {{#if user}}
                     {{#if user.admin}}
@@ -148,9 +148,27 @@
                         </div>
                     {{else}}
                         <div id="adopt-btn-container">
-                            <button type="button" class="btn">
-                                <img src="../assets/images/red-heart.png" width="30px" height="30px"> Adopt Me!
-                            </button>
+                            {{#if request}}
+                                {{#if request.completed}}
+                                    <button disabled>
+                                        Request Processed
+                                    </button>
+                                {{else}}
+                                    <form action="/deleteRequest" method="POST">
+                                        <input type="hidden" name="id" value="{{request.id}}">
+                                        <button type="submit" class="btn">
+                                            Cancel Request
+                                        </button>
+                                    </form>
+                                {{/if}}
+
+                            {{else}}
+                                <button id="btn-adopt" type="button" class="btn">
+                                    <img src="../assets/images/red-heart.png" width="30px" height="30px"> Adopt Me!
+                                </button>
+                            {{/if}}
+                            
+
                         </div>
                     {{/if}}
                 {{/if}}
@@ -160,13 +178,5 @@
             </div>
         </div>
         {{> footer}}
-        <form action="editCat" >
-            <input type="hidden">
-        </form>
-        {{#if edit}}
-            <input type="hidden" id="state" value="edit">
-        {{else}}
-            <input type="hidden" id="state" value="show">
-        {{/if}}
     </body>
 </html>

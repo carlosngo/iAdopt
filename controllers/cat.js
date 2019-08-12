@@ -1,5 +1,5 @@
 const catDB = require("../models/cat.js");
-
+const requestDB = require("../models/request.js")
 function Edit(req, res) {
     let user = null
     if (req.session.username) {
@@ -55,12 +55,25 @@ function RetrieveOne(req, res) {
     }
     let catId = req.query.id;
     catDB.RetrieveOne(catId, (cat) => {
-        res.render("catInfo.hbs", {
-            id: catId,
-            cat: cat,
-            user: user,
-            edit: false,
-        })
+        if (user) {
+            requestDB.RetrieveOne(user.username, catId, (request) => {
+                res.render("cat.hbs", {
+                    id: catId,
+                    cat: cat,
+                    user: user,
+                    edit: false,
+                    request: request
+                })
+            })
+        } else {
+            res.render("cat.hbs", {
+                id: catId,
+                cat: cat,
+                user: user,
+                edit: false,
+                request: null
+            })
+        }
 
     })
 }

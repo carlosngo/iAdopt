@@ -14,15 +14,16 @@ $(document).ready(() => {
         let title = $("#title-field").val();
         let content = $("#content-field").val();
         let files = document.getElementById('image-file').files
-        alert(files);
+        let now = new Date();
+        let minutes = now.getMinutes();
+        if (minutes < 10) minutes = "0" + minutes;
+        let timestamp = months[now.getMonth()] + " " + now.getDate() + " at " + now.getHours() + ":" + minutes
+        let author = $("#username").text()
         if (files && files[0]) {
             let file = files[0]
             var reader = new FileReader();
             reader.onloadend = function() {
                 // $("#add-article-image").attr('src', reader.result)
-                var now = new Date();
-                var timestamp = months[now.getMonth()] + " " + now.getDate() + " at " + now.getHours() + ":" + now.getMinutes()
-                let author = $("#username").text()
                 $.ajax({
                     url: "addArticle",
                     method: "POST",
@@ -49,7 +50,26 @@ $(document).ready(() => {
             };
             reader.readAsDataURL(file);
         } else {
-
+            $.ajax({
+                url: "addArticle",
+                method: "POST",
+                data: {
+                    title,
+                    content,
+                    author,
+                    timestamp,
+                    imgBase64: null,
+                    imgFileType: null
+                },
+                success: function(result) {
+                    console.log(result);
+                    if (result === "OK") {
+                        document.location.reload();
+                    } else {
+                    }
+    
+                }                    
+            })
         }
         
     })

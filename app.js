@@ -24,12 +24,6 @@ hbs.registerPartials(__dirname + "/views/partials", () => {
     console.log("Partials have successfully loaded.")
 })
 
-hbs.registerHelper('breaklines', function(text) {
-    text = hbs.Utils.escapeExpression(text);
-    text = text.replace(/(\r\n|\n|\r)/gm, '<br>');
-    return new hbs.SafeString(text);
-});
-
 app.set('view engine', 'hbs')
 
 app.use(express.static(__dirname + "/public"));
@@ -61,8 +55,9 @@ app.post("/updateCat", urlencoder, catController.Update)
 app.post("/deleteCat", urlencoder, catController.Delete)
 
 app.get("/requests", requestController.RetrieveAll)
-app.post("/addRequest", urlencoder, requestController.Create)
-app.post("/cancelRequest", urlencoder, requestController.Delete)
+app.post("/adopt", urlencoder, requestController.Create)
+app.post("/completeRequest", urlencoder, requestController.Complete)
+app.post("/deleteRequest", urlencoder, requestController.Delete)
 
 app.get("/users", userController.RetrieveAll)
 app.get("/profile", userController.RetrieveOne)
@@ -70,6 +65,7 @@ app.post("/login", urlencoder, userController.authenticate)
 app.post("/signup", urlencoder, userController.Create)
 app.post("/logout", urlencoder, userController.logout)
 app.post("/updateUser", urlencoder, userController.Update)
+app.post("/toggleModerator", urlencoder, userController.toggleModerator)
 
 app.listen(3000, function() {
     console.log("live at port 3000");

@@ -8,10 +8,7 @@
     color: rgb(21, 78, 36);
     font-weight: bold;
     text-align: center;
-    padding-left: 10%;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    margin: 0px 20px 8px 0px;
+    margin-top: 20px;
 }
   
 
@@ -57,4 +54,12 @@
     padding: 5px; 
     width:30px; 
     height:30px;
+}
+
+.tableContainer {
+    text-align: center;
+}
+
+td, th {
+    padding: 10px;
 }

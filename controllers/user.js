@@ -4,11 +4,9 @@ const crypto = require("crypto-js");
 function authenticate(req, res) {
     let un = req.body.un;
     let pw = req.body.pw;
-    console.log(un)
-    console.log(pw)
     userDB.RetrieveOne(un, (user) => {
         console.log(user)
-         if (user && user.password === pw) {
+        if (user && user.password === pw) {
             req.session.username = un;
             req.session.admin = user.admin;
             req.session.moderator = user.moderator;
@@ -91,9 +89,18 @@ function Delete(req, res) {
     
 }
 
+function toggleModerator(req, res) {
+    let username = req.body.username;
+    userDB.toggleModerator(username, (err) => {
+        if (err) res.send(err);
+        else res.redirect(req.get('referer'));
+    })
+}
+
 module.exports = {
     authenticate,
     logout,
+    toggleModerator,
     Create,
     RetrieveAll,
     RetrieveOne,

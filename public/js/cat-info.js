@@ -23,4 +23,24 @@ $(document).ready(() => {
         $(".toggle-show").show();
         $(".toggle-edit").hide();
     })
+
+    $("#btn-adopt").on('click', function() {
+        let username = $("#username").text()
+        let catId = $("#cat-id").val();
+        $.ajax({
+            url: "adopt",
+            method: "POST",
+            data: {
+                username,
+                catId
+            },
+            success: function(result) {
+                if (result === "OK") {
+                    document.location.reload();
+                } else {
+                }
+            }
+        })
+    })
+
 })

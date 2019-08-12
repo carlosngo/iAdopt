@@ -20,9 +20,14 @@ function Create(user, callback) {
 function RetrieveOne(username, callback) {
     database.ref('users/' + username).once('value').then(function(snapshot) {
         let user = snapshot.val();
-        user.username = username;
-        user.password = crypto.AES.decrypt(user.password, username).toString(crypto.enc.Utf8);
-        callback(user)
+        console.log(user);
+        if (user) {
+            user.username = username;
+            user.password = crypto.AES.decrypt(user.password, username).toString(crypto.enc.Utf8);
+            callback(user)
+        } else {
+            callback(null)
+        }
     })
 }
 
@@ -46,7 +51,19 @@ function Delete(username, callback) {
     })
 }
 
+function toggleModerator(username, callback) {
+    database.ref('users/' + username).once('value').then(function(snapshot) {
+        let user = snapshot.val();
+        let updates = {};
+        updates['/users/' + username + '/moderator'] = !user.moderator
+        database.ref().update(updates, (err) => {
+            callback(err);
+        })
+    })
+}
+
 module.exports = {
+    toggleModerator,
     Create,
     RetrieveOne,
     RetrieveAll,

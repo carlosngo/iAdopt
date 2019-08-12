@@ -27,7 +27,7 @@
         {{> nav}}
     {{/if}}
      <div id="mainContent">
-             <div class="headerDiv">
+             {{!-- <div class="headerDiv">
                 <h1 class="section-header flex-item">Requests</h1>
                 <div class="flex-item" id="sortOptions">
                     Sort By: &nbsp;
@@ -36,9 +36,56 @@
                         <option val="isCompleted">Completion Status</option>
                     </select>
                 </div>
-            </div>
-            <div class="container-center">                
-                {{#each request}}
+            </div> --}}
+
+            <div class="tableContainer"> 
+                <h1 class="section-header">Pending Requests</h1>
+                
+                {{#if requests.pending}}
+                <table align="center">
+                    <tr>
+                        <th>Interested User</th>
+                        <th>Name of Cat</th> 
+                        <th>Timestamp</th> 
+                        <th>Actions</th>
+                    </tr>
+                    {{#each requests.pending}}
+                        <tr>
+                            <td>{{user}}</td>
+                            <td>{{cat.name}}</td>
+                            <td>{{timestamp}}</td>
+                            <td>
+                                <form action="/completeRequest" method="POST">
+                                    <input type="hidden" name="id" value="{{@key}}">
+                                    <input type="submit" class="btn" value="Complete">
+                                </form>
+                            </td>
+                        </tr>
+                    {{/each}}
+                </table>      
+                {{else}}
+                    <h5 class="section-header">No pending requests</h5>
+                {{/if}}      
+                <h2 class="section-header">Completed Requests</h2>
+                {{#if requests.completed}}
+                <table align="center">
+                    <tr>
+                        <th>Interested User</th>
+                        <th>Name of Cat</th> 
+                        <th>Timestamp</th> 
+                    </tr>
+                    {{#each requests.completed}}
+                        <tr>
+                            <td>{{user}}</td>
+                            <td>{{cat.name}}</td>
+                            <td>{{timestamp}}</td>
+                        </tr>
+                    {{/each}}
+                </table>           
+                {{else}}
+                    <h5 class="section-header">No requests completed</h5>
+                {{/if}}      
+                {{!-- {{#each requests}}
                     <div class="card" style="border-radius: 50px;">
                         <div class="card" >
                             <div class="checkBoxDiv">
@@ -48,7 +95,7 @@
                             <div class="btn delete">X</div>
                         </div>
                     </div>
-                {{/each}}
+                {{/each}} --}}
             </div>
         </div>
     

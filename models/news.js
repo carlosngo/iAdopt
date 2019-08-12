@@ -55,7 +55,8 @@ function RetrieveAll(callback) {
 
 function Update(postId, newData, callback) {
     var updates = {};
-    updates['/news/' + postId] = newData;
+    updates['/news/' + postId + "/title"] = newData.title;
+    updates['/news/' + postId + "/content"] = newData.content;
     database.ref().update(updates, (err) => {
         callback(err);
     })
