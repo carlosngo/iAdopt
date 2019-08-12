@@ -43,4 +43,21 @@ $(document).ready(() => {
         })
     })
 
+    $("#btn-cancel-request").on('click', function() {
+        let requestId = $("#requestId").val()
+        $.ajax({
+            url: "deleteRequest",
+            method: "POST",
+            data: {
+                id: requestId
+            },
+            success: function(result) {
+                if (result === "OK") {
+                    document.location.reload();
+                } else {
+                }
+
+            }
+        })
+    })
 })

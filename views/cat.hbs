@@ -154,12 +154,8 @@
                                         Request Processed
                                     </button>
                                 {{else}}
-                                    <form action="/deleteRequest" method="POST">
-                                        <input type="hidden" name="id" value="{{request.id}}">
-                                        <button type="submit" class="btn">
-                                            Cancel Request
-                                        </button>
-                                    </form>
+                                    <input type="hidden" id="requestId" value="{{request.id}}">
+                                    <input type="button" id="btn-cancel-request" class="btn" value="Cancel Request">
                                 {{/if}}
 
                             {{else}}

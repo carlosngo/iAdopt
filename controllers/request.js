@@ -67,15 +67,16 @@ function Create(req, res) {
     }
     requestDB.Create(request, (err) => {
         if (err) res.send(err)
-        else res.redirect(req.get('referer'));
+        else res.send("OK")
     })
 }
 
 function Delete(req, res) {
     let requestId = req.body.id;
+    console.log("deleting cat " + requestId)
     requestDB.Delete(requestId, (err) => {
         if (err) res.send(err)
-        else res.redirect(req.get('referer'));
+        else res.send("OK");
     })
 }
 
