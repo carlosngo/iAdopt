@@ -1,9 +1,6 @@
 const express = require("express")
 const bparser = require("body-parser")
 const hbs = require("hbs")
-const urlencoder = bparser.urlencoded({
-    extended: false
-})
 const session = require("express-session")
 const cparser = require("cookie-parser");
 const app = express();
@@ -40,32 +37,35 @@ app.use(session({
 
 app.use(cparser())
 
+app.use(bparser.json({limit: "50mb"}));
+app.use(bparser.urlencoded({limit: "50mb", extended: true}))
+
 // Routes
 app.get("/", newsController.RetrieveAll)
 app.get("/article", newsController.RetrieveOne)
-app.post("/addArticle", urlencoder, newsController.Create)
-app.post("/updateArticle", urlencoder, newsController.Update)
-app.post("/deleteArticle", urlencoder, newsController.Delete) 
+app.post("/addArticle", newsController.Create)
+app.post("/updateArticle", newsController.Update)
+app.post("/deleteArticle", newsController.Delete) 
 
 app.get("/cats", catController.RetrieveAll)
 app.get("/cat", catController.RetrieveOne)
 app.get("/editCat", catController.Edit)
-app.post("/addCat", urlencoder, catController.Create)
-app.post("/updateCat", urlencoder, catController.Update)
-app.post("/deleteCat", urlencoder, catController.Delete)
+app.post("/addCat", catController.Create)
+app.post("/updateCat", catController.Update)
+app.post("/deleteCat", catController.Delete)
 
 app.get("/requests", requestController.RetrieveAll)
-app.post("/adopt", urlencoder, requestController.Create)
-app.post("/completeRequest", urlencoder, requestController.Complete)
-app.post("/deleteRequest", urlencoder, requestController.Delete)
+app.post("/adopt", requestController.Create)
+app.post("/completeRequest", requestController.Complete)
+app.post("/deleteRequest", requestController.Delete)
 
 app.get("/users", userController.RetrieveAll)
 app.get("/profile", userController.RetrieveOne)
-app.post("/login", urlencoder, userController.authenticate)
-app.post("/signup", urlencoder, userController.Create)
-app.post("/logout", urlencoder, userController.logout)
-app.post("/updateUser", urlencoder, userController.Update)
-app.post("/toggleModerator", urlencoder, userController.toggleModerator)
+app.post("/login", userController.authenticate)
+app.post("/signup", userController.Create)
+app.post("/logout", userController.logout)
+app.post("/updateUser", userController.Update)
+app.post("/toggleModerator", userController.toggleModerator)
 
 app.listen(3000, function() {
     console.log("live at port 3000");

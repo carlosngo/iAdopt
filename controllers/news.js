@@ -53,7 +53,6 @@ function Create(req, res) {
         "imgFileType": req.body.imgFileType,
         "content": req.body.content
     }
-    console.log(article)
     newsDB.Create(article, (err) => {
         if (err) res.send(err);
         else res.send("OK")
