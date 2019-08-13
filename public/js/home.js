@@ -22,12 +22,10 @@ $(document).ready(() => {
         storage.ref().child('/images/articles/' + articleId).getDownloadURL().then(function(url) {
             console.log(url)
             img.attr("src", url)
-            window.location.reload();
         }).catch(function(error) {
             console.log(error.code)
             if (error.code === "storage/object-not-found") {
                 img.attr("src", "../assets/images/website.png")
-                window.location.reload();
             }
         })
     })
@@ -58,6 +56,7 @@ $(document).ready(() => {
                 if (result != "FAIL") {
                     storage.ref().child('/images/articles/' + result).put(file).then(function(snapshot) {
                         console.log("successfully uploaded image.")
+                        window.location.reload();
                     });
                 }
             })
