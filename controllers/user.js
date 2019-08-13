@@ -59,7 +59,6 @@ function Create(req, res) {
             res.send("FAIL")            
         } else {
             user = {};
-            user.username = un;
             user.password = pw;
             user.email = email;
             user.admin = false;
@@ -82,7 +81,30 @@ function Create(req, res) {
 }
 
 function Update(req, res) {
+    let un = req.body.un;
+    let pw = req.body.pw;
+    let email = req.body.email;
 
+    userDB.RetrieveOne(un, (user)=>{
+        if(user){
+            user.password = pw;
+            user.email = email;
+            let key = "username";
+            delete user[key]; 
+            console.log(JSON.stringify(user));
+            userDB.Update(un, user, (err)=>{
+                if(err){
+                    console.log(err);
+                    res.send("FAIL Update");
+                }else{
+                    req.session.username = un;
+                    req.session.admin = user.admin;
+                    req.session.moderator = user.moderator;
+                    res.send("Update SUCCESS");
+                }
+            })
+        }
+    })
 }
 
 function Delete(req, res) {

@@ -39,8 +39,11 @@ function RetrieveAll(callback) {
 
 function Update(username, newData, callback) {
     var updates = {};
-    updates['/users/' + username] = newData;
-    database.ref().update(updates, (err) => {
+    let hash = crypto.AES.encrypt(newData.password, username).toString();
+    newData.password = hash;
+    //console.log(newData.toString());
+    updates = newData;
+    database.ref('/users/' + username).update(updates, (err) => {
         callback(err);
     })
 }

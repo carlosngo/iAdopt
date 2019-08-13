@@ -39,14 +39,16 @@
                 <div class="editProfileDiv">
                     Password: <input type="password" class="label-field" value="{{user.password}}" disabled>
                 </div> <br>
-               <div class="btn toggle-show" data-toggle="modal" data-target="#exampleModalCenter" id="editBtn">Edit</div>
+               <div class="btn toggle-show" data-toggle="modal" data-target="#exampleModalCentered" id="editBtn">Edit</div>
            </div>
            <div class="card toggle-edit" style="border-radius: 10px;">
                     <div class="editProfileDiv">Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input class="editInputField" type="text" value="{{user.email}}" ></div> 
-                    <div class="editProfileDiv">Username: <input class="editInputField" type="text" value="{{user.username}}" ></div>
-                    <div class="editProfileDiv">New Password: &nbsp;<input class="editInputField" type="password" value="{{user.password}}" ></div>
-                    <div class="editProfileDiv">Confirm New Password: &nbsp;<input class="editInputField" type="password" value="{{user.password}}" ></div> <br>
+                    <input id="changeEmail" class="editInputField" type="text" value="{{user.email}}" ></div> 
+                    <div class="editProfileDiv">Username: <input id="changeUsername" class="editInputField" type="text" value="{{user.username}}" disabled></div>
+                    <div class="editProfileDiv">New Password: &nbsp;<input id="changePassword" class="editInputField" type="password" value="{{user.password}}" ></div>
+                    <div class="editProfileDiv">Confirm New Password: &nbsp;<input id="changeCPassword" class="editInputField" type="password"></div> <br>
+                    <div class="editErrorMessage" style="justify-content: center; text-align:center;">
+                    </div>
                     <div class="editPageBtnDiv">
                         <div class="btn save flex-item" id="saveBtn">Save</div>
                         <div class="flex-item" style="width: 5px;"></div>
@@ -76,7 +78,7 @@
     </div>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="exampleModalCentered" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 <div class="modal-dialog modal-dialog-centered" role="document">
    <div class="modal-content">
    <div class="modal-header">

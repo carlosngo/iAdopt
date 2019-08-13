@@ -75,7 +75,7 @@ a{
 }
 
 .btn-danger:hover {
-  background-color: rgb(252, 154, 141);
+  background-color: rgb(204, 117, 108) !important;
   /* border: 1px solid black; */
 }
 
