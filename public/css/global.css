@@ -49,6 +49,19 @@ a{
   /* border: 1px solid black; */
 }
 
+.btn-danger {
+  /* background-color: rgb(21, 78, 36);
+  border: none; */
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: rgb(245, 113, 96);
+  /* border: 1px solid black; */
+}
+
 input{
     border-radius: 10px;
 }
