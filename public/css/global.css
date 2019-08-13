@@ -76,7 +76,7 @@ a{
 
 .btn-danger:hover {
   background-color: rgb(245, 113, 96);
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 input{
