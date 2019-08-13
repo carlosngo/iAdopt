@@ -50,9 +50,9 @@ a{
 }
 
 .btn-danger {
-  background-color: red;
+  background-color: rgb(243, 67, 44) !important;
   border: none; 
-  color: white;
+  color: white !important;
   font-size: 16px;
   cursor: pointer;
   
@@ -75,8 +75,8 @@ a{
 }
 
 .btn-danger:hover {
-  background-color: rgb(245, 113, 96);
-  border: 1px solid black;
+  background-color: rgb(252, 154, 141);
+  /* border: 1px solid black; */
 }
 
 input{
