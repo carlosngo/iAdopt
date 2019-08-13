@@ -50,9 +50,9 @@ a{
 }
 
 .btn-danger {
-  background-color: red !important;
+  background-color: rgb(243, 67, 44) !important;
   border: none; 
-  color: white;
+  color: white !important;
   font-size: 16px;
   cursor: pointer;
   
