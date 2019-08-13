@@ -35,7 +35,7 @@
     padding: 0px 0px 25px 3px !important;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
     flex-wrap: wrap;
 }
 

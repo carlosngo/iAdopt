@@ -112,7 +112,7 @@
                 {{#if user}} 
                     {{#if user.moderator}}
                     <div class="cardContainer" id="addCatCard" data-toggle="modal" data-target="#addCatModal">
-                        <div class="card flex-item" style="width: 18rem; height:358px" >
+                        <div class="card flex-item" style="width: 18rem; height:380px" >
                                 <img class="card-img-top" src="../assets/images/addCat.png" alt="Card image cap">
                                 <div class="card-body" style="padding: 60px 20px 10px 20px">
                                     <h5 class="card-title">Add Cat</h5>
@@ -123,7 +123,7 @@
                 {{/if}}
                 {{#each cats}}
                     <div class="cardContainer viewCatCard" data-id={{@key}}>
-                        <div class="card flex-item" style="width: 18rem;">
+                        <div class="card flex-item" style="width: 18rem; height: 380px;">
                             <img class="card-img-top" src="{{picture}}" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title"><b>{{name}}</b></h5>

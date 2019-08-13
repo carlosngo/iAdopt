@@ -7,7 +7,8 @@
         <title>{{catName}}</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <script src="../js/cat-info.js"></script>
+        <script src="../js/cat-info.js"></script>        
+        {{!-- <script src="../js/cats.js"></script> --}}
         <script src="../js/global.js"></script>
         <link rel="shortcut icon" type="image/png" href="../assets/images/icon.PNG">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -134,14 +135,20 @@
                             {{!-- <button class="btn" >
                                 Remove Cat
                             </button> --}}
-                            <div style="width: 5px;"></div>
+                            {{!-- <form action="deleteCat" method="POST">
+                                <input name="id" type="hidden" value={{../id}}>
+                                <input type="submit" href="/cats" class="btn btn-danger toggle-show catActions" value="Remove Cat">
+                            </form>
+                            <div style="width: 5px;"></div> --}}
                             <button type="button" class="btn toggle-show" id="btn-edit-cat">
                             {{!-- <button class="btn" data-toggle="modal" data-target="#exampleModalCenter"> --}}
                                 Edit Info
                             </button>
-                            <button type="button" class="btn-light toggle-edit" id="btn-cancel-edit">
+                            <div style="width: 5px;"></div>
+                            <button type="button" class="btn btn-light toggle-edit" id="btn-cancel-edit">
                                 Cancel
                             </button>
+                            <div style="width: 5px;"></div>
                             <button type="submit" class="btn toggle-edit">
                                 Save Changes
                             </button>

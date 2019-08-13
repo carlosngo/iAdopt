@@ -7,10 +7,10 @@
         <title>Home</title>
         <link rel="shortcut icon" type="image/png" href="../assets/images/icon.PNG">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">               
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" type="text/css" href="../css/home.css">   
-        <link rel="stylesheet" type="text/css" href="../css/global.css">   
+        <link rel="stylesheet" type="text/css" href="../css/home.css">
+        <link rel="stylesheet" type="text/css" href="../css/global.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <script src="../js/home.js"></script>
@@ -54,7 +54,7 @@
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
-                </div>   
+                </div>
             </div>
             <div class="row">
                 <div class="col-8">
@@ -62,7 +62,7 @@
                     <div class="container-center">
                         {{!-- <input type="button" class="btn btn-primary btn-add" value="Add an Article"><br><br> --}}
                     {{!-- Add Card --}}
-                    {{#if user}} 
+                    {{#if user}}
                             {{#if user.moderator}}
                         <div class="card" style="margin-bottom:15px;">
                             <div class="row no-gutters">
@@ -88,7 +88,7 @@
                                                 </div>
                                                 <div id="add-article-controls">
                                                     {{!-- <input type="button" class="btn btn-primary btn-upload" value="Upload Image"> --}}
-                                                    <input type="file" id="image-file" style="border-radius: 0px;" value="Upload Image" accept="image/*"/>
+                                                    <input type="file" id="image-file" style="border-radius: 0px;" value="Upload Image !important" accept="image/*"/>
                                                     <input type="button" id="btn-addArticle" class="btn btn-primary btn-add" value="Save">
                                                 </div>
                                             </form>
@@ -107,7 +107,7 @@
                                     <div class="card-img">
                                         <img src="{{picture}}" class="img-fluid" alt="Image Failed to load">
                                     </div>
-                                    
+
                                 </div>
                                 <div class="col-8">
                                     <div class="card-block px-2 flex-col">
@@ -119,7 +119,7 @@
                                         <div class="card-content flex-3 flex-col">
                                             <p class="">{{content}}</p>
                                             <div class="">
-                                                
+
                                                 <form action="deleteArticle" method="POST">
                                                     <input type="button" data-id={{@key}} class="btn btn-primary btn-article" value="Read More"></a>
                                                     <input name="id" type="hidden" value={{@key}}>
@@ -131,7 +131,7 @@
                                                 </form>
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -162,7 +162,7 @@
                 </div>
             </div>
         </div>
-    
+
         {{> footer}}
         <form action="/article" id="article-id-form">
             <input type="hidden" name="id" id="article-id">
