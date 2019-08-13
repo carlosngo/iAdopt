@@ -10,12 +10,6 @@ function RetrieveAll(req, res) {
         user.moderator = req.session.moderator;
     }
     newsDB.RetrieveAll((news) => {
-        for (let article in news) {
-            let content = news[article].content;
-            if (content.length > 150) {
-                news[article].content = news[article].content.substr(0, 150) + "..."
-            }
-        }
         catDB.RetrieveAll(null, (cats) => {
             res.render("home.hbs", {
                 news: news,
@@ -49,13 +43,12 @@ function Create(req, res) {
         "title": req.body.title,
         "timestamp": req.body.timestamp,
         "author": req.body.author,
-        "imgBase64": req.body.imgBase64,
-        "imgFileType": req.body.imgFileType,
+        "img": req.body.img,
         "content": req.body.content
     }
-    newsDB.Create(article, (err) => {
+    newsDB.Create(article, (id, err) => {
         if (err) res.send(err);
-        else res.send("OK")
+        else res.send(id)
     })
 }
 

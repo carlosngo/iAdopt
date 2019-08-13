@@ -1,5 +1,5 @@
-const db = require("./db.js");
-const database = db.database;
+const fb = require("./fb.js");
+const database = fb.database;
 
 function Create(cat, callback) {
     let id = database.ref('cats/').push().key;
