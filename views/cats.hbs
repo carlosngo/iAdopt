@@ -9,6 +9,8 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-storage.js"></script>
         <script src="../js/cats.js"></script>
         <script src="../js/global.js"></script>
         <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">               
@@ -124,7 +126,7 @@
                 {{#each cats}}
                     <div class="cardContainer viewCatCard" data-id={{@key}}>
                         <div class="card flex-item" style="width: 18rem; height: 380px;">
-                            <img class="card-img-top" src="{{picture}}" alt="Card image cap">
+                            <img class="card-img-top img-cat" src="" data-id={{@key}} alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title"><b>{{name}}</b></h5>
                                 <h8>{{gender}}, {{age}}</h8>
@@ -162,12 +164,12 @@
             <form action="addCat" method="POST">
                 <div class="modal-body">
                         <div style="margin: 8px;">
-                            Name: <input type="text" name="name">
+                            Name: <input type="text" name="name" id="addName">
                         </div>
                         <div style="display: flex; flex-direction: row; margin: 8px;">
                             <div >
                                 Age:
-                                <select name="age" id="ageOptions">
+                                <select name="age" id="addAge">
                                     <option>Kitten</option>
                                     <option>Adult</option>
                                 </select>
@@ -175,7 +177,7 @@
                             <div style="width: 30px;"></div>
                             <div>
                                 Sex:
-                                <select name="gender" id="sexOptions">
+                                <select name="gender" id="addGender">
                                     <option>Male</option>
                                     <option>Female</option>
                                 </select>
@@ -183,44 +185,42 @@
                         </div>
                         <div style="margin: 8px;">
                             Location: 
-                            <select name="location" id="locationOptions">
+                            <select name="location" id="addLocation">
                                 {{> locationOptions}}
                             </select>
                         </div>
                         <div style="margin: 8px;">
                             Fur Pattern: 
-                            <select name="furPattern" id="furPatternOptions">
+                            <select name="furPattern" id="addFurPattern">
                                 {{> furPatternOptions}}
                             </select>
                         </div>
                         <div style="margin: 8px; border-radius: 0px;">
-                            Main Picture: <br><input type="file" style="border-radius: 0px;"><br>
-                            Other Pictures: <br><input type="file" style="border-radius: 0px;" multiple/>
+                            Pictures: <input type="file" style="border-radius: 0px;" id="addPictures" multiple/>
                         </div>
                         <div style="margin: 15px 8px 8px 8px;">
                             Medical Procedures Undertaken <br>(please separate each with a comma):<br> 
-                            <input name="medProcedures" type="text" style="width: 100%">
+                            <input name="medProcedures" type="text" style="width: 100%" id="addMed">
                         </div>
                         <div style="margin: 8px;">
-                            Complications: <br><input name="complications" type="text" style="width: 100%">
+                            Complications: <br><input name="complications" type="text" style="width: 100%" id="addComp">
                         </div>
                         <div style="margin: 8px;">
-                            Other notes: <br><input name="notes" type="text" style="width: 100%">
+                            Other notes: <br><input name="notes" type="text" style="width: 100%" id="addNotes">
                         </div>
                         <div style="margin: 8px;">
-                            <input type="checkbox" name="adoption"> For Adoption
+                            <input type="checkbox" name="adoption" id="addAdoption"> For Adoption
                         </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn" data-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn" id="saveChangesBtn">Save</button>
+                    <button type="button" data-dismiss="modal" data-toggle="modal" data-target="#loading" data-backdrop="static" data-keyboard="false" class="btn" id="btn-add-cat">Save</button>
                 </div>
             </form>
             </div>
         </div>
         </div>
-
-        
+        {{> loading}}
         {{> footer}}
         <form action="/cat" id="cat-id-form">
             <input type="hidden" name="id" id="cat-id">

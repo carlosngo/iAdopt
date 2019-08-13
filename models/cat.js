@@ -6,15 +6,16 @@ function Create(cat, callback) {
     database.ref('cats/' + id).set({
         "age": cat.age,
         "complications": cat.complications,
-        "adoption": cat.adoption ? cat.adoption : false,
+        "adoption": cat.adoption,
         "furPattern": cat.furPattern,
         "gender": cat.gender,
         "location": cat.location,
         "medProcedures": cat.medProcedures,
         "name": cat.name,
-        "notes": cat.notes
+        "notes": cat.notes,
+        "numOfPics": cat.numOfPics
     }, (err) => {
-        callback(err);
+        callback(id, err);
     });
 }
 

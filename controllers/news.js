@@ -47,7 +47,7 @@ function Create(req, res) {
         "content": req.body.content
     }
     newsDB.Create(article, (id, err) => {
-        if (err) res.send(err);
+        if (err) res.send("FAIL");
         else res.send(id)
     })
 }

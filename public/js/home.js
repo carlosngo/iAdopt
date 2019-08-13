@@ -49,40 +49,27 @@ $(document).ready(() => {
         if (minutes < 10) minutes = "0" + minutes;
         let timestamp = months[now.getMonth()] + " " + now.getDate() + " at " + now.getHours() + ":" + minutes
         let author = $("#username").text()
-        if (files && files[0]) {
-            let file = files[0]
-                // $("#add-article-image").attr('src', reader.result)
-            postAddRequest(title, content, author, timestamp, (result) => {
+        $.ajax({
+            url: "addArticle",
+            method: "POST",
+            data: {
+                title,
+                content,
+                author,
+                timestamp,
+            },
+            success: (result) => {
                 if (result != "FAIL") {
-                    storage.ref().child('/images/articles/' + result).put(file).then(function(snapshot) {
-                        console.log("successfully uploaded image.")
-                        window.location.reload();
-                    });
-                }
-            })
-        } else {
-            postAddRequest(title, content, author, timestamp, (result) => {
-                console.log(result);
-                if (result === "OK") {
+                    if (files && files[0]) {
+                        let file = files[0]
+                        storage.ref().child('/images/articles/' + result).put(file).then(function(snapshot) {
+                            console.log("successfully uploaded image.")
+                        });
+                    } 
                     document.location.reload();
-                } else {
                 }
-            })
-        }
+            }            
+        })
         
     })
 })
-
-function postAddRequest(title, content, author, timestamp, callback) {
-    $.ajax({
-        url: "addArticle",
-        method: "POST",
-        data: {
-            title,
-            content,
-            author,
-            timestamp,
-        },
-        success: callback               
-    })
-}

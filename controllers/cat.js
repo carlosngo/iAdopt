@@ -82,17 +82,18 @@ function Create(req, res) {
     let cat = {
         "age": req.body.age,
         "complications": req.body.complications,
-        "adoption": req.body.adoption,
+        "adoption": req.body.adoption == "true" ? true : false,
         "furPattern": req.body.furPattern,
         "gender": req.body.gender,
         "location": req.body.location,
         "medProcedures": req.body.medProcedures,
         "name": req.body.name,
-        "notes": req.body.notes
+        "notes": req.body.notes,
+        "numOfPics": parseInt(req.body.numOfPics)
     }
-    catDB.Create(cat, (err) => {
-        if(err) res.send(err)
-        else res.redirect(req.get('referer'));
+    catDB.Create(cat, (id, err) => {
+        if(err) res.send("FAIL")
+        else res.send(id);
     })
 }
 
