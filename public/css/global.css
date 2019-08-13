@@ -50,7 +50,7 @@ a{
 }
 
 .btn-danger {
-  /* background-color: rgb(21, 78, 36);*/
+  background-color: red;
   border: none; 
   color: white;
   font-size: 16px;
