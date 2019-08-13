@@ -25,7 +25,7 @@ $(document).ready(() => {
         }).catch(function(error) {
             console.log(error.code)
             if (error.code === "storage/object-not-found") {
-                img.attr("src", "/assets/images/defaultArticle.png")
+                img.attr("src", "../assets/images/defaultArticle.png")
             }
         })
     })
