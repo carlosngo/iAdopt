@@ -43,10 +43,12 @@
            </div>
            <div class="card toggle-edit" style="border-radius: 10px;">
                     <div class="editProfileDiv">Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input class="editInputField" type="text" value="{{user.email}}" ></div> 
-                    <div class="editProfileDiv">Username: <input class="editInputField" type="text" value="{{user.username}}" ></div>
-                    <div class="editProfileDiv">New Password: &nbsp;<input class="editInputField" type="password" value="{{user.password}}" ></div>
-                    <div class="editProfileDiv">Confirm New Password: &nbsp;<input class="editInputField" type="password" value="{{user.password}}" ></div> <br>
+                    <input id="changeEmail" class="editInputField" type="text" value="{{user.email}}" ></div> 
+                    <div class="editProfileDiv">Username: <input id="changeUsername" class="editInputField" type="text" value="{{user.username}}" disabled></div>
+                    <div class="editProfileDiv">New Password: &nbsp;<input id="changePassword" class="editInputField" type="password" value="{{user.password}}" ></div>
+                    <div class="editProfileDiv">Confirm New Password: &nbsp;<input id="changeCPassword" class="editInputField" type="password"></div> <br>
+                    <div class="editErrorMessage" style="justify-content: center; text-align:center;">
+                    </div>
                     <div class="editPageBtnDiv">
                         <div class="btn save flex-item" id="saveBtn">Save</div>
                         <div class="flex-item" style="width: 5px;"></div>

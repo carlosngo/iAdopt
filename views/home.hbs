@@ -123,7 +123,11 @@
                                                 <form action="deleteArticle" method="POST">
                                                     <input type="button" data-id={{@key}} class="btn btn-primary btn-article" value="Read More"></a>
                                                     <input name="id" type="hidden" value={{@key}}>
+                                                    {{#if ../user}}
+                                                    {{#if ../user.admin}}
                                                     <input type="submit" href="#" class="btn-danger" value="Remove Article">
+                                                    {{/if}}
+                                                    {{/if}}
                                                 </form>
                                             </div>
                                         </div>
