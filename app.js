@@ -67,6 +67,6 @@ app.post("/logout", userController.logout)
 app.post("/updateUser", userController.Update)
 app.post("/toggleModerator", userController.toggleModerator)
 
-app.listen(3000, function() {
+app.listen(process.env.PORT || 3000, function() {
     console.log("live at port 3000");
 })
