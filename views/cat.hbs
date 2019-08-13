@@ -135,10 +135,15 @@
                                 Remove Cat
                             </button> --}}
                             <div style="width: 5px;"></div>
+                            <form action="deleteCat" method="POST">
+                                <input name="id" type="hidden" value={{@key}}>
+                                <input type="submit" href="#" class="btn-danger catActions" value="Remove Cat">
+                            </form>
                             <button type="button" class="btn toggle-show" id="btn-edit-cat">
                             {{!-- <button class="btn" data-toggle="modal" data-target="#exampleModalCenter"> --}}
                                 Edit Info
                             </button>
+                            <div style="width: 5px;"></div>
                             <button type="button" class="btn btn-light toggle-edit" id="btn-cancel-edit">
                                 Cancel
                             </button>
