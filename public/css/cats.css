@@ -50,12 +50,27 @@
 
 .flex-item {
     /* height: 304px; */
+    position: relative;
     padding: 0px;
     display: flex;
     /* border-radius: 20px; */
     text-align: center;
     /* height: 349px; */
     box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+.removeBtn{
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    border-radius: 50px;
+    background-color: red;
+    height: 15px;
+    width: 15px;
+}
+
+.removeBtn:hover{
+    background-color: rgb(238, 118, 118);
 }
 
 .flex-item:hover {
