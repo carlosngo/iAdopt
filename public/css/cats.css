@@ -59,22 +59,34 @@
     box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
 }
 
+.flex-item:hover {
+    box-shadow: 0px 0px 5px rgba(50,50,0,0.95);
+    
+}
+
+/* .content:hover + .removeBtn {
+    display: block;
+    -webkit-transform:translate3d(0,0,0);
+} */
+
 .removeBtn{
     position: absolute;
-    right: 3px;
-    top: 3px;
+    right: 5px;
+    top: 5px;
     border-radius: 50px;
-    background-color: red;
-    height: 15px;
-    width: 15px;
+    height: 25px;
+    width: 25px;
+    border: white solid 1px;
+    background-image: url(../assets/images/removeCat.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* display: none; */
+    /* -webkit-transform:translate3d(0,0,0); */
 }
 
 .removeBtn:hover{
-    background-color: rgb(238, 118, 118);
-}
-
-.flex-item:hover {
-    box-shadow: 0px 0px 5px rgba(50,50,0,0.95);
+    background-image: url(../assets/images/hoverRemoveCat.png);
 }
 
 .card-img-top{

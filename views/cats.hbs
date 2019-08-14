@@ -136,12 +136,10 @@
                             </div>
                             {{#if ../user}} 
                                 {{#if ../user.admin}}
-                                    <div class="btnDiv">
                                         <form action="deleteCat" method="POST">
                                             <input name="id" type="hidden" value={{@key}}>
-                                            <input type="submit" href="#" class="btn-danger catActions" value="Remove Cat">
+                                            <input type="submit" href="#" class="removeBtn" value="Remove Cat">
                                         </form>
-                                    </div>
                                 {{/if}} 
                             {{/if}}
                         </div>

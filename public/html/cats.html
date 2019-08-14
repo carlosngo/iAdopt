@@ -202,13 +202,18 @@
             <div id="mainCatsContent">
                 <div class="cardContainer" onclick="gotoCat()">
                     <div class="card flex-item" style="width: 18rem;">
-                        <img class="card-img-top" src="../assets/images/geist.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Geist</h5>
-                            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                        <div class="content">
+                            <img class="card-img-top" src="../assets/images/geist.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Geist</h5>
+                                <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                            </div>
                         </div>
-                        <div class="removeBtn"></div>
+                        <form action="deleteCat" method="POST">
+                            <input name="id" type="hidden" value={{@key}}>
+                            <input type="submit" href="#" class="removeBtn" value=" ">
+                        </form>
                     </div>
                 </div>
                 <div class="cardContainer" onclick="gotoCat()">
