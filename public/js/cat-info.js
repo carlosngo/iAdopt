@@ -18,6 +18,29 @@ $(document).ready(() => {
     console.log(numOfPics)
     let mainPictures = $("#mainPictures");
     let thumbnails = $("#thumbnails");
+    if (numOfPics == 0) {
+        let i = 0;
+        let carouselItem = $("<div></div>")
+        carouselItem.addClass("carousel-item");
+        if (i == 0) carouselItem.addClass("active")
+        let catImg = $("<img>");
+        catImg.addClass("d-block")
+        catImg.addClass("w-100")
+        carouselItem.append(catImg);
+        mainPictures.append(carouselItem)
+        let thumb = $("<li></li>")
+        thumb.attr('data-target', "#carousel-thumb")
+        thumb.attr('data-slide-to', "" + i);
+        if (i == 0) thumb.addClass("active")
+        let thumbPic = $("<img>");
+        thumbPic.addClass("d-block")
+        thumbPic.addClass("w-100")
+        thumbPic.addClass("img-fluid")
+        thumb.append(thumbPic);
+        thumbnails.append(thumb);
+        catImg.attr("src", "../assets/images/defaultCat.jpg")
+        thumbPic.attr("src", "../assets/images/defaultCat.jpg")
+    }
     for (let i = 0; i < numOfPics; i++) {
         console.log("hi")
         let carouselItem = $("<div></div>")
