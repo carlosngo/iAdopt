@@ -59,7 +59,7 @@ $(document).ready(() => {
                 if (result != "FAIL") {
                     let files = document.getElementById('addPictures').files
                     console.log(files);
-                    if (files) {
+                    if (files && files.length > 0) {
                         var total = files.length;
                         var count = 0;
                         for (let i = 0; i < files.length; i++) {
