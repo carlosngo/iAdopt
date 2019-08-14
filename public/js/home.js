@@ -30,6 +30,20 @@ $(document).ready(() => {
         })
     })
 
+    $(".img-cat").each(function() {
+        let catId = $(this).attr('data-id');
+        let img = $(this);
+        storage.ref().child('/images/cats/' + catId + "_0").getDownloadURL().then(function(url) {
+            console.log(url)
+            img.attr("src", url)
+        }).catch(function(error) {
+            console.log(error.code)
+            if (error.code === "storage/object-not-found") {
+                img.attr("src", "../assets/images/defaultCat.jpg")
+            }
+        })
+    })
+    
     $(".btn-article").on('click', function() {
         $("#article-id").val($(this).attr("data-id"))
         $("#article-id-form").submit()
