@@ -30,7 +30,7 @@
     <!-- CONTENT -->
     <div id="mainContent">
         <div class="headerDiv">
-           <h1 class="section-header flex-item" id="profileheader">Profile</h1>
+           <h1 class="section-header flex-item" id="profileheader">Your Profile</h1>
        </div>
        <div class="container-center">  
            <div class="card toggle-show" style="border-radius: 10px;">
@@ -58,23 +58,15 @@
         </div>
 
         <br><br>
+        {{#unless user.admin}}
         <div class="headerDiv">
-            <h1 class="section-header flex-item" id="profileheader">Cats Adopted</h1>
+            <h1 class="section-header flex-item" id="profileheader">Your Adoption Requests</h1>
         </div>
-        <div class="container-center">
-            <div class="card" style="border-radius: 10px;">  
-                {{#if cat}}
-                    {{#each cat}}
-                        <div class="catAdoptedDiv">
-                            <img src="{{picture}}" class="catImg flex-item">
-                            <span class="flex-item">{{name}}</span>
-                        </div>
-                    {{/each}}
-                {{else}}
-                    <div class="catAdoptedDiv">You have not yet adopted any cats from DLSU.</div>
-                {{/if}}
-            </div>
-        </div>
+        <h3 class="section-header">Pending</h3>
+        {{> pendingTable}}
+        <h3 class="section-header">Completed</h3>
+        {{> completedTable}}
+        {{/unless}}
     </div>
 
 <!-- Modal -->

@@ -1,4 +1,6 @@
 const userDB = require("../models/user.js");
+const requestDB = require("../models/request.js");
+const catDB = require("../models/cat.js")
 const crypto = require("crypto-js");
 
 function authenticate(req, res) {
@@ -10,7 +12,6 @@ function authenticate(req, res) {
             req.session.username = un;
             req.session.admin = user.admin;
             req.session.moderator = user.moderator;
-            console.log(req.session)
             res.send("OK")
         } else {
             res.send("FAIL")
@@ -27,24 +28,69 @@ function logout(req, res) {
 
 function RetrieveAll(req, res) {
     let user = null
-    if (req.session.username) {
+    // if (req.session.username) {
         user = {};
         user.username = req.session.username;
         user.admin = req.session.admin;
         user.moderator = req.session.moderator;
-    }
-    userDB.RetrieveAll((users) => {
-        res.render("users.hbs", {
-            users: users,
-            user: user
-        })
-    })
+        // if (user.admin) {
+            userDB.RetrieveAll((users) => {
+            res.render("users.hbs", {
+                    users: users,
+                    user: user
+                })
+            })
+        // }
+    // } else {
+    //     res.send("Error 404")
+    // }
+    
 }
 
 function RetrieveOne(req, res) {
+    if (!req.session.username) res.send("Error 404")
     userDB.RetrieveOne(req.session.username, (user) => {
-        res.render("profile.hbs", {
-            user: user
+        requestDB.RetrieveAll((requests) => {
+            for (let request in requests) {
+                console.log(requests[request].user)
+                console.log(user.username)
+                if (requests[request].user != user.username) delete requests[request];
+            }
+            if (Object.keys(requests).length == 0) requests = null;
+            if (requests) {
+                console.log(requests)
+                var total = Object.keys(requests).length;
+                var count = 0;
+                let pending = {};
+                let completed = {};
+                for (let request in requests) {
+                    catDB.RetrieveOne(requests[request].cat, (cat) => {
+                        requests[request].cat = cat;
+                        count++;
+                        if (count > total - 1) {
+                            for (let r in requests) {
+                                if (requests[r].completed) completed[r] = requests[r];
+                                else pending[r] = requests[r];
+                            }
+                            res.render("profile.hbs", {
+                                requests: {
+                                    pending: Object.keys(pending).length > 0 ? pending : null,
+                                    completed: Object.keys(completed).length > 0 ? completed : null
+                                },
+                                user: user
+                            })
+                        }
+                    });
+                }
+            } else {
+                res.render("profile.hbs", {
+                    requests: {
+                        pending: null,
+                        completed: null
+                    },
+                    user: user
+                })
+            }
         })
     })
 }
@@ -59,6 +105,7 @@ function Create(req, res) {
             res.send("FAIL")            
         } else {
             user = {};
+            user.username = un;
             user.password = pw;
             user.email = email;
             user.admin = false;

@@ -1,5 +1,5 @@
-const db = require("./db.js");
-const database = db.database;
+const fb = require("./fb.js");
+const database = fb.database;
 
 function Create(userRequest, callback) {
     let id = database.ref('requests/').push().key;
@@ -9,7 +9,7 @@ function Create(userRequest, callback) {
         "timestamp": "" + userRequest.timestamp.getTime(),
         "completed": userRequest.completed
     }, (err) => {
-        callback(err);
+        callback(id, err);
     });
 }
 

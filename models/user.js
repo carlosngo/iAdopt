@@ -1,7 +1,7 @@
-const db = require("./db.js");
+const fb = require("./fb.js");
 const crypto = require("crypto-js");
 
-const database = db.database;
+const database = fb.database;
 
 function Create(user, callback) {
     let id = database.ref('users/').push().key;

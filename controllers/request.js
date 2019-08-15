@@ -10,51 +10,47 @@ function RetrieveAll(req, res) {
         user.username = req.session.username;
         user.admin = req.session.admin;
         user.moderator = req.session.moderator;
-    }
-    requestDB.RetrieveAll((requests) => {
-        if (requests) {
-            var total = Object.keys(requests).length;
-            var count = 0;
-            let pending = {};
-            let completed = {};
-            for (let request in requests) {
-                catDB.RetrieveOne(requests[request].cat, (cat) => {
-                    requests[request].cat = cat;
-                    count++;
-                    if (count > total - 1) {
-                        for (let r in requests) {
-                            if (requests[r].completed) completed[r] = requests[r];
-                            else pending[r] = requests[r];
-                        }
-                        res.render("requests.hbs", {
-                            requests: {
-                                pending: Object.keys(pending).length > 0 ? pending : null,
-                                completed: Object.keys(completed).length > 0 ? completed : null
-                            },
-                            user: user
-                        })
+        if (user.admin) {
+            requestDB.RetrieveAll((requests) => {
+                if (requests) {
+                    var total = Object.keys(requests).length;
+                    var count = 0;
+                    let pending = {};
+                    let completed = {};
+                    for (let request in requests) {
+                        catDB.RetrieveOne(requests[request].cat, (cat) => {
+                            requests[request].cat = cat;
+                            count++;
+                            if (count > total - 1) {
+                                for (let r in requests) {
+                                    if (requests[r].completed) completed[r] = requests[r];
+                                    else pending[r] = requests[r];
+                                }
+                                res.render("requests.hbs", {
+                                    requests: {
+                                        pending: Object.keys(pending).length > 0 ? pending : null,
+                                        completed: Object.keys(completed).length > 0 ? completed : null
+                                    },
+                                    user: user
+                                })
+                            }
+                        });
                     }
-                });
-            }
-        } else {
-            res.render("requests.hbs", {
-                requests: {
-                    pending: null,
-                    completed: null
-                },
-                user: user
+                } else {
+                    res.render("requests.hbs", {
+                        requests: {
+                            pending: null,
+                            completed: null
+                        },
+                        user: user
+                    })
+                }
             })
         }
-        
-
-        // res.render("requests.hbs", {
-        //     requests: {
-        //         pending: pending,
-        //         completed: completed
-        //     },
-        //     user: user
-        // })
-    })
+    } else {
+        res.send("Error 404")
+    }
+    
 }
 
 function Create(req, res) {
@@ -65,9 +61,9 @@ function Create(req, res) {
         timestamp,
         completed: false
     }
-    requestDB.Create(request, (err) => {
+    requestDB.Create(request, (id, err) => {
         if (err) res.send(err)
-        else res.send("OK")
+        else res.send(id)
     })
 }
 

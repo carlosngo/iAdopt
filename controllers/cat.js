@@ -54,15 +54,20 @@ function RetrieveOne(req, res) {
         user.moderator = req.session.moderator;
     }
     let catId = req.query.id;
+    let referer = req.get('referer');
     catDB.RetrieveOne(catId, (cat) => {
         if (user) {
             requestDB.RetrieveOne(user.username, catId, (request) => {
+                
                 res.render("cat.hbs", {
                     id: catId,
                     cat: cat,
                     user: user,
                     edit: false,
-                    request: request
+                    state: {
+                        request: request ? "" + request.completed : "null",
+                    },
+                    referer
                 })
             })
         } else {
@@ -71,7 +76,8 @@ function RetrieveOne(req, res) {
                 cat: cat,
                 user: user,
                 edit: false,
-                request: null
+                request: null,
+                referer
             })
         }
 
@@ -82,17 +88,18 @@ function Create(req, res) {
     let cat = {
         "age": req.body.age,
         "complications": req.body.complications,
-        "adoption": req.body.adoption,
+        "adoption": req.body.adoption == "true" ? true : false,
         "furPattern": req.body.furPattern,
         "gender": req.body.gender,
         "location": req.body.location,
         "medProcedures": req.body.medProcedures,
         "name": req.body.name,
-        "notes": req.body.notes
+        "notes": req.body.notes,
+        "numOfPics": parseInt(req.body.numOfPics)
     }
-    catDB.Create(cat, (err) => {
-        if(err) res.send(err)
-        else res.redirect(req.get('referer'));
+    catDB.Create(cat, (id, err) => {
+        if(err) res.send("FAIL")
+        else res.send(id);
     })
 }
 
@@ -106,7 +113,8 @@ function Update(req, res) {
         "location": req.body.location,
         "medProcedures": req.body.medProcedures,
         "name": req.body.name,
-        "notes": req.body.notes
+        "notes": req.body.notes,
+        "numOfPics": parseInt(req.body.numOfPics)
     }
     console.log('req.body.id = ')
     console.log(req.body.id)

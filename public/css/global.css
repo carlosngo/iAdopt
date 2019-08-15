@@ -20,16 +20,16 @@ html{
 
 nav{
   background-color: #087830;
-} 
+}
 
 #logo{
   width: 120px;
   height: 50px;;
-} 
-  
+}
+
 .navbar-nav > li{
     padding-left:20px;
-    padding-right:20px;  
+    padding-right:20px;
 }
 
 a{
@@ -51,11 +51,11 @@ a{
 
 .btn-danger {
   background-color: rgb(243, 67, 44) !important;
-  border: none; 
+  border: none;
   color: white !important;
   font-size: 16px;
   cursor: pointer;
-  
+
   display: inline-block;
   font-weight: 400;
   color: #212529;
@@ -82,7 +82,7 @@ a{
 input{
     border-radius: 10px;
 }
-  
+
 
 #footer{
   margin-top: 20px;
@@ -130,7 +130,7 @@ input{
 /* .modal-footer{
     justify-content: center !important;
 } */
-  
+
 @media all and (max-width:800px){
     .modal-content{
         width: 70%;
@@ -148,7 +148,7 @@ input{
         left: 15%;
     }
 }
-  
+
 @font-face {
   font-family: 'FontAwesome';
   src: url('your/path/fontawesome-webfont.eot?v=3.0.1');
@@ -193,7 +193,26 @@ input{
   vertical-align: center;
 }
 
-/* #sadCat{
-  max-width: 52px;
-  display: inline-block !important;
-} */
+.loader {
+  /* border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  animation: spin 1s linear infinite; */
+  position: absolute;
+  left: calc(50% - 40px);
+  z-index: 1;
+  border: 8px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 8px solid #3498db;
+  width: 80px;
+  height: 80px;
+  -webkit-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

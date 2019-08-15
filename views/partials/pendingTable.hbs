@@ -1,0 +1,36 @@
+{{#if requests.pending}}
+<table align="center">
+    <thead>
+        <tr>
+            <th>Interested User</th>
+            <th>Name of Cat</th> 
+            <th>Timestamp</th> 
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {{#each requests.pending}}
+        <tr>
+            <td>{{user}}</td>
+            <td>{{cat.name}}</td>
+            <td>{{timestamp}}</td>
+            <td>
+                {{#if ../user.admin}}
+                <form action="/completeRequest" method="POST">
+                    <input type="hidden" name="id" value="{{@key}}">
+                    <input type="submit" class="btn" value="Complete">
+                </form>
+                {{else}}
+                <form action="/deleteRequest" method="POST">
+                    <input type="hidden" id="reqId" name="id" value="{{@key}}">
+                    <input type="button" id="btn-cancel-request" class="btn" value="Cancel">
+                </form>
+                {{/if}}
+            </td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>      
+{{else}}
+    <h5 class="section-header">No requests to show.</h5>
+{{/if}}      

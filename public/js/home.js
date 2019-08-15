@@ -1,5 +1,49 @@
 let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+var firebaseConfig = {
+    apiKey: "AIzaSyAsTMmESGmIn3fx7i4IUrmwARc8EoUwf0Y",
+    authDomain: "iadopt-159ff.firebaseapp.com",
+    databaseURL: "https://iadopt-159ff.firebaseio.com",
+    projectId: "iadopt-159ff",
+    storageBucket: "iadopt-159ff.appspot.com",
+    messagingSenderId: "705005534813",
+    appId: "1:705005534813:web:96e980b96db033a3"
+  };
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+var storage = firebase.storage();
+
 $(document).ready(() => {
+    $(".img-article").each(function() {
+        let articleId = $(this).attr('data-id');
+        console.log(articleId)
+        let img = $(this);
+        storage.ref().child('/images/articles/' + articleId).getDownloadURL().then(function(url) {
+            console.log(url)
+            img.attr("src", url)
+        }).catch(function(error) {
+            console.log(error.code)
+            if (error.code === "storage/object-not-found") {
+                img.attr("src", "../assets/images/defaultArticle.PNG")
+            }
+        })
+    })
+
+    $(".img-cat").each(function() {
+        let catId = $(this).attr('data-id');
+        let img = $(this);
+        storage.ref().child('/images/cats/' + catId + "_0").getDownloadURL().then(function(url) {
+            console.log(url)
+            img.attr("src", url)
+        }).catch(function(error) {
+            console.log(error.code)
+            if (error.code === "storage/object-not-found") {
+                img.attr("src", "../assets/images/defaultCat.jpg")
+            }
+        })
+    })
+    
     $(".btn-article").on('click', function() {
         $("#article-id").val($(this).attr("data-id"))
         $("#article-id-form").submit()
@@ -19,58 +63,27 @@ $(document).ready(() => {
         if (minutes < 10) minutes = "0" + minutes;
         let timestamp = months[now.getMonth()] + " " + now.getDate() + " at " + now.getHours() + ":" + minutes
         let author = $("#username").text()
-        if (files && files[0]) {
-            let file = files[0]
-            var reader = new FileReader();
-            reader.onloadend = function() {
-                // $("#add-article-image").attr('src', reader.result)
-                $.ajax({
-                    url: "addArticle",
-                    method: "POST",
-                    data: {
-                        title,
-                        content,
-                        author,
-                        timestamp,
-                        imgBase64: reader.result,
-                        imgFileType: file.type
-                    },
-                    success: function(result) {
-                        console.log(result);
-                        if (result === "OK") {
-                            document.location.reload();
-                        } else {
-                        }
-        
-                    }                    
-                })
-            };
-            reader.onerror = function() {
-                alert("There was an error reading the file!");
-            };
-            reader.readAsDataURL(file);
-        } else {
-            $.ajax({
-                url: "addArticle",
-                method: "POST",
-                data: {
-                    title,
-                    content,
-                    author,
-                    timestamp,
-                    imgBase64: null,
-                    imgFileType: null
-                },
-                success: function(result) {
-                    console.log(result);
-                    if (result === "OK") {
-                        document.location.reload();
-                    } else {
-                    }
-    
-                }                    
-            })
-        }
+        $.ajax({
+            url: "addArticle",
+            method: "POST",
+            data: {
+                title,
+                content,
+                author,
+                timestamp,
+            },
+            success: (result) => {
+                if (result != "FAIL") {
+                    if (files && files[0]) {
+                        let file = files[0]
+                        storage.ref().child('/images/articles/' + result).put(file).then(function(snapshot) {
+                            console.log("successfully uploaded image.")
+                        });
+                    } 
+                    document.location.reload();
+                }
+            }            
+        })
         
     })
 })
