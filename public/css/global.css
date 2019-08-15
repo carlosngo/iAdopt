@@ -186,3 +186,14 @@ input{
   color: blue;
   background-color: aliceblue;
 }
+
+#mContent{
+  display: inline-block;
+  text-align: center;
+  vertical-align: center;
+}
+
+/* #sadCat{
+  max-width: 52px;
+  display: inline-block !important;
+} */
