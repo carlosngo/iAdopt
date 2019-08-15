@@ -13,6 +13,19 @@ firebase.initializeApp(firebaseConfig);
 var storage = firebase.storage();
 
 $(document).ready(() => {
+    let reqState = $("#reqState").val();
+    console.log(reqState)
+    if (reqState == "null") {
+        $(".toggle-complete").hide()
+        $(".toggle-cancel").hide()
+    } else if (reqState == "true") {
+        $(".toggle-request").hide()
+        $(".toggle-cancel").hide()
+    } else {
+        $(".toggle-complete").hide()
+        $(".toggle-request").hide()
+    }
+
     let catId = $("#cat-id").val();
     let numOfPics = parseInt($("#numOfPics").val());
     console.log(numOfPics)
@@ -84,7 +97,7 @@ $(document).ready(() => {
     if (state === "edit") $(".toggle-show").hide();
     else $(".toggle-edit").hide();
     $("#back-btn").on('click', function() {
-        window.history.back();
+        window.location = $("#referer").val()
     })
     $("#btn-edit-cat").on('click', function() {
         // $(".label-field").attr('class', 'editable-field');
@@ -100,6 +113,41 @@ $(document).ready(() => {
         $(".toggle-edit").hide();
     })
 
+    $("#btn-update-cat").on('click', function() {
+        let name = $("#nameField").val();
+        let age = $("#ageOptions").val()
+        let gender = $("#sexOptions").val()
+        let location = $("#locationOptions").val()
+        let furPattern = $("#furPatternOptions").val()
+        let medProcedures = $("#medField").val()
+        let complications = $("#compField").val();
+        let notes = $("#notesField").val();
+        let adoption = $("#forAdoption").val();
+        let id = $("#cat-id").val()
+        $.ajax({
+            url: "updateCat",
+            method: "POST",
+            data: {name, age, gender, location, furPattern, medProcedures, complications, notes, adoption, id, numOfPics},
+            success: function(result) {
+                if (result != "FAIL") {
+                    $("#info-header").val("Hi, my name is:");
+                    $(".toggle-show").show();
+                    $(".toggle-edit").hide();
+                    $("#name").text(name)
+                    $("#age").text(age)
+                    $("#gender").text(gender)
+                    $("#location").text(location)
+                    $("#furPattern").text(furPattern)
+                    $("#medProcedures").text(medProcedures)
+                    $("#complications").text(complications)
+                    $("#notes").text(notes)
+                }
+            }
+            
+        })
+    })
+
+
     $("#btn-adopt").on('click', function() {
         let username = $("#username").text()
         $.ajax({
@@ -110,8 +158,10 @@ $(document).ready(() => {
                 catId
             },
             success: function(result) {
-                if (result === "OK") {
-                    document.location.reload();
+                if (result != "FAIL") {
+                    $(".toggle-request").hide();
+                    $(".toggle-cancel").show();
+                    $("#requestId").val(result)
                 } else {
                 }
             }
@@ -128,7 +178,8 @@ $(document).ready(() => {
             },
             success: function(result) {
                 if (result === "OK") {
-                    document.location.reload();
+                    $(".toggle-cancel").hide();
+                    $(".toggle-request").show();
                 } else {
                 }
 

@@ -72,4 +72,18 @@ $(document).ready(() => {
         $(".toggle-show").show();
         $(".toggle-edit").hide();
     })
+
+    $("#btn-cancel-request").on('click', function() {
+        $.ajax({
+            url: "deleteRequest",
+            method: "POST",
+            data: {
+                id: $("#reqId").val()
+            },
+            success: function (result) {
+                if (result === "OK") document.location.reload();
+                console.log(result)
+            }
+        })
+    })
 })

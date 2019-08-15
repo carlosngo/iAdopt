@@ -31,7 +31,8 @@
         {{/if}}
 
     <!-- CONTENT -->
-    <h1 id="titleDiv">Our Cats</h1>
+        <div id="mainContent">
+            <h1 id="titleDiv">Our Cats</h1>
             <!-- SEARCH BAR -->
             <div id="search-filters">
                 <form action="/cats" method="GET">
@@ -41,9 +42,9 @@
                             <button type="submit" class="btn" id="searchBtn">
                                 <i class="fa fa-search"></i>
                             </button>
+                            <button class="btn" id="filterBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#filterModal">Filter</button>
                         </div>
-                        <div style="width: 5px;"></div>
-                        <button class="btn" id="filterBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#filterModal">Filter</button>
+                        
                     </div>
         
                     <!-- Filter Modal -->
@@ -106,12 +107,9 @@
                 
                 </form>
             </div>
-            <!-- SEARCH BAR END -->
-
-        <div id="mainContent">
-            
+            <!-- SEARCH BAR END -->      
             <!-- SEARCH RESULTS --> 
-            <div class="mainCatsContent">
+            <div id="searchResults">
                 {{#if user}} 
                     {{#if user.moderator}}
                     <div class="cardContainer" id="addCatCard" data-toggle="modal" data-target="#addCatModal">
@@ -139,7 +137,7 @@
                                 {{#if ../user.admin}}
                                         <form action="deleteCat" method="POST">
                                             <input name="id" type="hidden" value={{@key}}>
-                                            <input type="submit" href="#" class="removeBtn" data-toggle="tooltip" data-placement="bottom" title="Remove Cat" value="">
+                                            <input type="submit" href="#" class="removeBtn btn-delete" data-toggle="tooltip" data-placement="bottom" title="Remove Cat" value="">
                                         </form>
                                 {{/if}} 
                             {{/if}}

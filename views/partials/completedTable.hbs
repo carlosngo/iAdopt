@@ -1,0 +1,22 @@
+{{#if requests.completed}}
+    <table align="center">
+        <thead>
+            <tr>
+                <th>Interested User</th>
+                <th>Name of Cat</th> 
+                <th>Timestamp</th> 
+            </tr>
+        </thead>
+        <tbody>
+        {{#each requests.completed}}
+            <tr>
+                <td>{{user}}</td>
+                <td>{{cat.name}}</td>
+                <td>{{timestamp}}</td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>           
+{{else}}
+    <h5 class="section-header">No requests to show.</h5>
+{{/if}}      

@@ -19,7 +19,7 @@ $(document).ready(() => {
     }).catch(function(error) {
         console.log(error.code)
         if (error.code === "storage/object-not-found") {
-            $("#img-article").attr("src", "../assets/images/website.png")
+            $("#img-article").attr("src", "../assets/images/defaultArticle.png")
         }
     })
     let state = $("#state").val();
@@ -27,7 +27,7 @@ $(document).ready(() => {
     else $(".toggle-edit").hide();
 
     $("#back-btn").on('click', function() {
-        window.history.back();
+        window.location = $("#referer").val()
     })
 
     $("#editBtn").on('click', function() {
@@ -44,8 +44,22 @@ $(document).ready(() => {
     })
 
     $("#saveBtn").on('click', function() {
+        let content = $("#contentField").val();
+        let title = $("#titleField").val();
+        let id = $("#articleId").val()
+        $.ajax({
+            url: "updateArticle",
+            method: "POST",
+            data: {
+                id, content, title
+            },
+            success: function (result) {
+                $(".toggle-show").show();
+                $(".toggle-edit").hide();
+                $("#content").text(content);
+                $("#title").text(title);
+            }
+        })
         // $("#profileheader").text("Profile");
-        $(".toggle-show").show();
-        $(".toggle-edit").hide();
     })
 })

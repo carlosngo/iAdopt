@@ -66,8 +66,8 @@
                 <form action="/updateCat" method="POST">
                 {{#with cat}}
                         <h1><b>
-                            <input name="name" type="text" class="toggle-edit" value="{{name}}">
-                            <span class="toggle-show">{{name}}!</span>
+                            <input name="name" id="nameField" type="text" class="toggle-edit" value="{{name}}">
+                            <span id="name" class="toggle-show">{{name}}!</span>
                         </b></h1>
                         <h5>
                             <b>Age:</b> 
@@ -102,23 +102,24 @@
                             <br>
 
                             <b>Medical Procedures Undertaken: </b> 
-                            <input name="medProcedures" type="text" class="toggle-edit" value="{{medProcedures}}"> 
-                            <span class="toggle-show">{{medProcedures}}</span>
+                            <input name="medProcedures" id="medField" type="text" class="toggle-edit" value="{{medProcedures}}"> 
+                            <span id="medProcedures" class="toggle-show">{{medProcedures}}</span>
                             <br>
 
 
                             <b>Complications:</b> 
-                            <input name="complications" type="text" class="toggle-edit" value="{{complications}}">
-                            <span class="toggle-show">{{complications}}</span>
+                            <input name="complications" id="compField" type="text" class="toggle-edit" value="{{complications}}">
+                            <span id="complications" class="toggle-show">{{complications}}</span>
                             <br>
 
                             <b>Other notes: </b>
-                            <input name="notes" type="text" class="toggle-edit" value="{{notes}}"> 
-                            <span class="toggle-show">{{notes}}</span>
+                            <input name="notes" type="text" id="notesField" class="toggle-edit" value="{{notes}}"> 
+                            <span id="notes" class="toggle-show">{{notes}}</span>
                             <br>
                         </h5>
-                        <input type="hidden" name="adoption" value="{{adoption}}">
+                        <input id="forAdoption" type="hidden" name="adoption" value="{{adoption}}">
                         <input type="hidden" id="cat-id" name="id" value="{{../id}}">
+                        <input id="numOfPics" type="hidden" value="{{numOfPics}}">
                 {{/with}}
                {{#if user}}
                     {{#if user.admin}}
@@ -140,29 +141,20 @@
                                 Cancel
                             </button>
                             <div style="width: 5px;"></div>
-                            <button type="submit" class="btn toggle-edit">
+                            <button id="btn-update-cat" type="button" class="btn toggle-edit">
                                 Save Changes
                             </button>
                         </div>
                     {{else}}
                         <div id="adopt-btn-container">
-                            {{#if request}}
-                                {{#if request.completed}}
-                                    <button disabled>
-                                        Request Processed
-                                    </button>
-                                {{else}}
-                                    <input type="hidden" id="requestId" value="{{request.id}}">
-                                    <input type="button" id="btn-cancel-request" class="btn" value="Cancel Request">
-                                {{/if}}
-
-                            {{else}}
-                                <button id="btn-adopt" type="button" class="btn">
-                                    <img src="../assets/images/red-heart.png" width="30px" height="30px"> Adopt Me!
-                                </button>
-                            {{/if}}
-                            
-
+                            <button class="toggle-complete" disabled>
+                                Request Processed
+                            </button>
+                            <input type="hidden" id="requestId" class="toggle-cancel" value="{{request.id}}">
+                            <input type="button" id="btn-cancel-request" class="btn toggle-cancel" value="Cancel Request">
+                            <button id="btn-adopt" type="button" class="btn toggle-request">
+                                <img src="../assets/images/red-heart.png" width="30px" height="30px"> Adopt Me!
+                            </button>
                         </div>
                     {{/if}}
                 {{/if}}
@@ -172,6 +164,8 @@
             </div>
         </div>
         <input type="hidden" id="numOfPics" value="{{cat.numOfPics}}">
+        <input type="hidden" id="referer" value="{{referer}}">
+        <input type="hidden" id="reqState" value="{{state.request}}">
         {{> footer}}
     </body>
 </html>

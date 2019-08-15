@@ -33,9 +33,8 @@ $(document).ready(() => {
                     pw: pw
                 },
                 success: function(result) {
-                    console.log(result);
                     if (result === "OK") {
-                        document.location.reload();
+                        window.location = "/"
                     } else {
                         if($(".loginError").length == 0){
                             $(".logInErrorMessage").append("<label class='loginError' style='color: red;'>Wrong Username or Password</label>");
@@ -77,7 +76,7 @@ $(document).ready(() => {
                     success: function(result) {
                         console.log(result);
                         if (result === "OK") {
-                            document.location.reload();
+                            window.location = "/"
                         } else {
                             if($(".signUpError").length == 0){
                                 $(".signUpErrorMessage").append("<label class='signUpError' style='color: red;'>Username is already taken.</label>");
