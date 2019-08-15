@@ -40,71 +40,11 @@
 
             <div class="tableContainer"> 
                 <h1 class="section-header">Pending Requests</h1>
-                
-                {{#if requests.pending}}
-                <table align="center">
-                    <thead>
-                        <tr>
-                            <th>Interested User</th>
-                            <th>Name of Cat</th> 
-                            <th>Timestamp</th> 
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {{#each requests.pending}}
-                        <tr>
-                            <td>{{user}}</td>
-                            <td>{{cat.name}}</td>
-                            <td>{{timestamp}}</td>
-                            <td>
-                                <form action="/completeRequest" method="POST">
-                                    <input type="hidden" name="id" value="{{@key}}">
-                                    <input type="submit" class="btn" value="Complete">
-                                </form>
-                            </td>
-                        </tr>
-                    {{/each}}
-                    </tbody>
-                </table>      
-                {{else}}
-                    <h5 class="section-header">No pending requests</h5>
-                {{/if}}      
+                {{> pendingTable}}
                 <h2 class="section-header">Completed Requests</h2>
-                {{#if requests.completed}}
-                <table align="center">
-                    <thead>
-                        <tr>
-                            <th>Interested User</th>
-                            <th>Name of Cat</th> 
-                            <th>Timestamp</th> 
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {{#each requests.completed}}
-                        <tr>
-                            <td>{{user}}</td>
-                            <td>{{cat.name}}</td>
-                            <td>{{timestamp}}</td>
-                        </tr>
-                    {{/each}}
-                    </tbody>
-                </table>           
-                {{else}}
-                    <h5 class="section-header">No requests completed</h5>
-                {{/if}}      
-                {{!-- {{#each requests}}
-                    <div class="card" style="border-radius: 50px;">
-                        <div class="card" >
-                            <div class="checkBoxDiv">
-                                <input type="checkbox" id="{{_id}}" class="tickBox" {{request.isChecked}}>
-                                <label class="contentLbl" for="{{_id}}">{{request.content}}</label>
-                            </div>
-                            <div class="btn delete">X</div>
-                        </div>
-                    </div>
-                {{/each}} --}}
+                {{> completedTable}}
             </div>
+    
         </div>
     
     {{> footer}}

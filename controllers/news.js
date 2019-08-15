@@ -11,6 +11,7 @@ function RetrieveAll(req, res) {
     }
     newsDB.RetrieveAll((news) => {
         catDB.RetrieveAll(null, (cats) => {
+            let featured = {};
             res.render("home.hbs", {
                 news: news,
                 cats: cats,
