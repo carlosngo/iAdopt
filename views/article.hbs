@@ -73,11 +73,11 @@
             </div>
             <div class="col-md-6 toggle-show" id="right-pane">
                 {{#with article}}
-                    <h3>{{title}}</h3>
-                    <span>{{timestamp}}</span><br>
-                    <span>{{author}}</span><br><br>
+                    <h3 id="title">{{title}}</h3>
+                    <span id="timestamp">{{timestamp}}</span><br>
+                    <span id="author">{{author}}</span><br><br>
                     <!-- <h1><b>Piper!</b></h1> -->
-                    <h5>
+                    <h5 id="content">
                         {{content}}
                         <!-- <b>Age:</b> 8 months old <br>
                         <b>Sex:</b> Male <br>
@@ -88,33 +88,44 @@
                         <b>Other notes: </b>Feisty and interactive <br> -->
                     </h5>
                 {{/with}}
-                {{#if user}} {{#if user.admin}}
+                {{#if user}} 
+                    {{#if user.admin}}
                     <div id="adopt-btn-container">
                         <button class="btn" id="editBtn">
                             Edit Article
                         </button>
                     </div>
-                {{/if}} {{/if}}
+                    {{else}}
+                        {{#if owner}}
+                            <div id="adopt-btn-container">
+                                <button class="btn" id="editBtn">
+                                    Edit Article
+                                </button>
+                            </div>
+                        {{/if}}
+                    {{/if}} 
+                    
+                {{/if}}
                 
             </div>
             <div class="col-md-6 toggle-edit" id="right-pane">
                 {{#with article}}
                     <form action="/updateArticle" method="POST">
                         <input type="hidden" name="id" id="articleId" value="{{../id}}">
-                        <h3><input name="title" type="text" value="{{title}}"></h3>
+                        <h3><input name="title" id="titleField" type="text" value="{{title}}"></h3>
                         <span>{{timestamp}}</span><br>
                         <span>{{author}}</span><br><br>
                         <!-- <h1><b>Piper!</b></h1> -->
                         <h5>
-                            <textarea name="content" class="form-control z-depth-1" rows="6" style="width: 100%;" id="articleContent">{{content}}</textarea>
+                            <textarea id="contentField" name="content" class="form-control z-depth-1" rows="6" style="width: 100%;" id="articleContent">{{content}}</textarea>
                         </h5>
                     
                         <div id="adopt-btn-container">
-                            <button class="btn" id="editCancelBtn">
+                            <button type="button" class="btn" id="editCancelBtn">
                                 Cancel
                             </button>
                             <div style="width: 5px;"></div>
-                            <input type="submit" class="btn" id="saveBtn" value="Save Changes">
+                            <input type="button" class="btn" id="saveBtn" value="Save Changes">
                         </div>
                     </form>
                 {{/with}}
@@ -123,5 +134,6 @@
             </div>
         </div>
         {{> footer}}
+        <input type="hidden" id="referer" value="{{referer}}">
     </body>
 </html>

@@ -28,12 +28,20 @@ function RetrieveOne(req, res) {
         user.admin = req.session.admin;
         user.moderator = req.session.moderator;
     }
+    let referer = req.get('referer')
     let articleId = req.query.id;
+    
     newsDB.RetrieveOne(articleId, (article) => {
+        let owner = false;
+        if (user && article) {
+            owner = user.username === article.author;
+        }
         res.render("article.hbs", {
             id: articleId,
             article: article,
-            user: user
+            user: user,
+            referer,
+            owner
         })
     })
 }
