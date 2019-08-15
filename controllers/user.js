@@ -10,7 +10,6 @@ function authenticate(req, res) {
             req.session.username = un;
             req.session.admin = user.admin;
             req.session.moderator = user.moderator;
-            console.log(req.session)
             res.send("OK")
         } else {
             res.send("FAIL")
@@ -64,6 +63,7 @@ function Create(req, res) {
             res.send("FAIL")            
         } else {
             user = {};
+            user.username = un;
             user.password = pw;
             user.email = email;
             user.admin = false;
