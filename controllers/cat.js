@@ -54,6 +54,7 @@ function RetrieveOne(req, res) {
         user.moderator = req.session.moderator;
     }
     let catId = req.query.id;
+    let referer = req.get('referer');
     catDB.RetrieveOne(catId, (cat) => {
         if (user) {
             requestDB.RetrieveOne(user.username, catId, (request) => {
@@ -62,7 +63,8 @@ function RetrieveOne(req, res) {
                     cat: cat,
                     user: user,
                     edit: false,
-                    request: request
+                    request: request,
+                    referer
                 })
             })
         } else {
@@ -71,7 +73,8 @@ function RetrieveOne(req, res) {
                 cat: cat,
                 user: user,
                 edit: false,
-                request: null
+                request: null,
+                referer
             })
         }
 

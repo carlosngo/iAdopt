@@ -20,6 +20,19 @@ $(document).ready(() => {
         $("#cat-id").val($(this).attr('data-id'))
         $("#cat-id-form").submit()
     })
+    $(".btn-delete").hide();
+    $(".viewCatCard").mouseenter(function() {
+        $(this).find('.btn-delete').show();
+    })
+    $(".viewCatCard").mouseleave(function() {
+        $(this).find('.btn-delete').hide();
+    })
+
+
+    // $(".btn-delete").on('hover', function() {
+    //     $(this).css("background-image", "url(/myimage.jpg)")
+    // })
+
     $("#locationOptions").val($("#location").val())
     $("#ageOptions").val($("#age").val())
     $("#sexOptions").val($("#gender").val())

@@ -32,13 +32,18 @@ function RetrieveAll(req, res) {
         user.username = req.session.username;
         user.admin = req.session.admin;
         user.moderator = req.session.moderator;
+        if (user.admin) {
+            userDB.RetrieveAll((users) => {
+            res.render("users.hbs", {
+                    users: users,
+                    user: user
+                })
+            })
+        }
+    } else {
+        res.send("Error 404")
     }
-    userDB.RetrieveAll((users) => {
-        res.render("users.hbs", {
-            users: users,
-            user: user
-        })
-    })
+    
 }
 
 function RetrieveOne(req, res) {
