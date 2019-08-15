@@ -58,12 +58,15 @@ function RetrieveOne(req, res) {
     catDB.RetrieveOne(catId, (cat) => {
         if (user) {
             requestDB.RetrieveOne(user.username, catId, (request) => {
+                
                 res.render("cat.hbs", {
                     id: catId,
                     cat: cat,
                     user: user,
                     edit: false,
-                    request: request,
+                    state: {
+                        request: request ? "" + request.completed : "null",
+                    },
                     referer
                 })
             })
@@ -110,7 +113,8 @@ function Update(req, res) {
         "location": req.body.location,
         "medProcedures": req.body.medProcedures,
         "name": req.body.name,
-        "notes": req.body.notes
+        "notes": req.body.notes,
+        "numOfPics": parseInt(req.body.numOfPics)
     }
     console.log('req.body.id = ')
     console.log(req.body.id)

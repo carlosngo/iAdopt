@@ -61,9 +61,9 @@ function Create(req, res) {
         timestamp,
         completed: false
     }
-    requestDB.Create(request, (err) => {
+    requestDB.Create(request, (id, err) => {
         if (err) res.send(err)
-        else res.send("OK")
+        else res.send(id)
     })
 }
 

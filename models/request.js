@@ -9,7 +9,7 @@ function Create(userRequest, callback) {
         "timestamp": "" + userRequest.timestamp.getTime(),
         "completed": userRequest.completed
     }, (err) => {
-        callback(err);
+        callback(id, err);
     });
 }
 
