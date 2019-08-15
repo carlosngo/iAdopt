@@ -96,4 +96,11 @@ $(document).ready(() => {
 
         
     })
+
+    $("#resetBtn").on('click', function() {
+        $('#locationOptions').get(0).selectedIndex = 0;
+        $('#furPatternOptions').get(0).selectedIndex = 0;
+        $('#sexOptions').get(0).selectedIndex = 0;
+        $('#ageOptions').get(0).selectedIndex = 0;
+    })
 })
