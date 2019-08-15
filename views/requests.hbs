@@ -43,12 +43,15 @@
                 
                 {{#if requests.pending}}
                 <table align="center">
-                    <tr>
-                        <th>Interested User</th>
-                        <th>Name of Cat</th> 
-                        <th>Timestamp</th> 
-                        <th>Actions</th>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th>Interested User</th>
+                            <th>Name of Cat</th> 
+                            <th>Timestamp</th> 
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
                     {{#each requests.pending}}
                         <tr>
                             <td>{{user}}</td>
@@ -62,6 +65,7 @@
                             </td>
                         </tr>
                     {{/each}}
+                    </tbody>
                 </table>      
                 {{else}}
                     <h5 class="section-header">No pending requests</h5>
@@ -69,11 +73,14 @@
                 <h2 class="section-header">Completed Requests</h2>
                 {{#if requests.completed}}
                 <table align="center">
-                    <tr>
-                        <th>Interested User</th>
-                        <th>Name of Cat</th> 
-                        <th>Timestamp</th> 
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th>Interested User</th>
+                            <th>Name of Cat</th> 
+                            <th>Timestamp</th> 
+                        </tr>
+                    </thead>
+                    <tbody>
                     {{#each requests.completed}}
                         <tr>
                             <td>{{user}}</td>
@@ -81,6 +88,7 @@
                             <td>{{timestamp}}</td>
                         </tr>
                     {{/each}}
+                    </tbody>
                 </table>           
                 {{else}}
                     <h5 class="section-header">No requests completed</h5>

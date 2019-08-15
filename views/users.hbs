@@ -29,13 +29,16 @@
         <div id="mainContent">
             <h1 class="section-header">Registered Users</h1>
             <div id="tableContainer">
-                <table align="center">
-                    <tr>
-                        <th>Username</th>
-                        <th>Email</th> 
-                        <th>Role</th> 
-                        <th>Actions</th>
-                    </tr>
+                <table align="center" bgcolor="#FFFFFF" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Email</th> 
+                            <th>Role</th> 
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
                     {{#each users}}
                         <tr>
                             <td>{{@key}}</td>
@@ -65,6 +68,7 @@
                             
                         </tr>
                     {{/each}}
+                    </tbody>
                 </table>
             </div>
         </div>

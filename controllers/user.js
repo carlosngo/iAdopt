@@ -26,22 +26,22 @@ function logout(req, res) {
 
 function RetrieveAll(req, res) {
     let user = null
-    if (req.session.username) {
+    // if (req.session.username) {
         user = {};
         user.username = req.session.username;
         user.admin = req.session.admin;
         user.moderator = req.session.moderator;
-        if (user.admin) {
+        // if (user.admin) {
             userDB.RetrieveAll((users) => {
             res.render("users.hbs", {
                     users: users,
                     user: user
                 })
             })
-        }
-    } else {
-        res.send("Error 404")
-    }
+        // }
+    // } else {
+    //     res.send("Error 404")
+    // }
     
 }
 
