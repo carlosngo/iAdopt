@@ -1,0 +1,12 @@
+#articleContainer{
+    padding: 30px 10%;
+    margin: 30px 15%;
+    /* width: 95%; */
+    background-color: white;
+
+}
+
+#img-article{
+    height: 600px;
+    width: 800px;
+}

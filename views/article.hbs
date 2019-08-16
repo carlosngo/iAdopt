@@ -71,22 +71,23 @@
                 <!--/.Carousel Wrapper-->
                                         
             </div>
-            <div class="col-md-6 toggle-show" id="right-pane">
+            <div class="toggle-show">
                 {{#with article}}
-                    <h3 id="title">{{title}}</h3>
+                    {{!-- <h3 id="title">{{title}}</h3>
                     <span id="timestamp">{{timestamp}}</span><br>
                     <span id="author">{{author}}</span><br><br>
-                    <!-- <h1><b>Piper!</b></h1> -->
                     <h5 id="content">
                         {{content}}
-                        <!-- <b>Age:</b> 8 months old <br>
-                        <b>Sex:</b> Male <br>
-                        <b>Location:</b> Velasco Bldg. <br>
-                        <b>Fur Pattern: </b> Piebald <br>
-                        <b>Medical Procedures Undertaken: </b> Neutered, Vaccinated <br>
-                        <b>Complications:</b> N / A <br>
-                        <b>Other notes: </b>Feisty and interactive <br> -->
-                    </h5>
+                    </h5> --}}
+                <h1 id="titleDiv">{{title}}</h1>
+                <span id="timestamp">{{timestamp}}</span><br>
+                <span id="author">{{author}}</span><br><br>
+                <img id="img-article" src="" alt="First slide">
+                <br><br>
+                <h5 id="content">
+                    {{content}}
+                </h5><br>
+            </div>
                 {{/with}}
                 {{#if user}} 
                     {{#if user.admin}}
@@ -108,7 +109,7 @@
                 {{/if}}
                 
             </div>
-            <div class="col-md-6 toggle-edit" id="right-pane">
+            <div class="toggle-edit" id="right-pane">
                 {{#with article}}
                     <form action="/updateArticle" method="POST">
                         <input type="hidden" name="id" id="articleId" value="{{../id}}">
