@@ -76,6 +76,7 @@ function Update(req, res) {
 
 function Delete(req, res) {
     let articleId = req.body.id;
+    console.log("article id that is being deleted: " + articleId);
     newsDB.Delete(articleId, (err) => {
         if (err) res.send(err)
         else res.redirect("/")

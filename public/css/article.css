@@ -3,7 +3,6 @@
     margin: 30px 15%;
     background-color: white;
     position: relative;
-    border-radius: 15px;
 }
 
 #img-article{
@@ -28,4 +27,8 @@ body{
 
 .flex-item{
     display: flex;
+}
+
+#content{
+    text-align: center;
 }
