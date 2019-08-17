@@ -15,6 +15,96 @@ firebase.initializeApp(firebaseConfig);
 var storage = firebase.storage();
 
 $(document).ready(() => {
+    
+    let location = $("#location").val();
+    let pattern = $("#furPattern").val();
+    let gender = $("#gender").val();
+    let age = $("#age").val();
+    let adoption = $("#adoption").val()
+
+    console.log(location);
+    console.log(pattern);
+    console.log(gender);
+    console.log(age);
+    console.log(adoption);
+
+    if (location != "All") {
+        $("#locationFilter").addClass("filtered")
+        $("#locationFilter .dropdown-toggle").text(location)
+        let str = "[data-id='" + location + "']";
+        $(str).addClass("active");
+    }
+    if (pattern != "All") {
+        $("#patternFilter").addClass("filtered")
+        $("#patternFilter .dropdown-toggle").text(pattern)
+        let str = "[data-id='" + pattern + "']";
+        $(str).addClass("active");
+    }
+
+    if (gender != "All") {
+        $("#genderFilter").addClass("filtered")
+        $("#genderFilter .dropdown-toggle").text(gender)
+        let str = "[data-id='" + gender + "']";
+        $(str).addClass("active");
+    }
+
+    if (age != "All") {
+        $("#ageFilter").addClass("filtered")
+        $("#ageFilter .dropdown-toggle").text(age)
+        let str = "[data-id='" + age + "']";
+        $(str).addClass("active");
+    }
+
+    if (adoption != "All") {
+        $("#adoptionFilter").addClass("filtered");
+        $("#adoptionFilter .dropdown-toggle").text(adoption)
+        let str = "[data-id='" + location + "']";
+        $(str).addClass("active");
+    }
+
+    $(".clear-filter").on('click', function() {
+        let filter = $(this).attr("data-filter");
+        console.log(filter)
+        if (filter == "location") $("#location").val("All");
+        if (filter == "furPattern") $("#furPattern").val("All") ;
+        if (filter == "gender") $("#gender").val("All") ;
+        if (filter == "age") $("#age").val("All") ;
+        if (filter == "adoption") $("#adoption").val("All") ;
+        $("#search-form").submit();
+    })
+
+    $("#locationFilter .dropdown-item:not(.clear-filter)").on('click', function() {
+        $("#location").val($(this).attr("data-id"))
+        $("#search-form").submit();
+    })
+
+    $("#patternFilter .dropdown-item:not(.clear-filter)").on('click', function() {
+        $("#furPattern").val($(this).attr("data-id"))
+        $("#search-form").submit();
+    })
+
+    $("#genderFilter .dropdown-item:not(.clear-filter)").on('click', function() {
+        $("#gender").val($(this).attr("data-id"))
+        $("#search-form").submit();
+    })
+
+    $("#ageFilter .dropdown-item:not(.clear-filter)").on('click', function() {
+        $("#age").val($(this).attr("data-id"))
+        $("#search-form").submit();
+    })
+
+    $("#adoptionFilter .dropdown-item:not(.clear-filter)").on('click', function() {
+        $("#adoption").val($(this).attr("data-id"))
+        $("#search-form").submit();
+    })
+    
+
+    $("#button-addon3").on('click', function() {
+        console.log('clicked');
+        $("#name").val($("#search-field").val());
+        $("#search-form").submit();
+    })
+
     $("#cat-nav-link").attr('class', 'nav-link active')
     $(".viewCatCard").on('click', function() {
         $("#cat-id").val($(this).attr('data-id'))
@@ -33,10 +123,8 @@ $(document).ready(() => {
     //     $(this).css("background-image", "url(/myimage.jpg)")
     // })
 
-    $("#locationOptions").val($("#location").val())
-    $("#ageOptions").val($("#age").val())
-    $("#sexOptions").val($("#gender").val())
-    $("#furPatternOptions").val($("#furPattern").val())
+
+
 
     $(".img-cat").each(function() {
         let catId = $(this).attr('data-id');

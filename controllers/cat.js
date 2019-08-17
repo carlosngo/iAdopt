@@ -28,13 +28,15 @@ function RetrieveAll(req, res) {
         user.moderator = req.session.moderator;
     }
     let filters = {
-        name: req.query.name ? req.query.name : "",
-        location: req.query.location ? req.query.location : "All",
-        gender: req.query.gender ? req.query.gender : "All",
-        furPattern: req.query.furPattern ? req.query.furPattern : "All",
-        age: req.query.age ? req.query.age : "All",
-        adoption: req.query.adoption ? req.query.adoption : false
+        name: req.query.name && req.query.name != "" ? req.query.name : "",
+        location: req.query.location && req.query.location != "All" ? req.query.location : "All",
+        gender: req.query.gender && req.query.gender != "All" ? req.query.gender : "All",
+        furPattern: req.query.furPattern && req.query.furPattern != "All" ? req.query.furPattern : "All",
+        age: req.query.age && req.query.age != "All" ? req.query.age : "All",
+        adoption: req.query.adoption && req.query.adoption != "All" ? req.query.adoption : "All"
     }
+    
+    console.log(filters)
     catDB.RetrieveAll(filters, (cats) => {
         console.log(cats)
         res.render("cats.hbs", {

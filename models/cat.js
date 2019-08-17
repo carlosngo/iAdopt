@@ -45,8 +45,9 @@ function RetrieveAll(filters, callback) {
                 if (filters.name != "" && saks) {
                     if (!cats[cat].name.toLowerCase().includes(filters.name.toLowerCase())) saks = false;
                 }
-                if (filters.adoption && saks) {
-                    if (cats[cat].adoption != filters.adoption) saks = false;
+                if (filters.adoption != "All" && saks) {
+                    if (cats[cat].adoption && filters.adoption == "Not For Adoption") saks = false;
+                    if (!cats[cat].adoption && filters.adoption == "For Adoption") saks = false;
                 }
                 if (filters.age != "All" && saks) {
                     if (cats[cat].age != filters.age) saks = false;
