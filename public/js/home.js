@@ -77,10 +77,13 @@ $(document).ready(() => {
                     if (files && files[0]) {
                         let file = files[0]
                         storage.ref().child('/images/articles/' + result).put(file).then(function(snapshot) {
+                            document.location.reload();
                             console.log("successfully uploaded image.")
                         });
-                    } 
-                    document.location.reload();
+                    } else {
+                        document.location.reload();
+                    }
+                    
                 }
             }            
         })
