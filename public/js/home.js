@@ -15,6 +15,16 @@ firebase.initializeApp(firebaseConfig);
 var storage = firebase.storage();
 
 $(document).ready(() => {
+    $("#remove").click(function(){
+        let id = $(this).attr("data-id")
+        console.log("Was here with the id: " + id);
+        $("#continueModal").click(function(){
+            $(".ids").val(id);
+            console.log("Id being submitted: " + id);
+            $("#deleteform").submit();
+        });
+    })
+    
     $(".img-article").each(function() {
         let articleId = $(this).attr('data-id');
         console.log(articleId)
