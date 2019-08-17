@@ -14,6 +14,13 @@ firebase.initializeApp(firebaseConfig);
 
 var storage = firebase.storage();
 
+// var idSelected;
+
+// function submitform(){
+//     console.log("Id being submitted: " + idSelected);
+//     $("#form" + idSelected).submit();
+// };
+
 $(document).ready(() => {
     
     let location = $("#location").val();
@@ -98,6 +105,11 @@ $(document).ready(() => {
         $("#search-form").submit();
     })
     
+    // $(".removeBtn").click(function(){
+    //     let id = $(this).attr("data-id")
+    //     idSelected = id;
+    //     console.log("Was here with the id: " + idSelected);
+    // });
 
     $("#button-addon3").on('click', function() {
         console.log('clicked');

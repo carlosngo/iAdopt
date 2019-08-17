@@ -17,7 +17,7 @@ var storage = firebase.storage();
 var idSelected;
 
 function submitform(){
-    console.log("Id being submitted: " + idSelected);
+    // console.log("Id being submitted: " + idSelected);
     $("#form" + idSelected).submit();
 };
 
@@ -25,7 +25,7 @@ $(document).ready(() => {
     $(".btn-remove").click(function(){
         let id = $(this).attr("data-id")
         idSelected = id;
-        console.log("Was here with the id: " + idSelected);
+        // console.log("Was here with the id: " + idSelected);
         
     });
     
