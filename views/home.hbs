@@ -62,8 +62,8 @@
                                                 </div>
                                                 <div id="add-article-controls">
                                                     {{!-- <input type="button" class="btn btn-primary btn-upload" value="Upload Image"> --}}
-                                                    <input type="file" id="image-file" style="border-radius: 0px;" value="Upload Image !important" accept="image/*"/>
-                                                    <input type="button" id="btn-addArticle" class="btn btn-add" value="Save">
+                                                    Thumbnail: <input type="file" id="image-file" style="border-radius: 0px;" value="Upload Image !important" accept="image/*"/>
+                                                    <button type="button" data-dismiss="modal" data-toggle="modal" data-target="#loading" data-backdrop="static" data-keyboard="false" class="btn btn-add" id="btn-addArticle">Save</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -141,6 +141,7 @@
         </div>
 
         {{> footer}}
+        {{> loading}}
         <form action="/article" id="article-id-form">
             <input type="hidden" name="id" id="article-id">
         </form>
