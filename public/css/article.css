@@ -1,0 +1,31 @@
+#articleContainer{
+    padding: 30px 10%;
+    margin: 30px 15%;
+    background-color: white;
+    position: relative;
+    border-radius: 15px;
+}
+
+#img-article{
+    height: 600px;
+    width: 100%;
+}
+
+body{
+    position: relative;
+}
+
+#back-btn{
+    position: absolute;
+    right: 25px;
+    top: 25px;
+}
+
+#edit-btn-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-item{
+    display: flex;
+}

@@ -20,16 +20,16 @@ html{
 
 nav{
   background-color: #087830;
-} 
+}
 
 #logo{
   width: 120px;
   height: 50px;;
-} 
-  
+}
+
 .navbar-nav > li{
     padding-left:20px;
-    padding-right:20px;  
+    padding-right:20px;
 }
 
 a{
@@ -51,11 +51,11 @@ a{
 
 .btn-danger {
   background-color: rgb(243, 67, 44) !important;
-  border: none; 
+  border: none;
   color: white !important;
   font-size: 16px;
   cursor: pointer;
-  
+
   display: inline-block;
   font-weight: 400;
   color: #212529;
@@ -82,7 +82,7 @@ a{
 input{
     border-radius: 10px;
 }
-  
+
 
 #footer{
   margin-top: 20px;
@@ -130,7 +130,7 @@ input{
 /* .modal-footer{
     justify-content: center !important;
 } */
-  
+
 @media all and (max-width:800px){
     .modal-content{
         width: 70%;
@@ -148,7 +148,7 @@ input{
         left: 15%;
     }
 }
-  
+
 @font-face {
   font-family: 'FontAwesome';
   src: url('your/path/fontawesome-webfont.eot?v=3.0.1');
@@ -185,6 +185,12 @@ input{
 #btn-profile:hover, #btn-logout:hover{
   color: blue;
   background-color: aliceblue;
+}
+
+#mContent{
+  display: inline-block;
+  text-align: center;
+  vertical-align: center;
 }
 
 .loader {
