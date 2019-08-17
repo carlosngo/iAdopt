@@ -14,16 +14,20 @@ firebase.initializeApp(firebaseConfig);
 
 var storage = firebase.storage();
 
+var idSelected;
+
+function submitform(){
+    console.log("Id being submitted: " + idSelected);
+    $("#form" + idSelected).submit();
+};
+
 $(document).ready(() => {
-    $("#remove").click(function(){
+    $(".btn-remove").click(function(){
         let id = $(this).attr("data-id")
-        console.log("Was here with the id: " + id);
-        $("#continueModal").click(function(){
-            $(".ids").val(id);
-            console.log("Id being submitted: " + id);
-            $("#deleteform").submit();
-        });
-    })
+        idSelected = id;
+        console.log("Was here with the id: " + idSelected);
+        
+    });
     
     $(".img-article").each(function() {
         let articleId = $(this).attr('data-id');
