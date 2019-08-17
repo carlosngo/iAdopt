@@ -23,14 +23,15 @@ $(document).ready(() => {
     $("#btn-login").on('click', function() {
         let un = $("#loginUsername").val()
         let pw = $("#loginPassword").val()
-
+        let rememberMe = $(".rememberMe").is(':checked')
         if(un != "" && pw != ""){
             $.ajax({
                 url: "login",
                 method: "POST",
                 data: {
                     un: un,
-                    pw: pw
+                    pw: pw,
+                    rememberMe
                 },
                 success: function(result) {
                     if (result === "OK") {

@@ -6,12 +6,16 @@ const crypto = require("crypto-js");
 function authenticate(req, res) {
     let un = req.body.un;
     let pw = req.body.pw;
+    let rememberMe = req.body.rememberMe;
     userDB.RetrieveOne(un, (user) => {
-        console.log(user)
         if (user && user.password === pw) {
             req.session.username = un;
             req.session.admin = user.admin;
             req.session.moderator = user.moderator;
+            if (rememberMe == "true") {
+                req.session.cookie.maxAge = 1000 * 60 * 60 * 24 * 31;
+            }
+            else req.session.cookie.expires = false;
             res.send("OK")
         } else {
             res.send("FAIL")
@@ -23,6 +27,8 @@ function logout(req, res) {
     req.session.username = null;
     req.session.admin = null;
     req.session.moderator = null;
+    req.session.cookie.expires = false;
+    res.session.destroy();
     res.send("OK")
 }
 
