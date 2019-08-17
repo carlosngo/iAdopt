@@ -48,9 +48,9 @@ function Update(postId, newData, callback) {
 
 function Delete(postId, callback) {
     console.log("The id: " + postId)
-    // database.ref('news/' + postId).remove((err) => {
-    //     callback(err);
-    // })
+    database.ref('news/' + postId).remove((err) => {
+        callback(err);
+    })
 }
 
 module.exports = {
