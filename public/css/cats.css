@@ -142,24 +142,24 @@ option:checked {
 
 }
 
-.btn.clear-filter {
+#search-filters .btn.clear-filter {
     padding-right: 5px;
     margin-right: -8px;
     display: none;
 }
 
-.btn.clear-filter:hover {
+#search-filters .btn.clear-filter:hover {
     background-color: rgb(21, 78, 36);
     color: white;
 }
 
 
-.dropdown-menu {
+#search-filters .dropdown-menu {
     max-height: 200px;
     overflow-y: auto;
 }
 
-.dropdown.filtered .btn.clear-filter {
+#search-filters .dropdown.filtered .btn.clear-filter {
     display: inline-block;
 }
 
@@ -169,11 +169,7 @@ option:checked {
     color: black;
 }
 
-.dropdown-toggle:hover {
-
-}
-
-.dropdown.filtered .dropdown-toggle {
+#search-filters .dropdown.filtered .dropdown-toggle {
     background-color: rgb(21, 78, 36);
     color: white;
 }
