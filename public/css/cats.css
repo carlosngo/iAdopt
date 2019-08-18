@@ -163,7 +163,7 @@ option:checked {
     display: inline-block;
 }
 
-.dropdown-toggle {
+#search-filters .dropdown-toggle {
     margin-right: 5px;
     background-color: #FFFFFF;
     color: black;

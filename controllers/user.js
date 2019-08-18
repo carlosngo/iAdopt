@@ -28,7 +28,6 @@ function logout(req, res) {
     req.session.admin = null;
     req.session.moderator = null;
     req.session.cookie.expires = false;
-    res.session.destroy();
     res.send("OK")
 }
 
