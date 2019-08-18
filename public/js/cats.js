@@ -14,12 +14,16 @@ firebase.initializeApp(firebaseConfig);
 
 var storage = firebase.storage();
 
-// var idSelected;
+var idSelected;
 
-// function submitform(){
-//     console.log("Id being submitted: " + idSelected);
-//     $("#form" + idSelected).submit();
-// };
+// function stopRedirect(){
+
+// }
+
+function submitform(){
+    console.log("Id being submitted: " + idSelected);
+    $("#form" + idSelected).submit();
+};
 
 $(document).ready(() => {
     
@@ -105,11 +109,15 @@ $(document).ready(() => {
         $("#search-form").submit();
     })
     
-    // $(".removeBtn").click(function(){
-    //     let id = $(this).attr("data-id")
-    //     idSelected = id;
-    //     console.log("Was here with the id: " + idSelected);
-    // });
+    $(".removeBtn").click(function(){
+        $("#cat-id-form").submit(function(event){
+            console.log("I passed through prevent Default and it works! :o");
+            event.preventDefault();
+        })
+        let id = $(this).attr("data-id")
+        idSelected = id;
+        console.log("Was here with the id: " + idSelected);
+    });
 
     $("#button-addon3").on('click', function() {
         console.log('clicked');
@@ -129,7 +137,6 @@ $(document).ready(() => {
     $(".viewCatCard").mouseleave(function() {
         $(this).find('.btn-delete').hide();
     })
-
 
     // $(".btn-delete").on('hover', function() {
     //     $(this).css("background-image", "url(/myimage.jpg)")

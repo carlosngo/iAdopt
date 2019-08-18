@@ -168,9 +168,10 @@
                             </div>
                             {{#if ../user}} 
                                 {{#if ../user.admin}}
-                                        <form action="deleteCat" method="POST">
+                                        <form action="deleteCat" id="form{{@key}}" method="POST">
                                             <input name="id" type="hidden" value={{@key}}>
-                                            <input type="button" href="#" class="removeBtn btn-delete" data-id="{{@key}}" data-toggle="modal" data-target="#exampleModalCenterr" data-toggle="tooltip" data-placement="bottom" title="Remove Cat" value="">                                        </form>
+                                            <input type="button" href="#" class="removeBtn btn-delete" data-id="{{@key}}" data-toggle="modal" data-target="#exampleModalCat" data-toggle="tooltip" data-placement="bottom" title="Remove Cat" value="">                                        
+                                        </form>
                                 {{/if}} 
                             {{/if}}
                         </div>
@@ -251,7 +252,7 @@
         </div>
 
         <!-- Cat Delete Warning Modal -->
-        {{!-- <div class="modal fade" id="exampleModalCenterr" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal fade" id="exampleModalCat" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -269,7 +270,7 @@
                     </div>
                 </div>
             </div>
-        </div> --}}
+        </div>
 
         {{> loading}}
         {{> footer}}
