@@ -60,6 +60,35 @@
     text-align: center;
 }
 
-td, th {
-    padding: 10px;
-}
+table {
+    border-collapse: separate;
+  }
+
+  thead {
+    background-color: #087830;
+    color: #FFFFFF;
+  }
+
+  thead > tr > :first-child {
+    border-radius: 10px 0px 0px 0px;
+  }
+  
+  thead > tr > :last-child {
+    border-radius: 0px 10px 0px 0px;
+  }
+
+  tbody > :last-child > :first-child {
+    border-radius: 0px 0px 0px 10px;
+  }
+
+  tbody > :last-child > :last-child {
+    border-radius: 0px 0px 10px 0px;
+  }
+
+  th, td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 1px solid #087830;
+  }

@@ -48,7 +48,7 @@ function RetrieveAll(req, res) {
             })
         }
     } else {
-        res.send("Error 404")
+        res.render("404.hbs")
     }
     
 }

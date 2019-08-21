@@ -21,6 +21,16 @@ hbs.registerPartials(__dirname + "/views/partials", () => {
     console.log("Partials have successfully loaded.")
 })
 
+hbs.registerHelper('ifEquals', function(arg1, arg2, options) {
+    return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+});
+
+hbs.registerHelper('breaklines', function(text) {
+    text = hbs.Utils.escapeExpression(text);
+    text = text.replace(/(\r\n|\n|\r)/gm, '<br>');
+    return new hbs.SafeString(text);
+});
+
 app.set('view engine', 'hbs')
 
 app.use(express.static(__dirname + "/public"));
@@ -67,6 +77,10 @@ app.post("/logout", userController.logout)
 app.post("/updateUser", userController.Update)
 app.post("/toggleModerator", userController.toggleModerator)
 
+app.get('*', function(req, res){
+    res.render("404.hbs");
+});
+  
 app.listen(process.env.PORT || 3000, function() {
     console.log("live at port 3000");
 })

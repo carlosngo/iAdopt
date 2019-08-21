@@ -26,13 +26,11 @@ function RetrieveAll(callback) {
         let news = snapshot.val();
         for (let article in news) {
             let content = news[article].content;
-            if (content.length > 150) {
-                news[article].content = news[article].content.substr(0, 150) + "..."
+            if (content.length > 200) {
+                news[article].content = news[article].content.substr(0, 200) + "..."
             }
-            
         }
         callback(news)
-        
     })
 }
 

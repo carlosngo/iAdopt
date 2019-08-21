@@ -96,8 +96,8 @@ p{
   padding-top: 20px;
   padding-bottom: 20px;
   text-align: center;
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 .green-border-focus .form-control:focus{

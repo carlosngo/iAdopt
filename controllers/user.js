@@ -53,7 +53,7 @@ function RetrieveAll(req, res) {
 }
 
 function RetrieveOne(req, res) {
-    if (!req.session.username) res.send("Error 404")
+    if (!req.session.username) res.render("404.hbs");
     userDB.RetrieveOne(req.session.username, (user) => {
         requestDB.RetrieveAll((requests) => {
             for (let request in requests) {

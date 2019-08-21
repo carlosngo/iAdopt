@@ -46,10 +46,9 @@
                         <span id="timestamp">{{timestamp}}</span><br>
                         <span id="author">{{author}}</span><br><br>
                         <img id="img-article" src="" >
-                        <br><br>
-                        <h5 id="content">
-                            {{content}}
-                        </h5><br>
+                        <p id="content">
+                            {{breaklines content}}
+                        </p><br>
                 
                 {{/with}}
                 {{#if user}} 

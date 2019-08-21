@@ -117,7 +117,7 @@
                     <h1 class="section-header">Featured Cats</h1>
                     <div class="mainCatsContent">
                         {{#each cats}}
-                            {{#if adoption}}
+                            {{#ifEquals age "Kitten"}}
                             <div class="cardContainer viewCatCard" data-id={{@key}}>
                                 <div class="card flex-item" style="width: 18rem;">
                                     <img class="card-img-top img-cat" src="" data-id={{@key}} alt="Card image cap">
@@ -130,7 +130,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {{/if}}
+                            {{/ifEquals}}
                         {{/each}}
                         <input type="button" onclick="window.location = 'cats'" style="margin-top: 20px" class="btn" value="See All Cats">
 
