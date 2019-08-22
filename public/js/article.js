@@ -19,7 +19,7 @@ $(document).ready(() => {
     }).catch(function(error) {
         console.log(error.code)
         if (error.code === "storage/object-not-found") {
-            $("#img-article").attr("src", "../assets/images/defaultArticle.png")
+            $("#img-article").attr("src", "../assets/images/defaultArticle.PNG")
         }
     })
     let state = $("#state").val();
