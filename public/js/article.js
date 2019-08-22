@@ -56,8 +56,8 @@ $(document).ready(() => {
             success: function (result) {
                 $(".toggle-show").show();
                 $(".toggle-edit").hide();
-                $("#contentField").text(content);
-                $("#titleField").text(title);
+                $("#content").text(content);
+                $("#titleDiv").text(title);
             }
         })
         // $("#profileheader").text("Profile");

@@ -65,6 +65,8 @@ h5 {
     padding-top:5%;
     font-family: "Rockwell";
     color: #087830;
+    overflow-y: auto;
+    max-height: 475px;
 }
 
 
