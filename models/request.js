@@ -5,6 +5,7 @@ function Create(userRequest, callback) {
     let id = database.ref('requests/').push().key;
     database.ref('requests/' + id).set({
         "user": userRequest.user,
+        "contact": userRequest.email,
         "cat": userRequest.cat,
         "timestamp": "" + userRequest.timestamp.getTime(),
         "completed": userRequest.completed
