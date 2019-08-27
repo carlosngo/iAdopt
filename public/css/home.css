@@ -19,6 +19,8 @@
 .container-center {
   display: inline-block;
   width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .card-author {
@@ -70,7 +72,6 @@ p{
     height:100%;
     display: flex;
     flex-direction: column;
-    flex-direction: column-reverse;
 }
 
 .flex-1 {
